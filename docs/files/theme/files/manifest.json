@@ -1,0 +1,52 @@
+ {
+	"responsive": true,
+	"glyph-icons": true,
+	"enableEditorJS": true,
+	"plugins": [
+		{
+			"name": "navpane",
+			"condense": 1024,
+			"defaults": {
+				"forced": true
+			}
+		}
+	],
+	"description": "With a split screen design motif  Oasis frees up the left pane to display stunning visuals and lets the right pane focus on content. With some extra surprises, like maps and galleries that break out of the body width, Oasis is a remarkably unique theme.",
+	"features": [
+		"responsive",
+		"css-buttons",
+		"social-icons",
+		"navigation-collapsible",
+		"color-palettes",
+		"scroll-top"
+	],
+	"color-support": {
+		"primary": "rgba(51, 51, 51, .60)",
+		"accent": "rgba(51, 51, 51, .4)"
+	},
+	"color-presets": [
+		{
+			"primary": "rgba(51, 51, 51, .60)",
+			"accent": "rgba(51, 51, 51, .4)",
+			"variation": "gray"
+		},
+		{
+			"primary": "#7b4397",
+			"accent": "#DC2430",
+			"variation": "purple"
+		},
+		{
+			"primary": "#185a9d",
+			"accent": "#43CEA2",
+			"variation": "blue"
+		},
+		{
+			"primary": "#274046",
+			"accent": "rgba(100, 100, 100, .60)",
+			"variation": "white"
+		}
+	],
+	"header-section": {
+		"editable-background": false
+	}
+}
