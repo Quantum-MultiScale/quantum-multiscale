@@ -169,74 +169,18 @@ img.banner-crop {
 .app-card:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,0,0,.08); }
 
 
-/*trial for mobile optimisation */
-
-/* Comfortable reading on small screens */
-:root {
-  --mobile-font: clamp(15px, 4vw, 17px);
-  --mobile-line: 1.6;
+/* Responsive video grid for the DFTpy page */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin: .75rem 0 1rem;
 }
-
-@media (max-width: 640px) {
-  .rst-content, .bd-content, .wy-nav-content, main {
-    font-size: var(--mobile-font);
-    line-height: var(--mobile-line);
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-
-  /* Headings don’t overpower */
-  .rst-content h1 { font-size: clamp(22px, 6.5vw, 28px); }
-  .rst-content h2 { font-size: clamp(20px, 5.8vw, 24px); }
-  .rst-content h3 { font-size: clamp(18px, 5vw, 21px); }
-}
-
-/* All content images scale down gracefully */
-.rst-content img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Your cropped banner: shorter on phones */
-@media (max-width: 640px) {
-  img.banner-crop { height: 120px !important; }   /* adjust to taste */
-}
-
-/* Global sphinx-design gutter tune on small screens */
-@media (max-width: 640px) {
-  .sd-row { --sd-gutter-x: 10px; --sd-gutter-y: 10px; }
-  .sd-card { border-radius: 12px; }
-  .sd-card .sd-card-body { padding: 0.85rem; }
-  .sd-btn { padding: .5rem .8rem; } /* better tap target without looking huge */
-}
-
-
-/* Already 4 columns on desktop; switch to 2 on phones */
-@media (max-width: 640px) {
-  .sponsors-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .sponsors-grid a { width: clamp(120px, 40vw, 160px); height: clamp(48px, 12vw, 64px); }
-  .sponsors-note { font-size: 0.95em; }
-}
-
-
-/* Tables can scroll horizontally instead of compressing text */
-.rst-content table.docutils {
-  display: block;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+.video-grid iframe {
   width: 100%;
+  height: 320px;
 }
 
-/* Wrap long code lines; allow horizontal scroll as fallback */
-.rst-content pre, .rst-content code {
-  white-space: pre-wrap;   /* wrap long lines */
-  word-break: break-word;
-}
-.rst-content pre { overflow-x: auto; }
-
-@media (max-width: 900px) {
-  .wy-nav-side { width: 240px; }      /* RTD-style themes */
-  .wy-nav-content { margin-left: 0; } /* many themes collapse side nav on mobile anyway */
-}
-
-
+/* Card polish (optional) */
+.app-card { border-radius: 12px; transition: transform .12s ease, box-shadow .12s ease; }
+.app-card:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,0,0,.08); }

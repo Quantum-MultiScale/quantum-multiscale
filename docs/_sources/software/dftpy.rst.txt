@@ -36,109 +36,103 @@
 
    <hr class="section-divider">
 
+.. _dftpy-what-can-you-do:
 
-Quickstart
-----------
+What can you do with DFTpy
+--------------------------
 
-.. grid:: 12
-   :gutter: 2
-   :margin: 0 0 2 0
+- Run **orbital-free DFT (OF-DFT)** simulations using a **plane-wave expansion of the electron density**
+- Prototype **new OF-DFT functionals**, solvers, and workflows quickly in **pure Python**
+- Drive **very large systems** (million-atom scale approaches with the right kernels and decomposition)
+- Use and test **Local Pseudopotentials (LPPs)** compatible with DFTpy
+- Explore **time-dependent OF-DFT** and spin-unrestricted options
+- Integrate with the broader **Q-MS** software set and Python’s scientific ecosystem
 
-   .. grid-item-card:: Install
-      :columns: 6
-      :class-card: app-card
+.. _dftpy-developers:
 
-      .. tabs::
-
-         .. tab:: pip
-            .. code-block:: bash
-
-               pip install dftpy
-
-         .. tab:: conda
-            .. code-block:: bash
-
-               conda install -c conda-forge dftpy
-
-   .. grid-item-card:: Minimal run
-      :columns: 6
-      :class-card: app-card
-
-      .. code-block:: python
-
-         import dftpy as dp
-
-         # toy example: set up a simple calculation
-         calc = dp.Calculation(
-             lattice="fcc",
-             element="Al",
-             lattice_constant=4.05,
-             kpoints=[4,4,4],
-         )
-         result = calc.run()
-         print("Total energy (eV):", result.total_energy)
-
-
-Key Capabilities
+DFTpy developers
 ----------------
+Feel free to contact the developers:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- `Xuecheng Shao <https://sites.rutgers.edu/prg/people/xuecheng-shao/>`_
+- `Michele Pavanello <https://sasn.rutgers.edu/about-us/faculty-staff/michele-pavanello>`_
+- `Valeria Rios Vargas <https://sites.rutgers.edu/prg/people/valeria-rios/>`_
+
+On-line
+-------
+DFTpy is actively developed by the following groups:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- `Pavanello Research Group <http://sites.rutgers.edu/prg>`_
+- `Mi and Shao groups at Jilin University <https://phy.jlu.edu.cn/>`_ 
+- `Quantum MultiScale collaboration <http://www.quantum-multiscale.org/>`_
+
+
+.. _dftpy-learn:
+
+Learn about it
+--------------
 
 .. grid:: 12
    :gutter: 2
-   :margin: 0 0 1 0
+   :margin: 0 0 1.25 0
 
-   .. grid-item-card:: Scalability
-      :columns: 4
-      :class-card: app-card
+.. admonition:: External site 
+   :class: note
 
-      Strong/weak scaling on large systems via domain decomposition and efficient solvers.
+   Official site: `dftpy.rutgers.edu <https://dftpy.rutgers.edu/>`_
 
-   .. grid-item-card:: Algorithms
-      :columns: 4
-      :class-card: app-card
+.. _dftpy-contacts:
 
-      PME, optimized kernels, and OF-DFT functionals for speed without sacrificing accuracy.
+How do I find out more about DFTpy?
+-----------------------------------
 
-   .. grid-item-card:: Pythonic API
-      :columns: 4
-      :class-card: app-card
+- `Check out the DFTpy forum <https://lists.rutgers.edu/mm3/archives/list/dftpy_forum@email.rutgers.edu/>`_
+- or send an email to `dftpy_forum@email.rutgers.edu <dftpy_forum@email.rutgers.edu>`_
 
-      Clean configuration objects, easy scripting, and compatibility with typical PyData tools.
+.. _dftpy-publications:
 
-
-Examples & Docs
+Publications
 ---------------
 
-- :doc:`Tutorials <../tutorials/index>` (if you have a tutorials section)
-- :doc:`API Reference <../api/index>`
-- :doc:`Input file format <../reference/input>`
-- :doc:`FAQ <../faq>`
+- Shao, X., Jiang, K., Mi, W., Genova, A., & Pavanello, M. (2021). DFTpy: An efficient and object‐oriented platform for orbital‐free DFT simulations. Wiley Interdisciplinary Reviews: Computational Molecular Science, 11(1), e1482. (`https://doi.org/10.1002/wcms.1482 <https://doi.org/10.1002/wcms.1482>`_)
+- Jiang, K., & Pavanello, M. (2021). Time-dependent orbital-free density functional theory: Background and Pauli kernel approximations. Physical Review B, 103(24), 245102. (`https://doi.org/10.1103/PhysRevB.103.245102 <https://doi.org/10.1103/PhysRevB.103.245102>`_)
+- Jiang, K., Shao, X., & Pavanello, M. (2021). Nonlocal and nonadiabatic Pauli potential for time-dependent orbital-free density functional theory. Physical Review B, 104, 235110. (`https://doi.org/10.1103/PhysRevB.104.235110 <https://doi.org/10.1103/PhysRevB.104.235110>`_)
+- Shao, X., Mi, W., & Pavanello, M. (2021). Efficient DFT Solver for Nanoscale Simulations and Beyond. The Journal of Physical Chemistry Letters, 12(17), 4134-4139. (`https://doi.org/10.1021/acs.jpclett.1c00716 <https://doi.org/10.1021/acs.jpclett.1c00716>`_)
+- Shao, X., Jiang, K., Mi, W., Genova, A., & Pavanello, M. (2021). DFTpy: An efficient and object-oriented platform for orbital-free DFT simulations. Wiley Interdisciplinary Reviews: Computational Molecular Science, 11(1), e1482. (`https://doi.org/10.1002/wcms.1482 <https://doi.org/10.1002/wcms.1482>`_)
 
-.. note::
-   Coming from Kohn–Sham DFT? See :doc:`our migration notes <../guides/ks-to-ofdft>` for typical pitfalls.
+.. _dftpy-videos:
 
+YouTube videos
+--------------
 
-Benchmarks (optional)
----------------------
+`DFTpy Youtube Playlist <https://www.youtube.com/playlist?list=PLDgw3fS4ncAEVjv_dcyVEsQogdAp6LvME>`_
 
-.. admonition:: Large systems, short time
-   :class: tip
+.. raw:: html
 
-   On a **1M-atom Al** benchmark, DFTpy achieved **X×** speedup vs baseline (Y cores).
-   *Replace with your real numbers / plot.*
+    <style>
+      .video-grid{display:grid;gap:1rem;grid-template-columns:1fr}
+      @media (min-width: 900px){.video-grid{grid-template-columns:1fr 1fr}}
+      .video-grid iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:12px}
+    </style>
 
+    <div class="video-grid">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/ecmE2Ut1c4A?list=PLDgw3fS4ncAEVjv_dcyVEsQogdAp6LvME"
+        title="Rios Vargas: Orbital-Free TDDFT for Plasmonic Nanoparticles"
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
 
-Cite DFTpy
-----------
-
-If you use DFTpy in publications, please cite:
-
-.. code-block:: bibtex
-
-   @article{dftpy202X,
-     title={DFTpy: Orbital-free DFT in Python},
-     author={Your, Names},
-     journal={Journal},
-     year={202X},
-     doi={10.xxxx/xxxx}
-   }
-
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/4ehD9NOSU7o?list=PLDgw3fS4ncAEVjv_dcyVEsQogdAp6LvME"
+        title="Ezekiel Oyeniyi: Pseudopotentials for Orbital Free DFT"
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>

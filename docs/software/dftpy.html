@@ -1,6 +1,7 @@
 @'
 
 
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
@@ -17,10 +18,10 @@
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=241f7cc3" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=f1585c2f" />
       <link rel="stylesheet" type="text/css" href="../_static/fonts.css?v=5583d106" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=241f7cc3" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=f1585c2f" />
       <link rel="stylesheet" type="text/css" href="../_static/ptable/table.css?v=0c7ead12" />
 
   
@@ -141,110 +142,91 @@ Million-atom systems are approachable via highly efficient parallelization and a
 </div>
 </div>
 </div>
-<hr class="section-divider"><section id="quickstart">
-<h2>Quickstart<a class="headerlink" href="#quickstart" title="Link to this heading"></a></h2>
-<div class="sd-container-fluid sd-sphinx-override sd-mt-0 sd-mb-0 sd-ml-2 sd-mr-0 docutils">
-<div class="sd-row sd-row-cols-12 sd-row-cols-xs-12 sd-row-cols-sm-12 sd-row-cols-md-12 sd-row-cols-lg-12 sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
-<div class="sd-col sd-d-flex-row sd-col-6 sd-col-xs-6 sd-col-sm-6 sd-col-md-6 sd-col-lg-6 docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm app-card docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Install</div>
-</div>
-</div>
-</div>
-<div class="sd-col sd-d-flex-row sd-col-6 sd-col-xs-6 sd-col-sm-6 sd-col-md-6 sd-col-lg-6 docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm app-card docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Minimal run</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">dftpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dp</span>
-
-<span class="c1"># toy example: set up a simple calculation</span>
-<span class="n">calc</span> <span class="o">=</span> <span class="n">dp</span><span class="o">.</span><span class="n">Calculation</span><span class="p">(</span>
-    <span class="n">lattice</span><span class="o">=</span><span class="s2">&quot;fcc&quot;</span><span class="p">,</span>
-    <span class="n">element</span><span class="o">=</span><span class="s2">&quot;Al&quot;</span><span class="p">,</span>
-    <span class="n">lattice_constant</span><span class="o">=</span><span class="mf">4.05</span><span class="p">,</span>
-    <span class="n">kpoints</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span>
-<span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">calc</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total energy (eV):&quot;</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">total_energy</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="key-capabilities">
-<h2>Key Capabilities<a class="headerlink" href="#key-capabilities" title="Link to this heading"></a></h2>
-<div class="sd-container-fluid sd-sphinx-override sd-mt-0 sd-mb-0 sd-ml-1 sd-mr-0 docutils">
-<div class="sd-row sd-row-cols-12 sd-row-cols-xs-12 sd-row-cols-sm-12 sd-row-cols-md-12 sd-row-cols-lg-12 sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
-<div class="sd-col sd-d-flex-row sd-col-4 sd-col-xs-4 sd-col-sm-4 sd-col-md-4 sd-col-lg-4 docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm app-card docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Scalability</div>
-<p class="sd-card-text">Strong/weak scaling on large systems via domain decomposition and efficient solvers.</p>
-</div>
-</div>
-</div>
-<div class="sd-col sd-d-flex-row sd-col-4 sd-col-xs-4 sd-col-sm-4 sd-col-md-4 sd-col-lg-4 docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm app-card docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Algorithms</div>
-<p class="sd-card-text">PME, optimized kernels, and OF-DFT functionals for speed without sacrificing accuracy.</p>
-</div>
-</div>
-</div>
-<div class="sd-col sd-d-flex-row sd-col-4 sd-col-xs-4 sd-col-sm-4 sd-col-md-4 sd-col-lg-4 docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm app-card docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Pythonic API</div>
-<p class="sd-card-text">Clean configuration objects, easy scripting, and compatibility with typical PyData tools.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="examples-docs">
-<h2>Examples &amp; Docs<a class="headerlink" href="#examples-docs" title="Link to this heading"></a></h2>
+<hr class="section-divider"><section id="what-can-you-do-with-dftpy">
+<span id="dftpy-what-can-you-do"></span><h2>What can you do with DFTpy<a class="headerlink" href="#what-can-you-do-with-dftpy" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p><span class="xref std std-doc">Tutorials</span> (if you have a tutorials section)</p></li>
-<li><p><span class="xref std std-doc">API Reference</span></p></li>
-<li><p><span class="xref std std-doc">Input file format</span></p></li>
-<li><p><span class="xref std std-doc">FAQ</span></p></li>
+<li><p>Run <strong>orbital-free DFT (OF-DFT)</strong> simulations using a <strong>plane-wave expansion of the electron density</strong></p></li>
+<li><p>Prototype <strong>new OF-DFT functionals</strong>, solvers, and workflows quickly in <strong>pure Python</strong></p></li>
+<li><p>Drive <strong>very large systems</strong> (million-atom scale approaches with the right kernels and decomposition)</p></li>
+<li><p>Use and test <strong>Local Pseudopotentials (LPPs)</strong> compatible with DFTpy</p></li>
+<li><p>Explore <strong>time-dependent OF-DFT</strong> and spin-unrestricted options</p></li>
+<li><p>Integrate with the broader <strong>Q-MS</strong> software set and Python’s scientific ecosystem</p></li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Coming from Kohn–Sham DFT? See <span class="xref std std-doc">our migration notes</span> for typical pitfalls.</p>
+</section>
+<section id="dftpy-developers">
+<span id="id1"></span><h2>DFTpy developers<a class="headerlink" href="#dftpy-developers" title="Link to this heading"></a></h2>
+<section id="feel-free-to-contact-the-developers">
+<h3>Feel free to contact the developers:<a class="headerlink" href="#feel-free-to-contact-the-developers" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://sites.rutgers.edu/prg/people/xuecheng-shao/">Xuecheng Shao</a></p></li>
+<li><p><a class="reference external" href="https://sasn.rutgers.edu/about-us/faculty-staff/michele-pavanello">Michele Pavanello</a></p></li>
+<li><p><a class="reference external" href="https://sites.rutgers.edu/prg/people/valeria-rios/">Valeria Rios Vargas</a></p></li>
+</ul>
+</section>
+</section>
+<section id="on-line">
+<h2>On-line<a class="headerlink" href="#on-line" title="Link to this heading"></a></h2>
+<section id="dftpy-is-actively-developed-by-the-following-groups">
+<h3>DFTpy is actively developed by the following groups:<a class="headerlink" href="#dftpy-is-actively-developed-by-the-following-groups" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="http://sites.rutgers.edu/prg">Pavanello Research Group</a></p></li>
+<li><p><a class="reference external" href="https://phy.jlu.edu.cn/">Mi and Shao groups at Jilin University</a></p></li>
+<li><p><a class="reference external" href="http://www.quantum-multiscale.org/">Quantum MultiScale collaboration</a></p></li>
+</ul>
+</section>
+</section>
+<section id="learn-about-it">
+<span id="dftpy-learn"></span><h2>Learn about it<a class="headerlink" href="#learn-about-it" title="Link to this heading"></a></h2>
+<div class="note admonition">
+<p class="admonition-title">External site</p>
+<p>Official site: <a class="reference external" href="https://dftpy.rutgers.edu/">dftpy.rutgers.edu</a></p>
 </div>
 </section>
-<section id="benchmarks-optional">
-<h2>Benchmarks (optional)<a class="headerlink" href="#benchmarks-optional" title="Link to this heading"></a></h2>
-<div class="tip admonition">
-<p class="admonition-title">Large systems, short time</p>
-<p>On a <strong>1M-atom Al</strong> benchmark, DFTpy achieved <strong>X×</strong> speedup vs baseline (Y cores).
-<em>Replace with your real numbers / plot.</em></p>
-</div>
+<section id="how-do-i-find-out-more-about-dftpy">
+<span id="dftpy-contacts"></span><h2>How do I find out more about DFTpy?<a class="headerlink" href="#how-do-i-find-out-more-about-dftpy" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://lists.rutgers.edu/mm3/archives/list/dftpy_forum&#64;email.rutgers.edu/">Check out the DFTpy forum</a></p></li>
+<li><p>or send an email to <a class="reference external" href="mailto:dftpy_forum&#37;&#52;&#48;email&#46;rutgers&#46;edu">dftpy_forum<span>&#64;</span>email<span>&#46;</span>rutgers<span>&#46;</span>edu</a></p></li>
+</ul>
 </section>
-<section id="cite-dftpy">
-<h2>Cite DFTpy<a class="headerlink" href="#cite-dftpy" title="Link to this heading"></a></h2>
-<p>If you use DFTpy in publications, please cite:</p>
-<div class="highlight-bibtex notranslate"><div class="highlight"><pre><span></span><span class="nc">@article</span><span class="p">{</span><span class="nl">dftpy202X</span><span class="p">,</span>
-<span class="w">  </span><span class="na">title</span><span class="p">=</span><span class="s">{DFTpy: Orbital-free DFT in Python}</span><span class="p">,</span>
-<span class="w">  </span><span class="na">author</span><span class="p">=</span><span class="s">{Your, Names}</span><span class="p">,</span>
-<span class="w">  </span><span class="na">journal</span><span class="p">=</span><span class="s">{Journal}</span><span class="p">,</span>
-<span class="w">  </span><span class="na">year</span><span class="p">=</span><span class="s">{202X}</span><span class="p">,</span>
-<span class="w">  </span><span class="na">doi</span><span class="p">=</span><span class="s">{10.xxxx/xxxx}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
+<section id="publications">
+<span id="dftpy-publications"></span><h2>Publications<a class="headerlink" href="#publications" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Shao, X., Jiang, K., Mi, W., Genova, A., &amp; Pavanello, M. (2021). DFTpy: An efficient and object‐oriented platform for orbital‐free DFT simulations. Wiley Interdisciplinary Reviews: Computational Molecular Science, 11(1), e1482. (<a class="reference external" href="https://doi.org/10.1002/wcms.1482">https://doi.org/10.1002/wcms.1482</a>)</p></li>
+<li><p>Jiang, K., &amp; Pavanello, M. (2021). Time-dependent orbital-free density functional theory: Background and Pauli kernel approximations. Physical Review B, 103(24), 245102. (<a class="reference external" href="https://doi.org/10.1103/PhysRevB.103.245102">https://doi.org/10.1103/PhysRevB.103.245102</a>)</p></li>
+<li><p>Jiang, K., Shao, X., &amp; Pavanello, M. (2021). Nonlocal and nonadiabatic Pauli potential for time-dependent orbital-free density functional theory. Physical Review B, 104, 235110. (<a class="reference external" href="https://doi.org/10.1103/PhysRevB.104.235110">https://doi.org/10.1103/PhysRevB.104.235110</a>)</p></li>
+<li><p>Shao, X., Mi, W., &amp; Pavanello, M. (2021). Efficient DFT Solver for Nanoscale Simulations and Beyond. The Journal of Physical Chemistry Letters, 12(17), 4134-4139. (<a class="reference external" href="https://doi.org/10.1021/acs.jpclett.1c00716">https://doi.org/10.1021/acs.jpclett.1c00716</a>)</p></li>
+<li><p>Shao, X., Jiang, K., Mi, W., Genova, A., &amp; Pavanello, M. (2021). DFTpy: An efficient and object-oriented platform for orbital-free DFT simulations. Wiley Interdisciplinary Reviews: Computational Molecular Science, 11(1), e1482. (<a class="reference external" href="https://doi.org/10.1002/wcms.1482">https://doi.org/10.1002/wcms.1482</a>)</p></li>
+</ul>
 </section>
+<section id="youtube-videos">
+<span id="dftpy-videos"></span><h2>YouTube videos<a class="headerlink" href="#youtube-videos" title="Link to this heading"></a></h2>
+<p><a class="reference external" href="https://www.youtube.com/playlist?list=PLDgw3fS4ncAEVjv_dcyVEsQogdAp6LvME">DFTpy Youtube Playlist</a></p>
+<style>
+  .video-grid{display:grid;gap:1rem;grid-template-columns:1fr}
+  @media (min-width: 900px){.video-grid{grid-template-columns:1fr 1fr}}
+  .video-grid iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:12px}
+</style>
+
+<div class="video-grid">
+  <iframe
+    src="https://www.youtube-nocookie.com/embed/ecmE2Ut1c4A?list=PLDgw3fS4ncAEVjv_dcyVEsQogdAp6LvME"
+    title="Rios Vargas: Orbital-Free TDDFT for Plasmonic Nanoparticles"
+    loading="lazy"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+
+  <iframe
+    src="https://www.youtube-nocookie.com/embed/4ehD9NOSU7o?list=PLDgw3fS4ncAEVjv_dcyVEsQogdAp6LvME"
+    title="Ezekiel Oyeniyi: Pseudopotentials for Orbital Free DFT"
+    loading="lazy"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+</div></section>
 </section>
 
 
