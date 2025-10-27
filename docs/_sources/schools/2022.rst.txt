@@ -1,0 +1,313 @@
+.. _2022:
+
+Workshop
+========
+
+.. div:: sd-text-center
+
+   **Virtual mini symposium on QM/MM**
+   -----------------------------------
+
+   **Focus**
+
+   | Implementation and algorithms for QM/MM simulations  
+   | Talks given by postdocs and graduate students
+
+   **When**
+
+   | November 5, 2022  
+   | 8:45 AM to 3:00 PM  
+   | (Eastern US time zone)
+
+   .. div:: sd-text-center
+
+      .. button-link:: https://www.youtube.com/playlist?list=PLDgw3fS4ncAFO7SaLUpqlU6DhQFGYsGVU
+         :color: primary
+         :outline:
+
+         VIDEO RECORDINGS
+
+
+**Participating groups**
+
+* Oliviero Andreussi (Boise State University)
+* Marco Caricato (University of Kansas)
+* Andrés Cisneros (UT Dallas)
+* William Glover (NYU, Shanghai)
+* John Herbert (Ohio State University)
+* Francesco Paesani (UC San Diego)
+* Michele Pavanello (Rutgers University-Newark)
+* Alexander Sokolov (Ohio State University)
+* Lyudmila Slipchenko (Purdue University)
+
+**Organizing committee**
+
+* `Jessica Martinez <jam1042@rutgers.edu>`_
+* `Andres Cifuentes <acc256@rutgers.edu>`_
+* Michele Pavanello
+* John Herbert
+
+Program
+-------
+Opening
+-------
+.. list-table::
+   :header-rows: 1
+   :widths: 8 10 
+   
+   * - **TIME**
+     - **ACTIVITY**
+   * - 9:00
+     - Opening Remarks
+
+
+Morning session
+---------------
+
+.. list-table::
+   :header-rows: 1
+   :widths: 8 18 20 40
+
+   * - **TIME**
+     - **SPEAKER**
+     - **GROUP**
+     - **TITLE**
+   * - 9:00
+     - Alexander \
+       Humeniuk
+     - Glover, NYU \
+       Shanghai
+     - `Multistate, polarizable QM/MM embedding scheme based on the direct reaction field method: implementation details and challenges <https://youtu.be/db7CGVbrN_c>`_
+   * - 9:30
+     - Amiel Paz
+     - Glover, NYU \
+       Shanghai
+     - `Pushing the boundaries: QM/MM simulations of excited state dynamics in the condensed phase <https://youtu.be/qEwd7zoW3f8>`_
+   * - 10:00
+     - Andres \
+       Urbina
+     - Slipchenko, \
+       Purdue
+     - `Exploring GPCR–Ligand Interactions Using the Effective Fragment Potential Method <https://youtu.be/Ad_ryNAvOzk>`_
+   * - 10:30
+     - Dustin \
+       Broderick
+     - Herbert, OSU
+     - `A Framework for Managing Complexity in Fragmentation <https://youtu.be/quDie0f9aNk>`_
+
+Discussion session 1
+--------------------
+
+.. list-table::
+   :header-rows: 1
+   :widths: 8 18 20
+
+   * - **TIME**
+     - **ACTIVITY**
+     - **MODERATOR**
+
+   * - 11:00
+     - Breakout rooms for discussion & lunch
+     - Oliviero Andreussi, Alexander Sokolov
+
+Afternoon session
+-----------------
+
+.. list-table::
+   :header-rows: 1
+   :widths: 8 18 20 40
+
+   * - **TIME**
+     - **SPEAKER**
+     - **GROUP**
+     - **TITLE**
+   * - 12:30
+     - Xuecheng  \
+       Shao
+     - Pavanello, \
+       Rutgers
+     - `A Density-Functionalization of QM/MM <https://youtu.be/p6nnyO_l7Vo>`_
+   * - 1:00
+     - Jorge \
+       Nochebuena
+     - Cisneros, UT \
+       Dallas
+     - `QM/MM Simulations with the Gaussian Electrostatic Model <https://youtu.be/xVkav4eaoEI>`_
+   * - 1:30
+     - Saswata \
+       Dasgupta
+     - Paesani, \
+       UCSD
+     - `Data-Driven Many-Body Potentials from Density Functional Theory and a Many-Body Approach to QM/MM Simulations <https://youtu.be/A5kK5jSHRK0>`_
+
+Discussion session 2
+--------------------
+
+.. list-table::
+   :header-rows: 1
+   :widths: 8 18 20
+
+   * - **TIME**
+     - **ACTIVITY**
+     - **MODERATOR**
+
+   * - 2:00
+     - Breakout rooms for discussion & coffee
+     - Marco Caricato, Andres Cisneros
+
+Closing
+-------
+.. list-table::
+   :header-rows: 1
+   :widths: 8 10 
+   
+   * - **TIME**
+     - **ACTIVITY**
+   * - 2:45
+     - Closing remarks
+
+Speakers
+--------
+​Dustin Broderick
+----------------
+
+.. grid:: 1
+   :gutter: 1
+   :margin: 1
+
+   .. grid-item::
+      .. image:: /_static/dustin.jpg
+         :alt: Dustin Broderick
+         :width: 320px
+         :align: left
+
+Saswata Dasgupta
+----------------
+
+.. grid:: 12
+   :gutter: 1
+   :margin: 2
+
+   .. grid-item::
+      :columns: 5
+
+      .. image:: /_static/saswata.png
+         :alt: Saswata Dasgupta
+         :width: 320px
+         :align: left
+
+   .. grid-item::
+      :columns: 7
+      :class: bio-text
+
+      Saswata Dasgupta obtained his PhD from Ohio State University. 
+      His field of expertise includes DFT method development and 
+      many-body QM/MM methods.
+
+​Alexander Humeniuk
+------------------
+
+.. grid:: 12
+   :gutter: 1
+   :margin: 2
+
+   .. grid-item::
+      :columns: 5
+
+      .. image:: /_static/alexander.png
+         :alt: ​Alexander Humeniuk
+         :width: 320px
+         :align: left
+
+   .. grid-item::
+      :columns: 7
+      :class: bio-text
+
+      Alexander Humeniuk obtained his PhD at the University of Würzburg / Freie Universität Berlin. He developes electronic structure methods for ground and excited states. His field of expertise includes non-adiabatic and semiclassical molecular dynamics, 
+      simulation of ultrafast time-resolved spectroscopy experiments, and prediction of photophysical properties of small molecules. 
+
+​Jorge Nochebuena
+----------------
+
+.. grid:: 12
+   :gutter: 1
+   :margin: 2
+
+   .. grid-item::
+      :columns: 5
+
+      .. image:: /_static/jorge.jpg
+         :alt: ​Jorge Nochebuena
+         :width: 320px
+         :align: left
+
+   .. grid-item::
+      :columns: 7
+      :class: bio-text
+
+      Jorge Nochebuena obtained his PhD from the Universidad Autonoma Metropolitana-Itztapalapa Mexico. He is currently developing QM/MM methods that use polarizable force fields.
+
+Amiel Paz
+---------
+
+.. grid:: 12
+   :gutter: 1
+   :margin: 2
+
+   .. grid-item::
+      :columns: 5
+
+      .. image:: /_static/amiel.jpeg
+         :alt: Amiel Paz
+         :width: 320px
+         :align: left
+
+   .. grid-item::
+      :columns: 7
+      :class: bio-text
+      
+      Amiel Paz is a graduate student of New York University in Shanghai. His expertise is in electronic structure methods for scalable and stable non-adiabatic ab initio excited-state molecular dynamics for photochemistry in the condensed phase. 
+
+Xuecheng Shao
+-------------
+
+.. grid:: 12
+   :gutter: 1
+   :margin: 2
+
+   .. grid-item::
+      :columns: 5
+
+      .. image:: /_static/shao.jpg
+         :alt: Xuecheng Shao
+         :width: 320px
+         :align: left
+
+   .. grid-item::
+      :columns: 7
+      :class: bio-text
+
+      Xuecheng Shao obtained his PhD from Jilin University in China. He is an active developer of multi-scale modeling software in Python such as DFTpy, eDFTpy, and QEpy. His field of expertise includes Orbital-free DFT, density embedding / subsystem DFT and now also QM/MM.​ 
+
+Andres Urbina
+-------------
+
+.. grid:: 12
+   :gutter: 1
+   :margin: 2
+
+   .. grid-item::
+      :columns: 5
+
+      .. image:: /_static/andres.jpg
+         :alt: Andres Urbina
+         :width: 320px
+         :align: left
+
+   .. grid-item::
+      :columns: 7
+      :class: bio-text
+
+      Andres Urbina obtained his PhD from Purdue University. He is working on protein-ligand interactions. Specifically, exploring GPCR-ligand interactions using the effective fragment potential (EFP) method.
+
+  

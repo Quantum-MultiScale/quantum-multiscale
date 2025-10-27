@@ -1,0 +1,186 @@
+.. _prog2024:
+
+Program SU 2024
+===============
+
+2024 Quantum Multiscale Hackathon
+---------------------------------
+
+.. grid:: 3
+   :gutter: 3
+
+   .. grid-item::
+
+      **Details**
+
+      | August 25–30, 2024   
+      | Boise State University   
+      | Boise, ID    
+      | In person  
+
+   .. grid-item::
+
+      **Themes (preliminary)**
+
+      - Electronic structure methods  
+      - QM/MM  
+      - Embedding methods (quantum, continuum)  
+      - Machine learning  
+      - Workflows
+
+   .. grid-item::
+
+      **Software (preliminary)**
+
+      - DFTpy  
+      - eDFTpy  
+      - Environ / Envyron  
+      - INQ  
+      - MBX  
+      - QEpy  
+
+.. grid:: 1
+   :gutter: 1
+   :margin: 1
+
+   .. grid-item::
+      .. button-link:: http://www.quantum-multiscale.org/program-su-2024.html
+         :color: primary
+         :outline:
+         :align: center
+
+         PROGRAM
+
+         
+.. dropdown:: **AUGUST 25**
+   :animate: fade-in
+
+   .. list-table::
+      :widths: 20 80
+      :header-rows: 0
+
+      * - 4:30 pm
+        - Check-in at the Riverside Hotel (Boise)
+      * - Evening
+        - Free
+
+.. dropdown:: **AUGUST 26**
+   :animate: fade-in
+
+   .. list-table::
+      :widths: 20 80
+      :header-rows: 0
+
+      * - 8:00 am
+        - Breakfast
+      * - 9:00 am
+        - Opening remarks
+      * - 9:15 am
+        - Flash presentations of junior researchers
+      * - 10:30 am
+        - Hackathon begins
+      * - 12:30 pm
+        - Lunch and flash presentations of junior researchers
+      * - 2:30 pm
+        - Hackathon
+      * - 5:30 pm
+        - Hackathon day 1 wrap-up and set goals for day 2
+      * - Evening
+        - Free
+
+.. dropdown:: **AUGUST 27**
+   :animate: fade-in
+
+   .. list-table::
+      :widths: 20 80
+      :header-rows: 0
+
+      * - 8:00 am
+        - Breakfast
+      * - 9:00 am
+        - Flash presentations about goals for day 2
+      * - 9:15 am
+        - Hackathon
+      * - 12:30 pm
+        - | Lunch
+          | Presentations: Marco Caricato (University of Kansas), 
+          | Nathan Keilbart (LLNL), and Alfredo Correa (LLNL)
+      * - 2:30 pm
+        - Hackathon
+      * - 6:30 pm
+        - Hackathon day 2 wrap-up and set goals for day 3
+      * - Evening
+        - Free
+
+.. dropdown:: **AUGUST 28**
+   :animate: fade-in
+
+   .. list-table::
+      :widths: 20 80
+      :header-rows: 0
+
+      * - 8:00 am
+        - Breakfast
+      * - 9:00 am
+        - Flash presentations about goals for day 3
+      * - 9:15 am
+        - Hackathon
+      * - 12:30 pm
+        - | Lunch and presentations
+          | Presentations: Eric Jankowski (Boise State) and Michele Pavanello (Rutgers Newark)
+      * - 2:30 pm
+        - Hackathon
+      * - 3:30 pm
+        - Social Activity (Camel's Back Park Hike and Ice Cream)
+      * - Evening
+        - Hackathon Dinner (Ling and Louie)
+
+.. dropdown:: **AUGUST 29**
+   :animate: fade-in
+
+   .. list-table::
+      :widths: 20 80
+      :header-rows: 0
+
+      * - 8:00 am
+        - Breakfast
+      * - 9:00 am
+        - Flash presentations about goals for day 4
+      * - 9:15 am
+        - Hackathon
+      * - 12:30 pm
+        - | Lunch and presentations
+          | Presentations: Edoardo Serra (Boise State) and Alina Kononov (Sandia)
+      * - 2:30 pm
+        - Hackathon
+      * - 6:30 pm
+        - Hackathon day 4 wrap-up and set goals for day 5
+      * - Evening
+        - Free
+
+.. dropdown:: **AUGUST 30**
+   :animate: fade-in
+
+   .. list-table::
+      :widths: 20 80
+      :header-rows: 0
+
+      * - 8:00 am
+        - Breakfast
+      * - 9:00 am
+        - Hackathon
+      * - 10:30 am
+        - | Computer Science Colloquium (Downtown Boise),
+          | Presentation by Xavier Andrade
+      * - 12:00 pm
+        - Lunch
+      * - 2:30 pm
+        - Hackathon
+      * - 5:30 pm
+        - Hackathon Wrap-up and Concluding Remarks
+
+.. raw:: html
+
+   <div style="text-align: center;">
+       <p><strong>Coffee will be available at any time during the day!</strong></p>
+   </div>

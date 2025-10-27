@@ -1,0 +1,37 @@
+#ptable-root { font-family: system-ui, Arial, sans-serif; }
+#ptable-controls { margin: 0 0 .75rem; }
+#ptable-controls input { padding: .35rem .5rem; border: 1px solid #cbd5e1; border-radius: .5rem; }
+
+.ptable {
+  display: grid;
+  grid-template-columns: repeat(18, minmax(2.2rem, 1fr));
+  gap: .3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cell {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: .25rem;
+  border: 1px solid #dbeafe;
+  border-radius: .5rem;
+  background: #f8fbff;
+  cursor: pointer;
+  text-align: left;
+}
+
+.cell .Z { font-size: .65rem; opacity: .7; }
+.cell .sym { font-size: 1rem; font-weight: 700; line-height: 1.1; }
+.cell .name { font-size: .65rem; opacity: .85; }
+
+.cell:hover { outline: 2px solid #3b82f6; }
+
+#ptable-details {
+  max-width: 1200px;
+  margin: .75rem auto 0;
+  padding: .75rem 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: .5rem;
+  background: #fff;
+}

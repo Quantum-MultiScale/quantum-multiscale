@@ -1,0 +1,38 @@
+QMLearn
+=======
+Quantum Machine Learning by learning one-body reduced density matrices in the AO basis.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+A snapshot of QMLearn
+---------------------
+.. grid:: 1
+   :gutter: 2
+
+   .. grid-item::
+      .. image:: /_static/qmlearn.png
+         :alt: DFTpy Logo
+         :width: 75%
+         :align: left
+
+
+.. grid:: 12
+   :gutter: 1
+   :margin: 0
+
+   .. grid-item::
+      :columns: 2
+
+      .. button-link:: https://github.com/Quantum-MultiScale/QMLearn
+         :color: primary
+         :outline:
+
+         GITHUB REPO
+
+   .. grid-item::
+      :columns: 3
+      
+      .. button-link:: https://qmlearn.rutgers.edu/
+         :color: primary
+         :outline:
+
+         QMLearn Website        

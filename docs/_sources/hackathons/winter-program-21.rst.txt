@@ -1,0 +1,28 @@
+.. _win21:
+
+UNT-Rutgers 2021
+================
+
+.. grid:: 2
+   :gutter: 2
+
+   .. grid-item::
+
+      **Software**
+
+      - `MBX <http://paesanigroup.ucsd.edu/software/mbx.html>`_
+      - `Environ <http://www.quantum-environ.org/>`_
+      - `eDFTpy <http://edftpy.rutgers.edu/>`_
+   
+   .. grid-item::
+
+      **Details**
+
+      | December 2-5, 2021 
+      | Long Branch, NJ  
+      | ​virtual & in-person 
+
+**Participants**
+
+- ​Andreussi group, UNT
+- Pavanello group, Rutgers

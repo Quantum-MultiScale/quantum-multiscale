@@ -1,0 +1,166 @@
+Quantum Multiscale (Q-MS)
+=========================
+
+An NSF Center for
+*First-Principles Multiscale Software*
+
+**Quantum Multiscale (Q-MS)** develops sustainable multiscale modeling software built on quantum mechanics.
+
+
+.. raw:: html
+
+   <hr class="section-divider">
+
+Meet the Team
+-------------
+
+.. grid:: 12
+   :gutter: 2
+   :margin: 0 0 2 0
+
+   .. grid-item-card:: MATERIALab @ Boise State
+      :columns: 4
+      :class-card: lab-card
+
+      - Oliviero Andreussi
+      - Thiago da Silva
+      - Denis Mulumba
+      - Bourgeois Gadjagboui
+      - Eric Read
+      - Gabriel Medrano (@ UNT)
+
+   .. grid-item-card:: PRG @ Rutgers
+      :columns: 4
+      :class-card: lab-card
+
+      - Michele Pavanello
+      - Xuecheng Shao
+      - Xin Chen
+      - Pablo Ramos
+      - Alina Urmebkova
+      - Jessica Martinez
+      - Valeria Rios Vargas
+
+   .. grid-item-card:: Paesani Lab @ UCSD
+      :columns: 4
+      :class-card: lab-card
+
+      - Francesco Paesani
+      - Saswata Dasgupta
+      - Etienne Palos
+      - Suman Saha
+
+.. raw:: html
+
+   <div class="spacer-24"></div>
+
+Collaborators
+^^^^^^^^^^^^^
+.. container:: chips
+
+   :bdg-secondary:`Davide Ceresoli (CNR Milano)`
+   :bdg-secondary:`Andrew Baczewski (Sandia)`
+   :bdg-secondary:`Ismaila Dabo (Penn State)`
+   :bdg-secondary:`Quinn Campbell (Sandia)`
+
+.. raw:: html
+
+   <hr class="section-divider">
+
+
+Our Software
+------------
+
+.. grid:: 12
+   :gutter: 2
+   :margin: 2 0 2 0
+
+   .. grid-item-card:: QMultiPy
+      :columns: 4
+      :link: software/qmultipy
+      :img-top: _static/qmultipy.png
+      :link-type: doc
+      :class-card: app-card
+      :class-title: app-title
+
+      Unified interface connecting DFTpy, QEpy, and eDFTpy for quantum simulations—run MD or time-dependent calculations across frameworks
+
+
+   .. grid-item-card:: DFTpy
+      :columns: 4
+      :link: software/dftpy
+      :img-top: _static/dftpy-logo.png
+      :link-type: doc
+      :class-card: app-card
+      :class-title: app-title
+
+      Python code for orbital-free DFT with efficient parallelization for million-atom systems
+
+
+   .. grid-item-card:: eDFTpy
+      :columns: 4
+      :link: software/edftpy
+      :img-top: _static/edftpy-logo.png
+      :link-type: doc
+      :class-card: app-card
+      :class-title: app-title
+
+      Python code for embedding simulations with any KS solver, supporting ab-initio dynamics (ASE) and OF-DFT subsystems (DFTpy)
+
+
+   .. grid-item-card:: QEPy
+      :columns: 4
+      :link: software/qepy
+      :img-top: _static/qepy-logo.png
+      :link-type: doc
+      :class-card: app-card
+      :class-title: app-title
+
+      Quantum ESPRESSO with python
+
+   .. grid-item-card:: QMLearn
+      :columns: 4
+      :link: software/qmlearn
+      :img-top: _static/qmlearn-logo.png
+      :link-type: doc
+      :class-card: app-card
+      :class-title: app-title
+
+      Learning one-body reduced density matrices in the AO basis
+
+   .. grid-item-card:: OFPP
+      :columns: 4
+      :link: software/ofpp
+      :img-top: _static/ofpp.png
+      :link-type: doc
+      :class-card: app-card
+      :class-title: app-title
+
+      Local pseudopotentials for OF-DFT
+
+.. raw:: html
+
+   <hr class="section-divider">
+
+.. image:: _static/spheres-banner.png
+   :alt: Spheres background
+   :class: banner-crop             
+
+.. raw:: html
+
+   <hr class="section-divider">
+
+.. toctree::
+   :caption: SITE NAVIGATION
+   :hidden:
+   :titlesonly:
+   :maxdepth: 2
+
+   Home <self>
+   team
+   software/index
+   pseudopotentials
+   schools/index
+   hackathons/index
+   publications
+

@@ -1,0 +1,45 @@
+QEpy
+====
+Quantum ESPRESSO in Python
+--------------------------
+
+.. grid:: 12
+   :gutter: 3
+   :margin: 0
+
+   .. grid-item::
+      :columns: 1
+
+      .. image:: /_static/qepy-logo.png
+         :alt: QEpy Logo
+         :width: 200px
+         :align: left
+
+   .. grid-item::
+      :columns: 11
+
+      | QEpy turns Quantum ESPRESSO (QE) into a Python DFT engine for nonstandard workflows. 
+      | QEpy allows the user to include external potentials, use custom xc functionals, and can be used as a calculator for ASE.
+
+
+.. grid:: 12
+   :gutter: 1
+   :margin: 0
+
+   .. grid-item::
+      :columns: 2
+
+      .. button-link:: https://github.com/Quantum-MultiScale/QEpy
+         :color: primary
+         :outline:
+
+         GITHUB REPO
+
+   .. grid-item::
+      :columns: 3
+
+      .. button-link:: https://qepy.rutgers.edu/
+         :color: primary
+         :outline:
+
+         QEPY.RUTGERS.EDU

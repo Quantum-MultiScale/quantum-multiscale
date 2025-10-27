@@ -1,0 +1,38 @@
+﻿Software
+========
+
+Q-MS teams develop software for first principles multiscale modeling based on continuum embedding and density embedding. The main code bases are :
+
+.. list-table:: 
+   :widths: 22 78
+   :header-rows: 1
+   :align: left
+
+   * - Code
+     - What it does
+   * - `QMultiPy <https://github.com/Quantum-MultiScale/QMultiPy>`_
+     - QMultiPy is a unifying interface that brings existing quantum simulation engines such as DFTpy, QEpy, and eDFTpy—under one roof.
+   * - `DFTpy <http://dftpy.rutgers.edu/>`_
+     - DFTpy is an orbital-free Density Functional Theory code based on a plane-wave expansion of the electron density entirely coded in Python. 
+   * - `eDFTpy <http://edftpy.rutgers.edu/>`_
+     - eDFTpy combines Kohn-Sham Density Functional Theory (KS-DFT) and orbital-free DFT (OF-DFT) in an embedding framework that distills the best of both worlds.
+   * - `QEpy <https://qepy.rutgers.edu/>`_
+     - QEpy turns Quantum ESPRESSO (QE) into a Python DFT engine for nonstandard workflows. QEpy allows the user to include external potentials, use custom xc functionals, and much much more.
+   * - `QMLearn <https://qmlearn.rutgers.edu/>`_
+     - Quantum Machine Learning by learning one-body reduced density matrices in the AO basis.
+   * - `OFPP <https://github.com/Quantum-MultiScale/OFPP>`_
+     - This is a library of pseudopotentials (PPs) for Orbital-Free Density Functional Theory (OF-DFT)
+
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+
+   QMultiPy <qmultipy>
+   dftpy
+   edftpy
+   QEpy <qepy>
+   QMLearn <qmlearn>
+   OFPP <ofpp>
+   
+   

@@ -1,0 +1,144 @@
+﻿DFTpy
+=====
+
+.. grid:: 12
+   :gutter: 2
+   :margin: 0 0 2 0
+
+   .. grid-item::
+      :columns: 2
+
+      .. image:: /_static/dftpy-logo.png
+         :alt: DFTpy
+         :width: 96px
+         :class: app-logo
+
+   .. grid-item::
+      :columns: 10
+
+      **Python-based orbital-free DFT code** for large-scale materials simulations.
+      Million-atom systems are approachable via highly efficient parallelization and algorithms
+      (e.g., PME and novel OF-DFT solvers).
+
+      .. button-link:: https://github.com/your-org/DFTpy
+         :color: primary
+         :outline:
+
+         GitHub Repo
+
+      .. button-link:: https://dftpy.rutgers.edu/
+         :color: primary
+         :outline:
+
+         dftpy.rutgers.edu
+
+.. raw:: html
+
+   <hr class="section-divider">
+
+
+Quickstart
+----------
+
+.. grid:: 12
+   :gutter: 2
+   :margin: 0 0 2 0
+
+   .. grid-item-card:: Install
+      :columns: 6
+      :class-card: app-card
+
+      .. tabs::
+
+         .. tab:: pip
+            .. code-block:: bash
+
+               pip install dftpy
+
+         .. tab:: conda
+            .. code-block:: bash
+
+               conda install -c conda-forge dftpy
+
+   .. grid-item-card:: Minimal run
+      :columns: 6
+      :class-card: app-card
+
+      .. code-block:: python
+
+         import dftpy as dp
+
+         # toy example: set up a simple calculation
+         calc = dp.Calculation(
+             lattice="fcc",
+             element="Al",
+             lattice_constant=4.05,
+             kpoints=[4,4,4],
+         )
+         result = calc.run()
+         print("Total energy (eV):", result.total_energy)
+
+
+Key Capabilities
+----------------
+
+.. grid:: 12
+   :gutter: 2
+   :margin: 0 0 1 0
+
+   .. grid-item-card:: Scalability
+      :columns: 4
+      :class-card: app-card
+
+      Strong/weak scaling on large systems via domain decomposition and efficient solvers.
+
+   .. grid-item-card:: Algorithms
+      :columns: 4
+      :class-card: app-card
+
+      PME, optimized kernels, and OF-DFT functionals for speed without sacrificing accuracy.
+
+   .. grid-item-card:: Pythonic API
+      :columns: 4
+      :class-card: app-card
+
+      Clean configuration objects, easy scripting, and compatibility with typical PyData tools.
+
+
+Examples & Docs
+---------------
+
+- :doc:`Tutorials <../tutorials/index>` (if you have a tutorials section)
+- :doc:`API Reference <../api/index>`
+- :doc:`Input file format <../reference/input>`
+- :doc:`FAQ <../faq>`
+
+.. note::
+   Coming from Kohn–Sham DFT? See :doc:`our migration notes <../guides/ks-to-ofdft>` for typical pitfalls.
+
+
+Benchmarks (optional)
+---------------------
+
+.. admonition:: Large systems, short time
+   :class: tip
+
+   On a **1M-atom Al** benchmark, DFTpy achieved **X×** speedup vs baseline (Y cores).
+   *Replace with your real numbers / plot.*
+
+
+Cite DFTpy
+----------
+
+If you use DFTpy in publications, please cite:
+
+.. code-block:: bibtex
+
+   @article{dftpy202X,
+     title={DFTpy: Orbital-free DFT in Python},
+     author={Your, Names},
+     journal={Journal},
+     year={202X},
+     doi={10.xxxx/xxxx}
+   }
+

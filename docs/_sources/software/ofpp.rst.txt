@@ -1,0 +1,23 @@
+OFPP
+====
+This is a library of pseudopotentials (PPs) for Orbital-Free Density Functional Theory (OF-DFT).
+------------------------------------------------------------------------------------------------
+Download
+^^^^^^^^
+.. button-link:: https://gitlab.com/shaoxc/ofpp.git
+         :color: primary
+         :outline:
+
+         GIT CLONE -- RECURSE SUBMODULES
+
+
+
+.. grid:: 1
+   :gutter: 2
+
+   .. grid-item::
+      .. button-link:: https://github.com/Quantum-MultiScale/OFPP
+         :color: primary
+         :outline:
+
+         GITLAB REPO

@@ -1,0 +1,51 @@
+Team
+====
+
+.. grid:: 3
+   :gutter: 3
+
+   .. grid-item::
+      **MATERIALab @ Boise State**
+
+      - Oliviero Andreussi
+      - Thiago da Silva
+      - Denis Mulumba
+      - Bourgeois Gadjagboui
+      - Eric Read
+      - Gabriel Medrano (@ UNT)
+
+   .. grid-item::
+      **PRG @ Rutgers**
+
+      - Michele Pavanello
+      - Xuecheng Shao
+      - Xin Chen
+      - Pablo Ramos
+      - Alina Urmebkova
+      - Jessica Martinez
+      - Valeria Rios Vargas
+
+   .. grid-item::
+      **Paesani Lab @ UCSD**
+
+      - Francesco Paesani
+      - Saswata Dasgupta
+      - Etienne Palos
+      - Suman Saha
+
+----
+
+Collaborators
+-------------
+
+.. grid:: 2
+   :gutter: 2
+
+   .. grid-item::
+      - Davide Ceresoli (CNR Milano)
+      - Andrew Baczewski (Sandia)
+   
+   .. grid-item::
+      - Ismaila Dabo (Penn State)
+      - Quinn Campbell (Sandia)
+

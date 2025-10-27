@@ -1,0 +1,47 @@
+﻿eDFTpy
+======
+
+.. grid:: 12
+   :gutter: 5
+   :margin: 0
+
+   .. grid-item::
+      :columns: 1
+
+      .. image:: /_static/edftpy-logo.png
+         :alt: 
+         :width: 200px
+         :align: center
+
+   .. grid-item::
+      :columns: 11
+
+      | eDFTpy is a Python based code to run embedding simulations with any Kohn-Sham solver. 
+      | eDFTpy drives ab-initio dynamics with ASE and handles orbital-free DFT subsystems with DFTpy. 
+      | It has not yet been released, but you can glance at its features at the link below.
+
+|
+
+.. grid:: 12
+   :gutter: 3
+   :margin: 0
+
+   .. grid-item::
+      :columns: 2
+
+      .. button-link:: https://github.com/Quantum-MultiScale/eDFTpy
+         :color: primary
+         :outline:
+
+         GITHUB REPO
+
+   .. grid-item::
+      :columns: 3
+      
+      .. button-link:: http://edftpy.rutgers.edu/
+         :color: primary
+         :outline:
+   
+
+         EDFTPY.RUTGERS.EDU
+   
