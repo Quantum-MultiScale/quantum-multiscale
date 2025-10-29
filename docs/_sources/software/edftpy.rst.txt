@@ -2,32 +2,22 @@
 ======
 
 .. grid:: 12
-   :gutter: 5
-   :margin: 0
-
-   .. grid-item::
-      :columns: 1
-
-      .. image:: /_static/edftpy-logo.png
-         :alt: 
-         :width: 200px
-         :align: center
-
-   .. grid-item::
-      :columns: 11
-
-      | eDFTpy is a Python based code to run embedding simulations with any Kohn-Sham solver. 
-      | eDFTpy drives ab-initio dynamics with ASE and handles orbital-free DFT subsystems with DFTpy. 
-      | It has not yet been released, but you can glance at its features at the link below.
-
-|
-
-.. grid:: 12
-   :gutter: 3
-   :margin: 0
+   :gutter: 2
+   :margin: 0 0 2 0
 
    .. grid-item::
       :columns: 2
+
+      .. image:: /_static/edftpy-logo.png
+         :alt: eDFTpy
+         :width: 96px
+         :class: app-logo
+
+   .. grid-item::
+      :columns: 10
+
+      eDFTpy combines Kohn-Sham Density Functional Theory (KS-DFT) and orbital-free DFT (OF-DFT) in an embedding framework that distills the best of both worlds whereby only weak intermolecular interactions are left to OF-DFT, and strong intramolecular interactions 
+      are left to KS-DFT. The code achieves near ideal linear-scaling with system size. eDFTpy is based on `DFTpy <http://dftpy.rutgers.edu/>`_ which is developed by `PRG <https://sites.rutgers.edu/prg>`_ at Rutgers University-Newark.
 
       .. button-link:: https://github.com/Quantum-MultiScale/eDFTpy
          :color: primary
@@ -35,13 +25,94 @@
 
          GITHUB REPO
 
-   .. grid-item::
-      :columns: 3
-      
-      .. button-link:: http://edftpy.rutgers.edu/
+      .. button-link:: https://edftpy.rutgers.edu/
          :color: primary
          :outline:
-   
 
-         EDFTPY.RUTGERS.EDU
-   
+         edftpy.rutgers.edu
+
+.. raw:: html
+
+   <hr class="section-divider">
+
+.. _edftpy-developers:
+
+eDFTpy developers
+-----------------
+Feel free to contact the developers:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- `Xuecheng Shao <https://sites.rutgers.edu/prg/people/xuecheng-shao/>`_
+- `Michele Pavanello <https://sasn.rutgers.edu/about-us/faculty-staff/michele-pavanello>`_
+
+On-line
+-------
+To find out more about the `Pavanello Research Group <http://sites.rutgers.edu/prg>`_. Or simply send us an email.
+
+.. _edftpy-learn:
+
+Learn about it
+--------------
+
+.. grid:: 12
+   :gutter: 2
+   :margin: 0 0 1.25 0
+
+.. admonition:: External site 
+   :class: note
+
+   Official site: `https://edftpy.rutgers.edu/contact.html <https://edftpy.rutgers.edu/contact.html>`_ 
+
+
+YouTube videos
+--------------
+
+`eDFTpy Youtube playlist <https://www.youtube.com/playlist?list=PLDgw3fS4ncAGkutxhtfiPmZUI1ttMlR4T>`_
+
+.. raw:: html
+
+    <style>
+      .video-grid {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: 1fr;
+      }
+      @media (min-width: 900px) {
+        .video-grid {
+          grid-template-columns: 1fr 1fr 1fr;
+        }
+      }
+      .video-grid iframe {
+        width: 100%;
+        aspect-ratio: 16/9;
+        border: 0;
+        border-radius: 12px;
+      }
+    </style>
+
+    <div class="video-grid">
+      <iframe
+        src="https://www.youtube.com/embed/dR9vBXdwheY?origin=https://quantum-embedding.org&rel=0&modestbranding=1"
+        title="Axial hydration of Pd aqua ion"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+
+      <iframe
+        src="https://www.youtube.com/embed/p6nnyO_l7Vo?origin=https://quantum-embedding.org&rel=0&modestbranding=1"
+        title="Minisymposium on QM/MM - Xuecheng Shao"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+
+      <iframe
+        src="https://www.youtube.com/embed/-lmdPHzJfeU?origin=https://quantum-embedding.org&rel=0&modestbranding=1"
+        title="NaCl in water"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+

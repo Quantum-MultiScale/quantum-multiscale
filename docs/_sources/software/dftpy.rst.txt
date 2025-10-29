@@ -94,7 +94,7 @@ How do I find out more about DFTpy?
 .. _dftpy-publications:
 
 Publications
----------------
+------------
 
 - Shao, X., Jiang, K., Mi, W., Genova, A., & Pavanello, M. (2021). DFTpy: An efficient and object‐oriented platform for orbital‐free DFT simulations. Wiley Interdisciplinary Reviews: Computational Molecular Science, 11(1), e1482. (`https://doi.org/10.1002/wcms.1482 <https://doi.org/10.1002/wcms.1482>`_)
 - Jiang, K., & Pavanello, M. (2021). Time-dependent orbital-free density functional theory: Background and Pauli kernel approximations. Physical Review B, 103(24), 245102. (`https://doi.org/10.1103/PhysRevB.103.245102 <https://doi.org/10.1103/PhysRevB.103.245102>`_)
@@ -119,7 +119,7 @@ YouTube videos
 
     <div class="video-grid">
       <iframe
-        src="https://www.youtube-nocookie.com/embed/ecmE2Ut1c4A?list=PLDgw3fS4ncAEVjv_dcyVEsQogdAp6LvME"
+        src="https://www.youtube.com/embed/ecmE2Ut1c4A?origin=https://quantum-embedding.org&rel=0&modestbranding=1"
         title="Rios Vargas: Orbital-Free TDDFT for Plasmonic Nanoparticles"
         loading="lazy"
         referrerpolicy="strict-origin-when-cross-origin"
@@ -128,7 +128,7 @@ YouTube videos
       </iframe>
 
       <iframe
-        src="https://www.youtube-nocookie.com/embed/4ehD9NOSU7o?list=PLDgw3fS4ncAEVjv_dcyVEsQogdAp6LvME"
+        src="https://www.youtube.com/embed/4ehD9NOSU7o?origin=https://quantum-embedding.org&rel=0&modestbranding=1&t=676s"
         title="Ezekiel Oyeniyi: Pseudopotentials for Orbital Free DFT"
         loading="lazy"
         referrerpolicy="strict-origin-when-cross-origin"
