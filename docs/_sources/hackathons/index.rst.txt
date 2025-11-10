@@ -1,3 +1,5 @@
+.. _hack:
+
 Hackathons
 ==========
 

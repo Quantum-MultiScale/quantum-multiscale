@@ -1,11 +1,15 @@
 Team
 ====
 
-.. grid:: 3
-   :gutter: 3
+.. grid:: 12
+   :gutter: 2
+   :margin: 0 0 2 0
 
-   .. grid-item::
-      **MATERIALab @ Boise State**
+   .. grid-item-card:: MATERIALab @ Boise State
+      :columns: 4
+      :class-card: lab-card
+      :link: http://www.materialab.org/
+      :link-type: url
 
       - Oliviero Andreussi
       - Thiago da Silva
@@ -14,8 +18,11 @@ Team
       - Eric Read
       - Gabriel Medrano (@ UNT)
 
-   .. grid-item::
-      **PRG @ Rutgers**
+   .. grid-item-card:: PRG @ Rutgers
+      :columns: 4
+      :class-card: lab-card
+      :link: https://sites.rutgers.edu/prg/
+      :link-type: url
 
       - Michele Pavanello
       - Xuecheng Shao
@@ -25,27 +32,30 @@ Team
       - Jessica Martinez
       - Valeria Rios Vargas
 
-   .. grid-item::
-      **Paesani Lab @ UCSD**
+   .. grid-item-card:: Paesani Lab @ UCSD
+      :columns: 4
+      :class-card: lab-card
+      :link: https://paesanigroup.ucsd.edu/
+      :link-type: url
 
       - Francesco Paesani
       - Saswata Dasgupta
       - Etienne Palos
       - Suman Saha
 
-----
+.. raw:: html
+
+   <div class="spacer-24"></div>
 
 Collaborators
--------------
+^^^^^^^^^^^^^
+.. container:: chips
 
-.. grid:: 2
-   :gutter: 2
+   :bdg-secondary:`Davide Ceresoli (CNR Milano)`
+   :bdg-secondary:`Andrew Baczewski (Sandia)`
+   :bdg-secondary:`Ismaila Dabo (Penn State)`
+   :bdg-secondary:`Quinn Campbell (Sandia)`
 
-   .. grid-item::
-      - Davide Ceresoli (CNR Milano)
-      - Andrew Baczewski (Sandia)
-   
-   .. grid-item::
-      - Ismaila Dabo (Penn State)
-      - Quinn Campbell (Sandia)
+.. raw:: html
 
+   <hr class="section-divider">

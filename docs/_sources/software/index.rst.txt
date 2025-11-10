@@ -1,27 +1,68 @@
-﻿Software
+﻿.. |logo_qmultipy| image:: _static/qmultipy.png
+   :height: 20px
+   :alt: QMultiPy logo
+   :class: inline-logo
+
+.. |logo_dftpy| image:: _static/dftpy-logo.png
+   :height: 20px 
+   :alt: DFTpy logo
+   :class: inline-logo
+
+.. |logo_edftpy| image:: _static/edftpy-logo.png
+   :height: 20px
+   :alt: eDFTpy logo
+   :class: inline-logo
+
+.. |logo_qepy| image:: _static/qepy-logo.png
+   :height: 20px
+   :alt: QEpy logo
+   :class: inline-logo
+
+.. |logo_qmlearn| image:: _static/qmlearn-logo.png
+   :height: 20px
+   :alt: QMLearn logo
+   :class: inline-logo
+
+.. |logo_ofpp| image:: _static/ofpp.png
+   :height: 20px
+   :alt: OFPP logo
+   :class: inline-logo
+
+
+Software
 ========
 
 Q-MS teams develop software for first principles multiscale modeling based on continuum embedding and density embedding. The main code bases are :
 
-.. list-table:: 
-   :widths: 22 78
+.. list-table::
+   :widths: 6 16 50
    :header-rows: 1
    :align: left
 
-   * - Code
+   * - 
+     - Code
      - What it does
-   * - `QMultiPy <https://github.com/Quantum-MultiScale/QMultiPy>`_
+   * - |logo_qmultipy|
+     - `QMultiPy <https://github.com/Quantum-MultiScale/QMultiPy>`_
      - QMultiPy is a unifying interface that brings existing quantum simulation engines such as DFTpy, QEpy, and eDFTpy—under one roof.
-   * - `DFTpy <http://dftpy.rutgers.edu/>`_
-     - DFTpy is an orbital-free Density Functional Theory code based on a plane-wave expansion of the electron density entirely coded in Python. 
-   * - `eDFTpy <http://edftpy.rutgers.edu/>`_
-     - eDFTpy combines Kohn-Sham Density Functional Theory (KS-DFT) and orbital-free DFT (OF-DFT) in an embedding framework that distills the best of both worlds.
-   * - `QEpy <https://qepy.rutgers.edu/>`_
-     - QEpy turns Quantum ESPRESSO (QE) into a Python DFT engine for nonstandard workflows. QEpy allows the user to include external potentials, use custom xc functionals, and much much more.
-   * - `QMLearn <https://qmlearn.rutgers.edu/>`_
+   * - |logo_dftpy|
+     - `DFTpy <http://dftpy.rutgers.edu/>`_
+     - DFTpy is an orbital-free Density Functional Theory code based on a plane-wave expansion of the electron density entirely coded in Python.
+   * - |logo_edftpy|
+     - `eDFTpy <http://edftpy.rutgers.edu/>`_
+     - eDFTpy combines Kohn–Sham DFT and orbital-free DFT in an embedding framework that distills the best of both worlds.
+   * - |logo_qepy|
+     - `QEpy <https://qepy.rutgers.edu/>`_
+     - QEpy turns Quantum ESPRESSO (QE) into a Python DFT engine for nonstandard workflows.
+   * - |logo_qmlearn|
+     - `QMLearn <https://qmlearn.rutgers.edu/>`_
      - Quantum Machine Learning by learning one-body reduced density matrices in the AO basis.
-   * - `OFPP <https://github.com/Quantum-MultiScale/OFPP>`_
-     - This is a library of pseudopotentials (PPs) for Orbital-Free Density Functional Theory (OF-DFT)
+   * - |logo_ofpp|
+     - `OFPP <https://github.com/Quantum-MultiScale/OFPP>`_
+     - Library of pseudopotentials (PPs) for Orbital-Free DFT
+
+
+
 
 
 .. toctree::

@@ -18,10 +18,10 @@
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=f1585c2f" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=4e452dfd" />
       <link rel="stylesheet" type="text/css" href="_static/fonts.css?v=5583d106" />
       <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
-      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=f1585c2f" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=4e452dfd" />
       <link rel="stylesheet" type="text/css" href="_static/ptable/table.css?v=0c7ead12" />
 
   
@@ -34,6 +34,7 @@
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="_static/copybutton.js?v=f281be69"></script>
       <script src="_static/design-tabs.js?v=f930bc37"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       <script src="_static/ptable/table.js?v=7b92154b"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -145,6 +146,152 @@
 <section id="pseudopotentials-table">
 <h2>Pseudopotentials Table<a class="headerlink" href="#pseudopotentials-table" title="Link to this heading"></a></h2>
 <p><a class="sd-sphinx-override sd-btn sd-text-wrap sd-btn-outline-primary reference external" href="https://www.pseudo-dojo.org/"><span>PSEUDO DOJO</span></a></p>
+</section>
+<section id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Link to this heading"></a></h2>
+<p>All–electron Kohn–Sham (KS) orbitals oscillate rapidly near nuclei. To make
+plane–wave (or real–space) calculations efficient, we <strong>freeze the core</strong> and
+replace the true electron–ion interaction by a smoother <strong>pseudopotential</strong> that
+reproduces the <strong>valence</strong> physics outside a cutoff radius <span class="math notranslate nohighlight">\(r_c\)</span>.</p>
+</section>
+<section id="kohnsham-pseudopotentials-nonlocal">
+<h2>Kohn–Sham pseudopotentials (nonlocal)<a class="headerlink" href="#kohnsham-pseudopotentials-nonlocal" title="Link to this heading"></a></h2>
+<p>A modern KS pseudopotential has a <strong>local</strong> part plus an <strong>angular–momentum
+dependent nonlocal operator</strong>,</p>
+<div class="math notranslate nohighlight">
+\[\hat V_{\mathrm{PP}}
+\;=\;
+V_{\mathrm{loc}}(r)
+\;+\;
+\sum_{\ell m} \,|\beta_{\ell m}\rangle\, D_{\ell}\, \langle \beta_{\ell m}|,\]</div>
+<p>where <span class="math notranslate nohighlight">\(|\beta_{\ell m}\rangle\)</span> are localized projectors (Kleinman–Bylander
+form) and <span class="math notranslate nohighlight">\(D_{\ell}\)</span> are channel strengths. This nonlocality lets KS PPs
+treat different <span class="math notranslate nohighlight">\(\ell\)</span> channels (s, p, d, …) differently—crucial for good
+transferability.</p>
+<p><strong>Norm-conserving condition (NCPP).</strong> For each channel <span class="math notranslate nohighlight">\(\ell\)</span>, the
+pseudo–radial function <span class="math notranslate nohighlight">\(\phi_{\ell}^{\mathrm{PS}}\)</span> matches the
+all–electron solution <span class="math notranslate nohighlight">\(\phi_{\ell}^{\mathrm{AE}}\)</span> <strong>outside</strong> <span class="math notranslate nohighlight">\(r_c\)</span>
+and conserves charge <strong>inside</strong> <span class="math notranslate nohighlight">\(r_c\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\int_0^{r_c} r^2 \, \left|\phi_{\ell}^{\mathrm{PS}}(r)\right|^2 \, dr
+\;=\;
+\int_0^{r_c} r^2 \, \left|\phi_{\ell}^{\mathrm{AE}}(r)\right|^2 \, dr,\]</div>
+<p>with matching <strong>eigenvalues</strong> and <strong>logarithmic derivatives</strong> at <span class="math notranslate nohighlight">\(r_c\)</span>.
+That is the “<strong>conserve</strong>” note in your sketch.</p>
+</section>
+<section id="nonlinear-core-correction-nlcc">
+<h2>Nonlinear core correction (NLCC)<a class="headerlink" href="#nonlinear-core-correction-nlcc" title="Link to this heading"></a></h2>
+<p>Exchange–correlation (XC) is <strong>nonlinear</strong> in the density. When the <strong>valence</strong>
+density overlaps the <strong>core</strong> region, evaluating
+<span class="math notranslate nohighlight">\(E_{\mathrm{xc}}[\rho_v]\)</span> alone misses XC contributions. The <strong>NLCC</strong>
+fix is to add a frozen core density <span class="math notranslate nohighlight">\(\rho_c(r)\)</span> in XC:</p>
+<div class="math notranslate nohighlight">
+\[E_{\mathrm{xc}}[\rho_v] \;\to\; E_{\mathrm{xc}}[\rho_v + \rho_c].\]</div>
+<p>This often improves thermochemistry, magnetism, and charge transfer for elements
+with appreciable core–valence overlap (e.g., Na, Si, transition metals).</p>
+</section>
+<section id="why-ks-pps-are-not-directly-usable-in-of-dft">
+<h2>Why KS PPs are <strong>not</strong> directly usable in OF-DFT<a class="headerlink" href="#why-ks-pps-are-not-directly-usable-in-of-dft" title="Link to this heading"></a></h2>
+<p>Orbital-free DFT (OF-DFT) minimizes the total energy <strong>without Kohn–Sham
+orbitals</strong>; the only variable is the <strong>electron density</strong> <span class="math notranslate nohighlight">\(\rho(\mathbf r)\)</span>.
+Standard KS PPs are <strong>nonlocal and orbital-dependent</strong> (they act via
+projectors on the <strong>orbitals</strong>), so in OF-DFT there is nothing to project.
+Hence, you need a <strong>purely local ionic potential</strong> <span class="math notranslate nohighlight">\(V_{\mathrm{ion}}(r)\)</span>
+that only acts on the <strong>density</strong>.</p>
+</section>
+<section id="local-pseudopotentials-lpp-for-of-dft">
+<h2>Local pseudopotentials (LPP) for OF-DFT<a class="headerlink" href="#local-pseudopotentials-lpp-for-of-dft" title="Link to this heading"></a></h2>
+<p>A <strong>local pseudopotential</strong> is a spherically symmetric potential
+<span class="math notranslate nohighlight">\(V_{\mathrm{LPP}}(r)\)</span> such that the OF-DFT energy functional</p>
+<div class="math notranslate nohighlight">
+\[E[\rho] = T_s^{\mathrm{OF}}[\rho] + E_{\mathrm{H}}[\rho] + E_{\mathrm{xc}}[\rho]
+          + \int \rho(\mathbf r)\, V_{\mathrm{LPP}}(r)\, d\mathbf r
+          + E_{\mathrm{ion\!-\!ion}},\]</div>
+<p>reproduces <strong>reference KS</strong> forces/energies as closely as possible.</p>
+<p>Common routes to build LPPs:</p>
+<ol class="arabic">
+<li><p><strong>Local-channel extraction.</strong> Use one channel of an NCPP
+(often <span class="math notranslate nohighlight">\(\ell=0\)</span>) as <span class="math notranslate nohighlight">\(V_{\mathrm{LPP}}(r)\)</span>. Fast, but sometimes
+less transferable.</p></li>
+<li><p><strong>Model analytic forms</strong> fit to KS data (scattering phase shifts, atomization
+energies, bulk lattice constants). Examples include Goodwin–Needs–Heine,
+Heine–Abarenkov, error-function–screened Coulomb plus Gaussians:</p>
+<div class="math notranslate nohighlight">
+\[V_{\mathrm{LPP}}(r) \approx
+-\,\frac{Z_{\mathrm{eff}}}{r}\,\mathrm{erf}\!\left(\frac{r}{\sqrt{2}\sigma}\right)
++ \sum_{i} A_i \exp\!\left[-\left(\frac{r}{b_i}\right)^2\right].\]</div>
+</li>
+<li><p><strong>Force matching/optimization.</strong> Fit <span class="math notranslate nohighlight">\(V_{\mathrm{LPP}}\)</span> so OF-DFT
+reproduces KS <strong>forces</strong> and <strong>equation of state</strong> for test clusters/bulk.</p></li>
+<li><p><strong>Density-derived LPP.</strong> Derive an effective local potential that yields the
+KS valence density for a reference configuration.</p></li>
+</ol>
+</section>
+<section id="practical-checklist-for-a-good-lpp">
+<h2>Practical checklist for a good LPP<a class="headerlink" href="#practical-checklist-for-a-good-lpp" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Choose <strong>reference states</strong> (isolated atom, small cluster, and one/bulk
+structure).</p></li>
+<li><p>Fit <span class="math notranslate nohighlight">\(V_{\mathrm{LPP}}(r)\)</span> to match KS targets (eigenvalues,
+scattering/phase shifts, forces, lattice constant, bulk modulus).</p></li>
+<li><p>Validate on <strong>transfer</strong> tests different from the fit set (defects,
+surfaces, different coordinations).</p></li>
+<li><p>If core–valence overlap is relevant, consider <strong>NLCC</strong> by including a
+spherically averaged core density in XC (still local in OF-DFT).</p></li>
+</ul>
+</section>
+<section id="whats-written-in-your-notes-decoded">
+<h2>What’s written in your notes (decoded)<a class="headerlink" href="#whats-written-in-your-notes-decoded" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>“KS PP → core electrons; NCPP → conserve”</strong>
+We replace the all–electron problem by a PP; <strong>norm–conserving</strong> PPs match
+eigenvalues/log-derivatives and <strong>conserve valence charge</strong> inside
+<span class="math notranslate nohighlight">\(r_c\)</span>.</p></li>
+<li><p><strong>“Σ |φ_v⟩⟨φ_v| … impose ε_v same as in the RS”</strong>
+Projector idea: nonlocal operators use valence-like projectors to ensure
+<strong>valence eigenvalues</strong> <span class="math notranslate nohighlight">\(\varepsilon_v\)</span> match a <strong>reference system</strong>.</p></li>
+<li><p><strong>“NLCC → nonlinear core correction”</strong>
+Add frozen core density in XC: <span class="math notranslate nohighlight">\(E_{\mathrm{xc}}[\rho_v+\rho_c]\)</span>.</p></li>
+<li><p><strong>“Why KS PP not applicable to OF-DFT?”</strong>
+Because standard KS PPs are <strong>nonlocal/orbital-dependent</strong>, but OF-DFT has <strong>no
+orbitals</strong>. Use <strong>LPPs</strong>.</p></li>
+<li><p><strong>“OF PP LPP → Xα LPP → no …”</strong>
+Interpreted as a reminder that simple <strong>Xα-type</strong> local PPs (or other analytic
+forms) can be used in OF-DFT; ensure they are <strong>validated</strong> (no spurious
+bound states / wrong scattering).</p></li>
+</ul>
+</section>
+<section id="minimal-example-block-if-you-want-to-show-usage">
+<h2>Minimal example block (if you want to show usage)<a class="headerlink" href="#minimal-example-block-if-you-want-to-show-usage" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># OF-DFT (DFTpy) sketch: how a local PP is supplied</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dftpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">IonIon</span><span class="p">,</span> <span class="n">LocalPseudo</span><span class="p">,</span> <span class="n">Calculation</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Example: read a tabulated LPP (r [Bohr], V(r) [Hartree])</span>
+<span class="n">r</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;Al.lpp&quot;</span><span class="p">,</span> <span class="n">unpack</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">lpp</span> <span class="o">=</span> <span class="n">LocalPseudo</span><span class="o">.</span><span class="n">from_tabulation</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;Al&quot;</span><span class="p">,</span> <span class="n">Z</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># Z = valence</span>
+
+<span class="n">calc</span> <span class="o">=</span> <span class="n">Calculation</span><span class="p">(</span>
+    <span class="n">structure</span><span class="o">=</span><span class="s2">&quot;Al_fcc.cif&quot;</span><span class="p">,</span>
+    <span class="n">pseudo</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Al&quot;</span><span class="p">:</span> <span class="n">lpp</span><span class="p">},</span>
+    <span class="n">kpoints</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+    <span class="c1"># choose an OF kinetic functional here, e.g. WT/VT84F/TF+vW mixing</span>
+    <span class="n">kinetic</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;WT&quot;</span><span class="p">,</span> <span class="s2">&quot;alpha&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">},</span>
+<span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">calc</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">lattice_constant</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">total_energy</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="caveats-tips">
+<h2>Caveats &amp; tips<a class="headerlink" href="#caveats-tips" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>The <strong>kinetic functional</strong> and the <strong>LPP</strong> must be compatible; a great LPP for
+one functional may underperform with another. Always validate.</p></li>
+<li><p>Highly ionic or highly covalent systems may need <strong>element-specific</strong> fits.</p></li>
+<li><p>Keep <span class="math notranslate nohighlight">\(V_{\mathrm{LPP}}\)</span> smooth at the origin to avoid grid/plane-wave
+artifacts; avoid deep spurious wells that bind ghost states.</p></li>
+</ul>
 </section>
 </section>
 

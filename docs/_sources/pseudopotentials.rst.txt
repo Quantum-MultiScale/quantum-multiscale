@@ -25,3 +25,171 @@ Pseudopotentials Table
    
 
          PSEUDO DOJO
+
+Motivation
+----------
+
+All–electron Kohn–Sham (KS) orbitals oscillate rapidly near nuclei. To make
+plane–wave (or real–space) calculations efficient, we **freeze the core** and
+replace the true electron–ion interaction by a smoother **pseudopotential** that
+reproduces the **valence** physics outside a cutoff radius :math:`r_c`.
+
+Kohn–Sham pseudopotentials (nonlocal)
+-------------------------------------
+
+A modern KS pseudopotential has a **local** part plus an **angular–momentum
+dependent nonlocal operator**,
+
+.. math::
+
+   \hat V_{\mathrm{PP}}
+   \;=\;
+   V_{\mathrm{loc}}(r)
+   \;+\;
+   \sum_{\ell m} \,|\beta_{\ell m}\rangle\, D_{\ell}\, \langle \beta_{\ell m}|,
+
+where :math:`|\beta_{\ell m}\rangle` are localized projectors (Kleinman–Bylander
+form) and :math:`D_{\ell}` are channel strengths. This nonlocality lets KS PPs
+treat different :math:`\ell` channels (s, p, d, …) differently—crucial for good
+transferability.
+
+**Norm-conserving condition (NCPP).** For each channel :math:`\ell`, the
+pseudo–radial function :math:`\phi_{\ell}^{\mathrm{PS}}` matches the
+all–electron solution :math:`\phi_{\ell}^{\mathrm{AE}}` **outside** :math:`r_c`
+and conserves charge **inside** :math:`r_c`:
+
+.. math::
+
+   \int_0^{r_c} r^2 \, \left|\phi_{\ell}^{\mathrm{PS}}(r)\right|^2 \, dr
+   \;=\;
+   \int_0^{r_c} r^2 \, \left|\phi_{\ell}^{\mathrm{AE}}(r)\right|^2 \, dr,
+
+with matching **eigenvalues** and **logarithmic derivatives** at :math:`r_c`.
+That is the “**conserve**” note in your sketch.
+
+Nonlinear core correction (NLCC)
+--------------------------------
+
+Exchange–correlation (XC) is **nonlinear** in the density. When the **valence**
+density overlaps the **core** region, evaluating
+:math:`E_{\mathrm{xc}}[\rho_v]` alone misses XC contributions. The **NLCC**
+fix is to add a frozen core density :math:`\rho_c(r)` in XC:
+
+.. math:: E_{\mathrm{xc}}[\rho_v] \;\to\; E_{\mathrm{xc}}[\rho_v + \rho_c].
+
+This often improves thermochemistry, magnetism, and charge transfer for elements
+with appreciable core–valence overlap (e.g., Na, Si, transition metals).
+
+Why KS PPs are **not** directly usable in OF-DFT
+------------------------------------------------
+
+Orbital-free DFT (OF-DFT) minimizes the total energy **without Kohn–Sham
+orbitals**; the only variable is the **electron density** :math:`\rho(\mathbf r)`.
+Standard KS PPs are **nonlocal and orbital-dependent** (they act via
+projectors on the **orbitals**), so in OF-DFT there is nothing to project.
+Hence, you need a **purely local ionic potential** :math:`V_{\mathrm{ion}}(r)`
+that only acts on the **density**.
+
+Local pseudopotentials (LPP) for OF-DFT
+---------------------------------------
+
+A **local pseudopotential** is a spherically symmetric potential
+:math:`V_{\mathrm{LPP}}(r)` such that the OF-DFT energy functional
+
+.. math::
+
+   E[\rho] = T_s^{\mathrm{OF}}[\rho] + E_{\mathrm{H}}[\rho] + E_{\mathrm{xc}}[\rho]
+             + \int \rho(\mathbf r)\, V_{\mathrm{LPP}}(r)\, d\mathbf r
+             + E_{\mathrm{ion\!-\!ion}},
+
+reproduces **reference KS** forces/energies as closely as possible.
+
+Common routes to build LPPs:
+
+1. **Local-channel extraction.** Use one channel of an NCPP
+   (often :math:`\ell=0`) as :math:`V_{\mathrm{LPP}}(r)`. Fast, but sometimes
+   less transferable.
+
+2. **Model analytic forms** fit to KS data (scattering phase shifts, atomization
+   energies, bulk lattice constants). Examples include Goodwin–Needs–Heine,
+   Heine–Abarenkov, error-function–screened Coulomb plus Gaussians:
+
+   .. math::
+
+      V_{\mathrm{LPP}}(r) \approx
+      -\,\frac{Z_{\mathrm{eff}}}{r}\,\mathrm{erf}\!\left(\frac{r}{\sqrt{2}\sigma}\right)
+      + \sum_{i} A_i \exp\!\left[-\left(\frac{r}{b_i}\right)^2\right].
+
+3. **Force matching/optimization.** Fit :math:`V_{\mathrm{LPP}}` so OF-DFT
+   reproduces KS **forces** and **equation of state** for test clusters/bulk.
+
+4. **Density-derived LPP.** Derive an effective local potential that yields the
+   KS valence density for a reference configuration.
+
+Practical checklist for a good LPP
+----------------------------------
+
+- Choose **reference states** (isolated atom, small cluster, and one/bulk
+  structure).
+- Fit :math:`V_{\mathrm{LPP}}(r)` to match KS targets (eigenvalues,
+  scattering/phase shifts, forces, lattice constant, bulk modulus).
+- Validate on **transfer** tests different from the fit set (defects,
+  surfaces, different coordinations).
+- If core–valence overlap is relevant, consider **NLCC** by including a
+  spherically averaged core density in XC (still local in OF-DFT).
+
+What’s written in your notes (decoded)
+--------------------------------------
+
+- **“KS PP → core electrons; NCPP → conserve”**  
+  We replace the all–electron problem by a PP; **norm–conserving** PPs match
+  eigenvalues/log-derivatives and **conserve valence charge** inside
+  :math:`r_c`.
+
+- **“Σ |φ_v⟩⟨φ_v| ... impose ε_v same as in the RS”**  
+  Projector idea: nonlocal operators use valence-like projectors to ensure
+  **valence eigenvalues** :math:`\varepsilon_v` match a **reference system**.
+
+- **“NLCC → nonlinear core correction”**  
+  Add frozen core density in XC: :math:`E_{\mathrm{xc}}[\rho_v+\rho_c]`.
+
+- **“Why KS PP not applicable to OF-DFT?”**  
+  Because standard KS PPs are **nonlocal/orbital-dependent**, but OF-DFT has **no
+  orbitals**. Use **LPPs**.
+
+- **“OF PP LPP → Xα LPP → no …”**  
+  Interpreted as a reminder that simple **Xα-type** local PPs (or other analytic
+  forms) can be used in OF-DFT; ensure they are **validated** (no spurious
+  bound states / wrong scattering).
+
+Minimal example block (if you want to show usage)
+-------------------------------------------------
+
+.. code-block:: python
+
+   # OF-DFT (DFTpy) sketch: how a local PP is supplied
+   from dftpy import IonIon, LocalPseudo, Calculation
+   import numpy as np
+
+   # Example: read a tabulated LPP (r [Bohr], V(r) [Hartree])
+   r, v = np.loadtxt("Al.lpp", unpack=True)
+   lpp = LocalPseudo.from_tabulation(r, v, symbol="Al", Z=3)  # Z = valence
+
+   calc = Calculation(
+       structure="Al_fcc.cif",
+       pseudo={"Al": lpp},
+       kpoints=[4, 4, 4],
+       # choose an OF kinetic functional here, e.g. WT/VT84F/TF+vW mixing
+       kinetic={"name": "WT", "alpha": 1.0},
+   )
+   result = calc.run()
+   print(result.lattice_constant, result.total_energy)
+
+Caveats & tips
+--------------
+
+- The **kinetic functional** and the **LPP** must be compatible; a great LPP for
+  one functional may underperform with another. Always validate.
+- Highly ionic or highly covalent systems may need **element-specific** fits.
+- Keep :math:`V_{\mathrm{LPP}}` smooth at the origin to avoid grid/plane-wave
+  artifacts; avoid deep spurious wells that bind ghost states.

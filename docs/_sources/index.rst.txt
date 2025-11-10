@@ -21,6 +21,8 @@ Meet the Team
    .. grid-item-card:: MATERIALab @ Boise State
       :columns: 4
       :class-card: lab-card
+      :link: http://www.materialab.org/
+      :link-type: url
 
       - Oliviero Andreussi
       - Thiago da Silva
@@ -32,6 +34,8 @@ Meet the Team
    .. grid-item-card:: PRG @ Rutgers
       :columns: 4
       :class-card: lab-card
+      :link: https://sites.rutgers.edu/prg/
+      :link-type: url
 
       - Michele Pavanello
       - Xuecheng Shao
@@ -44,6 +48,8 @@ Meet the Team
    .. grid-item-card:: Paesani Lab @ UCSD
       :columns: 4
       :class-card: lab-card
+      :link: https://paesanigroup.ucsd.edu/
+      :link-type: url
 
       - Francesco Paesani
       - Saswata Dasgupta
@@ -67,6 +73,27 @@ Collaborators
 
    <hr class="section-divider">
 
+Explore Our Events
+------------------
+.. grid:: 12
+   :gutter: 2
+   :margin: 2 0 2 0
+
+   .. grid-item-card:: Schools
+      :columns: 4
+      :link: school
+      :link-type: ref
+      :class-card: app-card title-only
+
+   .. grid-item-card:: Hackathons
+      :columns: 4
+      :link: hack
+      :link-type: ref
+      :class-card: app-card title-only
+
+.. raw:: html
+
+   <hr class="section-divider">
 
 Our Software
 ------------

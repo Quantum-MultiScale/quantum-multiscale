@@ -1,3 +1,5 @@
+.. _school:
+
 Schools
 =======
 Q-MS organizes schools on materials science based on first-principles multiscale modeling software. Comprehensive introductory lectures are followed by step-by-step training on materials modeling problems. Available virtually and in-person.

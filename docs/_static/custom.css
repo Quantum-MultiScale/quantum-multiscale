@@ -184,3 +184,19 @@ img.banner-crop {
 /* Card polish (optional) */
 .app-card { border-radius: 12px; transition: transform .12s ease, box-shadow .12s ease; }
 .app-card:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,0,0,.08); }
+
+/* Keep all logos the same visual size and baseline */
+img.inline-logo {
+  height: 20px;       /* match your :height: above if you prefer */
+  width: auto;
+  vertical-align: middle;
+}
+
+/* Keep the third column from getting too wide */
+table.software-table td:nth-child(3),
+table.software-table th:nth-child(3) {
+  width: 32ch;         /* ~32 characters; tweak to taste */
+  max-width: 32ch;
+  white-space: normal; /* allow wrapping */
+  word-break: normal;
+}
