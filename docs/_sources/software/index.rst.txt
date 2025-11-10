@@ -23,9 +23,9 @@
    :alt: QMLearn logo
    :class: inline-logo
 
-.. |logo_ofpp| image:: _static/ofpp.png
+.. |logo_pseudopotentials| image:: _static/pseudopotentials.png
    :height: 20px
-   :alt: OFPP logo
+   :alt: Pseudopotentials logo
    :class: inline-logo
 
 
@@ -57,9 +57,9 @@ Q-MS teams develop software for first principles multiscale modeling based on co
    * - |logo_qmlearn|
      - `QMLearn <https://qmlearn.rutgers.edu/>`_
      - Quantum Machine Learning by learning one-body reduced density matrices in the AO basis.
-   * - |logo_ofpp|
-     - `OFPP <https://github.com/Quantum-MultiScale/OFPP>`_
-     - Library of pseudopotentials (PPs) for Orbital-Free DFT
+   * - |logo_pseudopotentials|
+     - `Pseudopotentials <https://github.com/Quantum-MultiScale/OFPP>`_
+     - Transferable local pseudopotentials for OF-DFT and KS-DFT
 
 
 
@@ -74,6 +74,6 @@ Q-MS teams develop software for first principles multiscale modeling based on co
    edftpy
    QEpy <qepy>
    QMLearn <qmlearn>
-   OFPP <ofpp>
+   Pseudopotentials <pseudopotentials>
    
    

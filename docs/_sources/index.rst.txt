@@ -155,15 +155,15 @@ Our Software
 
       Learning one-body reduced density matrices in the AO basis
 
-   .. grid-item-card:: OFPP
+   .. grid-item-card:: Pseudopotentials
       :columns: 4
-      :link: software/ofpp
-      :img-top: _static/ofpp.png
+      :link: software/pseudopotentials
+      :img-top: _static/pseudopotentials.png
       :link-type: doc
       :class-card: app-card
       :class-title: app-title
 
-      Local pseudopotentials for OF-DFT
+      Transferable local pseudopotentials for OF-DFT and KS-DFT
 
 .. raw:: html
 
@@ -186,7 +186,6 @@ Our Software
    Home <self>
    team
    software/index
-   pseudopotentials
    schools/index
    hackathons/index
    publications
