@@ -12,42 +12,6 @@ Details
 | **Where** Campus of Boise State University, ILC Building, Boise, ID 83725, USA
 | **Cost**  A nominal charge of $100 includes accommodation and meals
 
-.. grid:: 2
-   :gutter: 2
-   :margin: 2
-
-   .. grid-item::
-      .. button-link:: http://www.quantum-multiscale.org/q-ms-school-2024-program.html
-         :color: primary
-         :outline:
-         :align: center
-
-         PROGRAM
-
-   .. grid-item::
-      .. button-link:: http://www.quantum-multiscale.org/registration.html
-         :color: primary
-         :outline:
-         :align: left
-
-         REGISTER HERE
-
-   .. grid-item::
-      .. button-link:: http://www.quantum-multiscale.org/uploads/1/2/7/3/127334193/flyer_school.pdf
-         :color: primary
-         :outline:
-         :align: center
-
-         FLYER
-
-   .. grid-item::
-      .. button-link:: javascript:;
-         :color: primary
-         :outline:
-         :align: left
-
-         MATERIALS (COMING SOON)
-
 Instructors
 -----------
 

@@ -12,11 +12,9 @@ Team
       :link-type: url
 
       - Oliviero Andreussi
-      - Thiago da Silva
+      - Jakob Filser
       - Denis Mulumba
-      - Bourgeois Gadjagboui
       - Eric Read
-      - Gabriel Medrano (@ UNT)
 
    .. grid-item-card:: PRG @ Rutgers
       :columns: 4
@@ -25,11 +23,10 @@ Team
       :link-type: url
 
       - Michele Pavanello
-      - Xuecheng Shao
-      - Xin Chen
-      - Pablo Ramos
-      - Alina Urmebkova
-      - Jessica Martinez
+      - Bhaskar Rana
+      - Aniket Mandal
+      - Fabrizio Silveri
+      - Jessica Martinez Bernal
       - Valeria Rios Vargas
 
    .. grid-item-card:: Paesani Lab @ UCSD
@@ -39,9 +36,14 @@ Team
       :link-type: url
 
       - Francesco Paesani
-      - Saswata Dasgupta
-      - Etienne Palos
-      - Suman Saha
+      - Xinmao Lyu
+      - Ethan Bull-Vulpe
+      - Xuanyu Zhu
+      - Richa Rashmi
+      - Henry Agnew
+      - Ruihan Zhou
+      - Yuehua Xie
+      - Shishir Iyer
 
 .. raw:: html
 
@@ -52,9 +54,9 @@ Collaborators
 .. container:: chips
 
    :bdg-secondary:`Davide Ceresoli (CNR Milano)`
-   :bdg-secondary:`Andrew Baczewski (Sandia)`
-   :bdg-secondary:`Ismaila Dabo (Penn State)`
-   :bdg-secondary:`Quinn Campbell (Sandia)`
+   :bdg-secondary:`Alexey Akimov (Buffalo)`
+   :bdg-secondary:`Xuecheng Shao (Jilin)`
+   :bdg-secondary:`Wenhui Mi (Jilin)`
 
 .. raw:: html
 

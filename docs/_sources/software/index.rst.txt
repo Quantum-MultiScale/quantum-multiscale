@@ -1,11 +1,11 @@
-﻿.. |logo_qmultipy| image:: _static/qmultipy.png
-   :height: 20px
-   :alt: QMultiPy logo
-   :class: inline-logo
-
-.. |logo_dftpy| image:: _static/dftpy-logo.png
+﻿.. |logo_dftpy| image:: _static/dftpy-logo.png
    :height: 20px 
    :alt: DFTpy logo
+   :class: inline-logo
+
+.. |logo_environ| image:: _static/environ-logo.png
+   :height: 20px 
+   :alt: environ logo
    :class: inline-logo
 
 .. |logo_edftpy| image:: _static/edftpy-logo.png
@@ -18,14 +18,14 @@
    :alt: QEpy logo
    :class: inline-logo
 
+.. |logo_MBX| image:: _static/MBX-logo.png
+   :height: 20px
+   :alt: MBX logo
+   :class: inline-logo
+
 .. |logo_qmlearn| image:: _static/qmlearn-logo.png
    :height: 20px
    :alt: QMLearn logo
-   :class: inline-logo
-
-.. |logo_pseudopotentials| image:: _static/pseudopotentials.png
-   :height: 20px
-   :alt: Pseudopotentials logo
    :class: inline-logo
 
 
@@ -42,24 +42,24 @@ Q-MS teams develop software for first principles multiscale modeling based on co
    * - 
      - Code
      - What it does
-   * - |logo_qmultipy|
-     - `QMultiPy <https://github.com/Quantum-MultiScale/QMultiPy>`_
-     - QMultiPy is a unifying interface that brings existing quantum simulation engines such as DFTpy, QEpy, and eDFTpy—under one roof.
    * - |logo_dftpy|
      - `DFTpy <http://dftpy.rutgers.edu/>`_
      - DFTpy is an orbital-free Density Functional Theory code based on a plane-wave expansion of the electron density entirely coded in Python.
+   * - |logo_environ|
+     - `Environ <http://www.quantum-environ.org/>`_
+     - A module to handle environment effects in first-principles condensed-matter simulations
    * - |logo_edftpy|
      - `eDFTpy <http://edftpy.rutgers.edu/>`_
      - eDFTpy combines Kohn–Sham DFT and orbital-free DFT in an embedding framework that distills the best of both worlds.
    * - |logo_qepy|
      - `QEpy <https://qepy.rutgers.edu/>`_
      - QEpy turns Quantum ESPRESSO (QE) into a Python DFT engine for nonstandard workflows.
+   * - |logo_MBX|
+     - `MBX <https://mbxsimulations.com/>`_
+     - MBX is a C++ library that provides an interface for molecular dynamics (MD) drivers, such as LAMMPS and i-PI, to perform classical and path-integral molecular dynamics simulations using data-driven many-body potential energy functions (PEFs)
    * - |logo_qmlearn|
      - `QMLearn <https://qmlearn.rutgers.edu/>`_
      - Quantum Machine Learning by learning one-body reduced density matrices in the AO basis.
-   * - |logo_pseudopotentials|
-     - `Pseudopotentials <https://github.com/Quantum-MultiScale/OFPP>`_
-     - Transferable local pseudopotentials for OF-DFT and KS-DFT
 
 
 
@@ -69,11 +69,12 @@ Q-MS teams develop software for first principles multiscale modeling based on co
    :maxdepth: 1
    :hidden:
 
-   QMultiPy <qmultipy>
    dftpy
+   environ 
    edftpy
    QEpy <qepy>
+   MBX
    QMLearn <qmlearn>
-   Pseudopotentials <pseudopotentials>
+   
    
    

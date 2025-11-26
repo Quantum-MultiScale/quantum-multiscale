@@ -42,19 +42,6 @@ Program FA 2023
 
 ---------------------------------------------------------------------------------------------
 
-.. grid:: 1
-   :gutter: 1
-   :margin: 1
-
-   .. grid-item::
-      .. button-link:: http://www.quantum-multiscale.org/program-fa-2023.html
-         :color: primary
-         :outline:
-         :align: center
-
-         PROGRAM
----------------------------------------------------------------------------------------------
-
 **Confirmed Participants**
 
 - `Paesani group <https://paesanigroup.ucsd.edu/>`_, UCSD

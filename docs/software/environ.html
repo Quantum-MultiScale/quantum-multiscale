@@ -1,0 +1,284 @@
+@'
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="ENVIRON" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="software/environ.html" />
+<meta property="og:site_name" content="Quantum Multiscale" />
+<meta property="og:description" content="Environ Environment-aware multiscale embedding for first-principles simulations. Environ introduces continuum and multi-physics environment effects into atomistic DFT calculations for surface scien..." />
+<meta property="og:image:width" content="1146" />
+<meta property="og:image:height" content="600" />
+<meta property="og:image" content="_images/social_previews/summary_software_environ_bfc4c680.png" />
+<meta property="og:image:alt" content="Environ Environment-aware multiscale embedding for first-principles simulations. Environ introduces continuum and multi-physics environment effects into atomistic DFT calculations for surface scien..." />
+<meta name="description" content="Environ Environment-aware multiscale embedding for first-principles simulations. Environ introduces continuum and multi-physics environment effects into atomistic DFT calculations for surface scien..." />
+<meta name="twitter:card" content="summary_large_image" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ENVIRON &mdash; Quantum Multiscale  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=4e452dfd" />
+      <link rel="stylesheet" type="text/css" href="../_static/fonts.css?v=5583d106" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=4e452dfd" />
+      <link rel="stylesheet" type="text/css" href="../_static/ptable/table.css?v=0c7ead12" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../_static/ptable/table.js?v=7b92154b"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="eDFTpy" href="edftpy.html" />
+    <link rel="prev" title="DFTpy" href="dftpy.html" />
+   
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Quantum Multiscale
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SITE NAVIGATION</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../team.html">Team</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Software</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dftpy.html">DFTpy</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">ENVIRON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="edftpy.html">eDFTpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qepy.html">QEpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MBX.html">MBX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qmlearn.html">QMLearn</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../schools/index.html">Schools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../schools/2025.html">QDMS 2025</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../schools/2024.html">2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../schools/2023.html">2023</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../schools/2022.html">Workshop 2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../schools/2021.html">2021</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../hackathons/index.html">Hackathons</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../hackathons/program-su2024.html">Program SU 2024</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hackathons/program-fa2023.html">Program FA 2023</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hackathons/winter-program-21.html">UNT-Rutgers 2021</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hackathons/sandiego-program-21.html">San Diego 2021</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hackathons/program-19.html">Embedding 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hackathons/program-18.html">UNT 2018</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Quantum Multiscale</a>
+      </nav>
+
+      <div class="wy-nav-content">
+  
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Software</a></li>
+      <li class="breadcrumb-item active">ENVIRON</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/software/environ.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="environ">
+<h1>ENVIRON<a class="headerlink" href="#environ" title="Link to this heading"></a></h1>
+<div class="sd-container-fluid sd-sphinx-override sd-mt-0 sd-mb-0 sd-ml-2 sd-mr-0 docutils">
+<div class="sd-row sd-row-cols-12 sd-row-cols-xs-12 sd-row-cols-sm-12 sd-row-cols-md-12 sd-row-cols-lg-12 sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-column sd-col-2 sd-col-xs-2 sd-col-sm-2 sd-col-md-2 sd-col-lg-2 docutils">
+<a class="app-logo reference internal image-reference" href="../_images/environ-logo.png"><img alt="Environ" class="app-logo" src="../_images/environ-logo.png" style="width: 96px;" />
+</a>
+</div>
+<div class="sd-col sd-d-flex-column sd-col-10 sd-col-xs-10 sd-col-sm-10 sd-col-md-10 sd-col-lg-10 docutils">
+<p><strong>Environment-aware multiscale embedding for first-principles simulations.</strong>
+Environ introduces continuum and multi-physics environment effects into
+atomistic DFT calculations for surface science and materials design.</p>
+<p><a class="sd-sphinx-override sd-btn sd-text-wrap sd-btn-outline-primary reference external" href="https://github.com/environ-developers/Environ/releases"><span>GitHub Repo</span></a></p>
+<p><a class="sd-sphinx-override sd-btn sd-text-wrap sd-btn-outline-primary reference external" href="https://gitlab.com/QEF/environ"><span>GitLab (Source Code)</span></a></p>
+</div>
+</div>
+</div>
+<hr class="section-divider"><section id="what-is-environ">
+<span id="environ-about"></span><h2>What is Environ?<a class="headerlink" href="#what-is-environ" title="Link to this heading"></a></h2>
+<p>Environ is a computational library designed to introduce <strong>environment effects
+into atomistic first-principles simulations</strong>, with applications in <strong>surface science</strong>
+and <strong>materials design</strong>.
+Its <strong>hierarchical multi-scale strategy</strong> preserves the full electronic detail of the
+system while treating the surrounding environment using <strong>simplified but
+physically grounded models</strong>.
+This significantly reduces the effective degrees of freedom and enables
+<strong>large-system, low-cost simulations</strong>.</p>
+<p>Environ implements:</p>
+<ul class="simple">
+<li><p><strong>Continuum dielectric solvation models</strong></p></li>
+<li><p><strong>Cavitation, pressure, and surface-tension effects</strong></p></li>
+<li><p><strong>Electrostatic corrections for periodic-boundary artifacts</strong></p></li>
+<li><p><strong>Charged interfaces &amp; electrolyte models</strong> (Helmholtz layer, LPB, GCS, full PB)</p></li>
+<li><p><strong>Confining potentials for anions &amp; constrained molecules</strong></p></li>
+<li><p><strong>Soft-sphere &amp; solvent-aware solvation boundaries</strong></p></li>
+<li><p><strong>SCCS / SSCS solvation schemes</strong> for neutral and charged molecules</p></li>
+</ul>
+<hr class="section-divider"></section>
+<section id="learn-about-it">
+<span id="dftpy-learn"></span><h2>Learn about it<a class="headerlink" href="#learn-about-it" title="Link to this heading"></a></h2>
+<div class="note admonition">
+<p class="admonition-title">External site</p>
+<p>Official site: <a class="reference external" href="http://www.quantum-environ.org/">Environ</a></p>
+</div>
+<hr class="section-divider"></section>
+<section id="download">
+<span id="environ-download"></span><h2>Download<a class="headerlink" href="#download" title="Link to this heading"></a></h2>
+<p>All official Environ releases are available on <a class="reference external" href="https://github.com/environ-developers/Environ/releases">GitHub</a> and <a class="reference external" href="https://gitlab.com/olivieroandreussi/Environ">GitLab</a>.
+The newest version is typically compatible with recent <strong>Quantum ESPRESSO</strong> releases (v7+).
+Older QE versions may require earlier Environ branches.</p>
+<hr class="section-divider"></section>
+<section id="team">
+<span id="environ-team"></span><h2>Team<a class="headerlink" href="#team" title="Link to this heading"></a></h2>
+<p>Environ is developed by an international team of researchers across:</p>
+<ul class="simple">
+<li><p>Boise State University</p></li>
+<li><p>Netherlands eScience Center</p></li>
+<li><p>Pennsylvania State University</p></li>
+<li><p>EPFL</p></li>
+<li><p>Amdocs Inc.</p></li>
+<li><p>University of North Texas</p></li>
+<li><p>Sandia National Laboratories</p></li>
+<li><p>Rutgers University–Newark</p></li>
+</ul>
+<p>Full developer and collaborator list appears on the <a class="reference external" href="http://quantum-environ.org/team.html">Team</a> page.</p>
+<hr class="section-divider"></section>
+<section id="support">
+<span id="environ-support"></span><h2>Support<a class="headerlink" href="#support" title="Link to this heading"></a></h2>
+<p>If you have questions about installation or usage:</p>
+<ul class="simple">
+<li><p>Read the <a class="reference external" href="http://www.quantum-environ.org/faqs.html">FAQ</a></p></li>
+<li><p>Consult the <a class="reference external" href="https://environ.readthedocs.io/en/latest/">user documentation</a></p></li>
+<li><p>Try the <strong>tutorial notebooks</strong> on <a class="reference external" href="https://github.com/Quantum-MultiScale-Template/Environ-Tutorials">GitHub</a></p></li>
+<li><p>Post in the <a class="reference external" href="https://groups.google.com/forum/?hl=en#!forum/quantum-environ-users">Google Group</a>, where developers respond quickly</p></li>
+</ul>
+<hr class="section-divider"></section>
+<section id="references">
+<span id="environ-references"></span><h2>References<a class="headerlink" href="#references" title="Link to this heading"></a></h2>
+<p>If you use Environ, please cite:</p>
+<dl class="simple">
+<dt>[1] O. Andreussi, I. Dabo, and N. Marzari,</dt><dd><p><em>Revised self-consistent continuum solvation in electronic structure calculations</em>,
+J. Chem. Phys. <strong>136</strong>, 064102 (2012).
+<a class="reference external" href="https://doi.org/10.1063/1.3676407">doi:10.1063/1.3676407</a></p>
+</dd>
+<dt>[2] P. Giannozzi, O. Andreussi, et al.,</dt><dd><p><em>Advanced capabilities for materials modelling with QUANTUM ESPRESSO</em>,
+J. Phys.: Condens. Matter <strong>29</strong>, 465901 (2017).
+<a class="reference external" href="https://doi.org/10.1088/1361-648X/aa8f79">doi:10.1088/1361-648X/aa8f79</a></p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="dftpy.html" class="btn btn-neutral float-left" title="DFTpy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="edftpy.html" class="btn btn-neutral float-right" title="eDFTpy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+
+  <div class="sponsors-section" role="region" aria-label="Sponsors">
+    <h2 class="sponsors-title">We are grateful to the following sponsors</h2>
+
+    <div class="spacer-24"></div>
+
+    <div class="sponsors-grid">
+      <a href="https://www.boisestate.edu/" target="_blank" rel="noopener noreferrer">
+        <img src="../_static/boise-state-logo.png"
+             alt="Boise State University" loading="lazy" decoding="async" fetchpriority="low">
+      </a>
+      <a href="https://www.rutgers.edu/" target="_blank" rel="noopener noreferrer">
+        <img src="../_static/rutgers-logo.png"
+             alt="Rutgers University" loading="lazy" decoding="async" fetchpriority="low">
+      </a>
+      <a href="https://www.nsf.gov/" target="_blank" rel="noopener noreferrer">
+        <img src="../_static/nsf-logo.png"
+             alt="National Science Foundation" loading="lazy" decoding="async" fetchpriority="low">
+      </a>
+      <a href="https://ucsd.edu/" target="_blank" rel="noopener noreferrer">
+        <img src="../_static/ucsd.png"
+             alt="University of California San Diego" loading="lazy" decoding="async" fetchpriority="low">
+      </a>
+    </div>
+
+    <div class="spacer-24"></div>
+
+    <p class="sponsors-note">
+      The CyberTraining activities of the Q-MS Center are sponsored by the
+      NSF OAC award numbers <strong>2321102 / 2321103 / 2321104</strong>.
+    </p>
+  </div>
+
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

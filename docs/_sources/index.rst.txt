@@ -25,11 +25,9 @@ Meet the Team
       :link-type: url
 
       - Oliviero Andreussi
-      - Thiago da Silva
+      - Jakob Filser
       - Denis Mulumba
-      - Bourgeois Gadjagboui
       - Eric Read
-      - Gabriel Medrano (@ UNT)
 
    .. grid-item-card:: PRG @ Rutgers
       :columns: 4
@@ -38,11 +36,10 @@ Meet the Team
       :link-type: url
 
       - Michele Pavanello
-      - Xuecheng Shao
-      - Xin Chen
-      - Pablo Ramos
-      - Alina Urmebkova
-      - Jessica Martinez
+      - Bhaskar Rana
+      - Aniket Mandal
+      - Fabrizio Silveri
+      - Jessica Martinez Bernal
       - Valeria Rios Vargas
 
    .. grid-item-card:: Paesani Lab @ UCSD
@@ -52,9 +49,14 @@ Meet the Team
       :link-type: url
 
       - Francesco Paesani
-      - Saswata Dasgupta
-      - Etienne Palos
-      - Suman Saha
+      - Xinmao Lyu
+      - Ethan Bull-Vulpe
+      - Xuanyu Zhu
+      - Richa Rashmi
+      - Henry Agnew
+      - Ruihan Zhou
+      - Yuehua Xie
+      - Shishir Iyer
 
 .. raw:: html
 
@@ -65,9 +67,9 @@ Collaborators
 .. container:: chips
 
    :bdg-secondary:`Davide Ceresoli (CNR Milano)`
-   :bdg-secondary:`Andrew Baczewski (Sandia)`
-   :bdg-secondary:`Ismaila Dabo (Penn State)`
-   :bdg-secondary:`Quinn Campbell (Sandia)`
+   :bdg-secondary:`Alexey Akimov (Buffalo)`
+   :bdg-secondary:`Xuecheng Shao (Jilin)`
+   :bdg-secondary:`Wenhui Mi (Jilin)`
 
 .. raw:: html
 
@@ -101,18 +103,7 @@ Our Software
 .. grid:: 12
    :gutter: 2
    :margin: 2 0 2 0
-
-   .. grid-item-card:: QMultiPy
-      :columns: 4
-      :link: software/qmultipy
-      :img-top: _static/qmultipy.png
-      :link-type: doc
-      :class-card: app-card
-      :class-title: app-title
-
-      Unified interface connecting DFTpy, QEpy, and eDFTpy for quantum simulations—run MD or time-dependent calculations across frameworks
-
-
+   
    .. grid-item-card:: DFTpy
       :columns: 4
       :link: software/dftpy
@@ -123,6 +114,15 @@ Our Software
 
       Python code for orbital-free DFT with efficient parallelization for million-atom systems
 
+   .. grid-item-card:: Environ
+      :columns: 4
+      :link: software/environ
+      :img-top: _static/environ-logo.png
+      :link-type: doc
+      :class-card: app-card
+      :class-title: app-title
+
+      Library to handle environment effects via continuum embedding models
 
    .. grid-item-card:: eDFTpy
       :columns: 4
@@ -145,6 +145,16 @@ Our Software
 
       Quantum ESPRESSO with python
 
+   .. grid-item-card:: MBX
+      :columns: 4
+      :link: software/MBX
+      :img-top: _static/MBX-logo.png
+      :link-type: doc
+      :class-card: app-card
+      :class-title: app-title
+
+      Energy and force calculator for data-driven many-body simulations
+
    .. grid-item-card:: QMLearn
       :columns: 4
       :link: software/qmlearn
@@ -155,15 +165,7 @@ Our Software
 
       Learning one-body reduced density matrices in the AO basis
 
-   .. grid-item-card:: Pseudopotentials
-      :columns: 4
-      :link: software/pseudopotentials
-      :img-top: _static/pseudopotentials.png
-      :link-type: doc
-      :class-card: app-card
-      :class-title: app-title
 
-      Transferable local pseudopotentials for OF-DFT and KS-DFT
 
 .. raw:: html
 
@@ -188,5 +190,5 @@ Our Software
    software/index
    schools/index
    hackathons/index
-   publications
+   
 

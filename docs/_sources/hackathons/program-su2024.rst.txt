@@ -38,19 +38,6 @@ Program SU 2024
       - INQ  
       - MBX  
       - QEpy  
-
-.. grid:: 1
-   :gutter: 1
-   :margin: 1
-
-   .. grid-item::
-      .. button-link:: http://www.quantum-multiscale.org/program-su-2024.html
-         :color: primary
-         :outline:
-         :align: center
-
-         PROGRAM
-
          
 .. dropdown:: **AUGUST 25**
    :animate: fade-in

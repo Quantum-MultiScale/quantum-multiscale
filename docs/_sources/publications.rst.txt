@@ -1,6 +1,0 @@
-﻿Publications
-============
-
-.. bibliography::
-   :style: unsrt
-   :all:

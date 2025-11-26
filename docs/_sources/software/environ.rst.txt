@@ -1,0 +1,153 @@
+ENVIRON
+=======
+
+.. grid:: 12
+   :gutter: 2
+   :margin: 0 0 2 0
+
+   .. grid-item:: 
+      :columns: 2
+
+      .. image:: /_static/environ-logo.png
+         :alt: Environ
+         :width: 96px
+         :class: app-logo
+
+   .. grid-item:: 
+      :columns: 10
+
+      **Environment-aware multiscale embedding for first-principles simulations.**
+      Environ introduces continuum and multi-physics environment effects into
+      atomistic DFT calculations for surface science and materials design.
+
+      .. button-link:: https://github.com/environ-developers/Environ/releases
+         :color: primary
+         :outline:
+         
+         GitHub Repo
+
+      .. button-link:: https://gitlab.com/QEF/environ
+         :color: primary
+         :outline:
+
+         GitLab (Source Code)
+
+.. raw:: html
+
+   <hr class="section-divider">
+
+.. _environ-about:
+
+What is Environ?
+----------------
+
+Environ is a computational library designed to introduce **environment effects
+into atomistic first-principles simulations**, with applications in **surface science**  
+and **materials design**.  
+Its **hierarchical multi-scale strategy** preserves the full electronic detail of the
+system while treating the surrounding environment using **simplified but
+physically grounded models**.  
+This significantly reduces the effective degrees of freedom and enables  
+**large-system, low-cost simulations**.  
+
+Environ implements:
+
+- **Continuum dielectric solvation models**
+- **Cavitation, pressure, and surface-tension effects**
+- **Electrostatic corrections for periodic-boundary artifacts**
+- **Charged interfaces & electrolyte models** (Helmholtz layer, LPB, GCS, full PB)
+- **Confining potentials for anions & constrained molecules**
+- **Soft-sphere & solvent-aware solvation boundaries**
+- **SCCS / SSCS solvation schemes** for neutral and charged molecules
+
+.. raw:: html
+
+   <hr class="section-divider">
+
+.. _dftpy-learn:
+
+Learn about it
+--------------
+
+.. grid:: 12
+   :gutter: 2
+   :margin: 0 0 1.25 0
+
+.. admonition:: External site 
+   :class: note
+
+   Official site: `Environ <http://www.quantum-environ.org/>`_
+
+.. raw:: html
+
+   <hr class="section-divider">
+
+.. _environ-download:
+
+Download
+--------
+
+All official Environ releases are available on `GitHub <https://github.com/environ-developers/Environ/releases>`_ and `GitLab <https://gitlab.com/olivieroandreussi/Environ>`_.  
+The newest version is typically compatible with recent **Quantum ESPRESSO** releases (v7+). 
+Older QE versions may require earlier Environ branches.  
+
+.. raw:: html
+
+   <hr class="section-divider">
+
+.. _environ-team:
+
+Team
+----
+
+Environ is developed by an international team of researchers across:
+
+- Boise State University  
+- Netherlands eScience Center  
+- Pennsylvania State University  
+- EPFL  
+- Amdocs Inc.  
+- University of North Texas  
+- Sandia National Laboratories  
+- Rutgers University–Newark  
+
+Full developer and collaborator list appears on the `Team <http://quantum-environ.org/team.html>`_ page.
+
+.. raw:: html
+
+   <hr class="section-divider">
+
+.. _environ-support:
+
+Support
+-------
+
+If you have questions about installation or usage:
+
+- Read the `FAQ <http://www.quantum-environ.org/faqs.html>`_
+- Consult the `user documentation <https://environ.readthedocs.io/en/latest/>`_
+- Try the **tutorial notebooks** on `GitHub <https://github.com/Quantum-MultiScale-Template/Environ-Tutorials>`_
+- Post in the `Google Group <https://groups.google.com/forum/?hl=en#!forum/quantum-environ-users>`_, where developers respond quickly
+
+.. raw:: html
+
+   <hr class="section-divider">
+
+.. _environ-references:
+
+References
+----------
+
+If you use Environ, please cite:
+
+[1] O. Andreussi, I. Dabo, and N. Marzari,
+    *Revised self-consistent continuum solvation in electronic structure calculations*,
+    J. Chem. Phys. **136**, 064102 (2012).
+    `doi:10.1063/1.3676407 <https://doi.org/10.1063/1.3676407>`_
+
+[2] P. Giannozzi, O. Andreussi, et al.,
+    *Advanced capabilities for materials modelling with QUANTUM ESPRESSO*,
+    J. Phys.: Condens. Matter **29**, 465901 (2017).
+    `doi:10.1088/1361-648X/aa8f79 <https://doi.org/10.1088/1361-648X/aa8f79>`_
+
+
