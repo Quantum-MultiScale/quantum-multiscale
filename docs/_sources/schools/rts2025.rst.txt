@@ -68,15 +68,15 @@ Morning session: ML/Data-based methods and software
    * - 9:30
      - Dr. Bhaskar Rana
      - Pavanello group
-     - `Learning the Electronic Structure of Excited States via the 1-RDM <https://youtu.be/db7CGVbrN_c>`_
+     - `Learning the Electronic Structure of Excited States via the 1-RDM <https://www.youtube.com/watch?v=TGevvSvqfhY&list=PLDgw3fS4ncAFaZZ04pldyBXdjB8Z3-mMD&index=1&t=8s&pp=iAQB>`_
    * - 9:50
      - Rishi Rao
      - Zhu Group
-     - `Machine Learning of Self-energies for Accelerated DMFT Calculations <https://youtu.be/qEwd7zoW3f8>`_
+     - `Machine Learning of Self-energies for Accelerated DMFT Calculations <https://www.youtube.com/watch?v=XAuej-8CYu4&list=PLDgw3fS4ncAFaZZ04pldyBXdjB8Z3-mMD&index=2&pp=iAQB>`_
    * - 10:10
      - Dr. Aniket Mandal 
      - Pavanello group
-     - `QEpy: Quantum ESPRESSO in Python <https://youtu.be/Ad_ryNAvOzk>`_
+     - `QEpy: Quantum ESPRESSO in Python <https://www.youtube.com/watch?v=FfHkHfOFWUU&list=PLDgw3fS4ncAFaZZ04pldyBXdjB8Z3-mMD&index=3&pp=iAQB0gcJCRUKAYcqIYzv>`_
    
 .. list-table::
    :header-rows: 1
@@ -98,15 +98,15 @@ Morning session: ML/Data-based methods and software
    * - 11:00
      - Meiyan Wang
      - Zhu group
-     - `From Semiconductors to Superconductors: A Data-Driven Pipeline for Exploring Complex Energy Landscapes <https://youtu.be/db7CGVbrN_c>`_
+     - `From Semiconductors to Superconductors: A Data-Driven Pipeline for Exploring Complex Energy Landscapes <https://www.youtube.com/watch?v=MZobac8Ncr8&list=PLDgw3fS4ncAFaZZ04pldyBXdjB8Z3-mMD&index=4&pp=iAQB>`_
    * - 11:20
      - Jessica Martinez Bernal
      - Pavanello Group
-     - `Machine Learning the 2-RDM <https://youtu.be/qEwd7zoW3f8>`_
+     - `Machine Learning the 2-RDM <https://www.youtube.com/watch?v=r-QLZ9aZm0s&list=PLDgw3fS4ncAFaZZ04pldyBXdjB8Z3-mMD&index=5&t=8s&pp=iAQB>`_
    * - 11:40
      - Dr. Ezekiel Oyeniyi  
      - Pavanello group, Zoom
-     - `Pseudopotentials for Orbital Free DFT <https://youtu.be/qEwd7zoW3f8>`_
+     - `Pseudopotentials for Orbital Free DFT <https://www.youtube.com/watch?v=4ehD9NOSU7o&list=PLDgw3fS4ncAFaZZ04pldyBXdjB8Z3-mMD&index=6&t=682s&pp=iAQB>`_
 
 .. list-table::
    :header-rows: 1
@@ -131,15 +131,15 @@ Afternoon session: Physics-Based Methods
    * - 2:30
      - Dr. Jack Taylor
      - Maitra group
-     - `Ground-to-excited state conical intersections in LR-TDDFT: Implications for nonadiabatic molecular dynamics <https://youtu.be/db7CGVbrN_c>`_
+     - `Ground-to-excited state conical intersections in LR-TDDFT: Implications for nonadiabatic molecular dynamics <https://www.youtube.com/watch?v=L2uCpT5cwh4&list=PLDgw3fS4ncAFaZZ04pldyBXdjB8Z3-mMD&index=7&pp=iAQB>`_
    * - 2:50
      - Anya Baranova
      - Maitra Group
-     - `Excited-State Densities from Linear-Response TDDFT <https://youtu.be/qEwd7zoW3f8>`_
+     - `Excited-State Densities from Linear-Response TDDFT <https://www.youtube.com/watch?v=0jzB59tmcJs&list=PLDgw3fS4ncAFaZZ04pldyBXdjB8Z3-mMD&index=11&pp=iAQB>`_
    * - 3:10
      - Dhyey Ray 
      - Maitra group
-     - `The Application of Response-Reformulated TDDFT to Strong-Field Dynamics in Systems with Double Excitations <https://youtu.be/qEwd7zoW3f8>`_
+     - `The Application of Response-Reformulated TDDFT to Strong-Field Dynamics in Systems with Double Excitations <https://www.youtube.com/watch?v=N0e924m-S4o&list=PLDgw3fS4ncAFaZZ04pldyBXdjB8Z3-mMD&index=8&pp=iAQB>`_
 
 .. list-table::
    :header-rows: 1
@@ -161,11 +161,11 @@ Afternoon session: Physics-Based Methods
    * - 4:00
      - Valeria Rios Vargas
      - Pavanello group
-     - `Orbital-Free TDDFT for Plasmonic Nanoparticles<https://youtu.be/db7CGVbrN_c>`_
+     - `Orbital-Free TDDFT for Plasmonic Nanoparticles <https://www.youtube.com/watch?v=ecmE2Ut1c4A&list=PLDgw3fS4ncAFaZZ04pldyBXdjB8Z3-mMD&index=9&pp=iAQB0gcJCRUKAYcqIYzv>`_
    * - 4:20
      - Dr. Evaristo Villaseco
      - Maitra Group
-     - `Electronic Coherences in Molecules: The Nuclear Quantum Momentum as Hidden Agent <https://youtu.be/qEwd7zoW3f8>`_
+     - `Electronic Coherences in Molecules: The Nuclear Quantum Momentum as Hidden Agent <https://www.youtube.com/watch?v=bYO8vM4WmPQ&list=PLDgw3fS4ncAFaZZ04pldyBXdjB8Z3-mMD&index=10&pp=iAQB>`_
 
 .. list-table::
    :header-rows: 1

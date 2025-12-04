@@ -45,7 +45,7 @@ Team
       - Yuehua Xie
       - Shishir Iyer
    
-   .. grid-item-card:: MS :sup:`2` Lab
+   .. grid-item-card:: MS :sup:`2` Lab @ Jilin
       :columns: 3
       :class-card: lab-card
       :link: https://www.shaoxc.com/
