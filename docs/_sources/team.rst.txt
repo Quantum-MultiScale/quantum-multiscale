@@ -6,7 +6,7 @@ Team
    :margin: 0 0 2 0
 
    .. grid-item-card:: MATERIALab @ Boise State
-      :columns: 4
+      :columns: 3
       :class-card: lab-card
       :link: http://www.materialab.org/
       :link-type: url
@@ -17,7 +17,7 @@ Team
       - Eric Read
 
    .. grid-item-card:: PRG @ Rutgers
-      :columns: 4
+      :columns: 3
       :class-card: lab-card
       :link: https://sites.rutgers.edu/prg/
       :link-type: url
@@ -30,7 +30,7 @@ Team
       - Valeria Rios Vargas
 
    .. grid-item-card:: Paesani Lab @ UCSD
-      :columns: 4
+      :columns: 3
       :class-card: lab-card
       :link: https://paesanigroup.ucsd.edu/
       :link-type: url
@@ -44,6 +44,16 @@ Team
       - Ruihan Zhou
       - Yuehua Xie
       - Shishir Iyer
+   
+   .. grid-item-card:: MS :sup:`2` Lab
+      :columns: 3
+      :class-card: lab-card
+      :link: https://www.shaoxc.com/
+      :link-type: url
+
+      - Xuecheng Shao
+      - Wenhui Mi
+      - Cheng Ma    
 
 .. raw:: html
 
@@ -55,8 +65,6 @@ Collaborators
 
    :bdg-secondary:`Davide Ceresoli (CNR Milano)`
    :bdg-secondary:`Alexey Akimov (Buffalo)`
-   :bdg-secondary:`Xuecheng Shao (Jilin)`
-   :bdg-secondary:`Wenhui Mi (Jilin)`
 
 .. raw:: html
 

@@ -1,0 +1,178 @@
+.. _rts2025:
+
+Rutgers Theory Symposium
+========================
+
+.. div:: sd-text-center
+
+
+   **Focus**
+
+   | ML/Data-Based and Physics-Based Methods  
+   | Talks given by postdocs, graduate and undergraduate students
+
+   **When**
+
+   | September 4, 2025  
+   | 9:20 AM to 5:00 PM  
+   | (Eastern US time zone)
+
+   **Location**
+
+   | 101 Warren St., Newark, New Jersey
+   | Smith Hall, Room 206
+
+   .. div:: sd-text-center
+
+      .. button-link:: https://youtube.com/playlist?list=PLDgw3fS4ncAFaZZ04pldyBXdjB8Z3-mMD&si=_Gd0HJaKcXv8Y9Rr
+         :color: primary
+         :outline:
+
+         VIDEO RECORDINGS
+
+
+**Participants**
+
+* Dr. Bhaskar Rana (Pavanello group)
+* Rishi Rao (Zhu Group)
+* Dr. Aniket Mandal (Pavanello group)
+* Meiyan Wang (Zhu Group)
+* Jessica Martinez Bernal (Pavanello group)
+* Dr. Ezekiel Oyeniyi (Pavanello group)
+* Dr. Jack Taylor (Maitra Group)
+* Anya Baranova (Maitra Group)
+* Dhyey Ray (Maitra Group)
+* Valeria Rios Vargas (Pavanello group)
+* Dr. Evaristo Villaseco (Maitra group)
+
+Morning session: ML/Data-based methods and software
+---------------------------------------------------
+
+.. list-table::
+   :header-rows: 1
+   :widths: 8 10 
+   
+   * - **TIME**
+     - **ACTIVITY**
+   * - 9:20
+     - Opening Remarks
+
+.. list-table::
+   :header-rows: 1
+   :widths: 8 18 20 40
+
+   * - **TIME**
+     - **SPEAKER**
+     - **GROUP**
+     - **TITLE**
+   * - 9:30
+     - Dr. Bhaskar Rana
+     - Pavanello group
+     - `Learning the Electronic Structure of Excited States via the 1-RDM <https://youtu.be/db7CGVbrN_c>`_
+   * - 9:50
+     - Rishi Rao
+     - Zhu Group
+     - `Machine Learning of Self-energies for Accelerated DMFT Calculations <https://youtu.be/qEwd7zoW3f8>`_
+   * - 10:10
+     - Dr. Aniket Mandal 
+     - Pavanello group
+     - `QEpy: Quantum ESPRESSO in Python <https://youtu.be/Ad_ryNAvOzk>`_
+   
+.. list-table::
+   :header-rows: 1
+   :widths: 8 10 
+   
+   * - **TIME**
+     - **ACTIVITY**
+   * - 10:30
+     - Break
+
+.. list-table::
+   :header-rows: 1
+   :widths: 8 18 20 40
+
+   * - **TIME**
+     - **SPEAKER**
+     - **GROUP**
+     - **TITLE**
+   * - 11:00
+     - Meiyan Wang
+     - Zhu group
+     - `From Semiconductors to Superconductors: A Data-Driven Pipeline for Exploring Complex Energy Landscapes <https://youtu.be/db7CGVbrN_c>`_
+   * - 11:20
+     - Jessica Martinez Bernal
+     - Pavanello Group
+     - `Machine Learning the 2-RDM <https://youtu.be/qEwd7zoW3f8>`_
+   * - 11:40
+     - Dr. Ezekiel Oyeniyi  
+     - Pavanello group, Zoom
+     - `Pseudopotentials for Orbital Free DFT <https://youtu.be/qEwd7zoW3f8>`_
+
+.. list-table::
+   :header-rows: 1
+   :widths: 8 10 
+   
+   * - **TIME**
+     - **ACTIVITY**
+   * - 12:00
+     - Lunch Break
+
+Afternoon session: Physics-Based Methods
+----------------------------------------
+
+.. list-table::
+   :header-rows: 1
+   :widths: 8 18 20 40
+
+   * - **TIME**
+     - **SPEAKER**
+     - **GROUP**
+     - **TITLE**
+   * - 2:30
+     - Dr. Jack Taylor
+     - Maitra group
+     - `Ground-to-excited state conical intersections in LR-TDDFT: Implications for nonadiabatic molecular dynamics <https://youtu.be/db7CGVbrN_c>`_
+   * - 2:50
+     - Anya Baranova
+     - Maitra Group
+     - `Excited-State Densities from Linear-Response TDDFT <https://youtu.be/qEwd7zoW3f8>`_
+   * - 3:10
+     - Dhyey Ray 
+     - Maitra group
+     - `The Application of Response-Reformulated TDDFT to Strong-Field Dynamics in Systems with Double Excitations <https://youtu.be/qEwd7zoW3f8>`_
+
+.. list-table::
+   :header-rows: 1
+   :widths: 8 10 
+   
+   * - **TIME**
+     - **ACTIVITY**
+   * - 3:30
+     - Break
+
+.. list-table::
+   :header-rows: 1
+   :widths: 8 18 20 40
+
+   * - **TIME**
+     - **SPEAKER**
+     - **GROUP**
+     - **TITLE**
+   * - 4:00
+     - Valeria Rios Vargas
+     - Pavanello group
+     - `Orbital-Free TDDFT for Plasmonic Nanoparticles<https://youtu.be/db7CGVbrN_c>`_
+   * - 4:20
+     - Dr. Evaristo Villaseco
+     - Maitra Group
+     - `Electronic Coherences in Molecules: The Nuclear Quantum Momentum as Hidden Agent <https://youtu.be/qEwd7zoW3f8>`_
+
+.. list-table::
+   :header-rows: 1
+   :widths: 8 10 
+   
+   * - **TIME**
+     - **ACTIVITY**
+   * - 4:40
+     - Open Discussion
+

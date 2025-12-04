@@ -78,11 +78,11 @@ QDMS Schedule
       * - 9:00 am
         - **Talk: Vibrational Spectroscopy & PIMD approaches**, Speaker: Richa
       * - 9:30 am
-        - **Tutorial IV: PIMD Simulations & Spectra Calculations **
+        - **Tutorial IV: PIMD Simulations & Spectra Calculations**
       * - 10:20 am
         - Coffee Break
       * - 10:40 am
-        - **Tutorial IV (cont.): PIMD Simulations & Spectra Calculations **
+        - **Tutorial IV (cont.): PIMD Simulations & Spectra Calculations**
       * - 12:00 pm
         - Lunch
       * - 1:30 pm

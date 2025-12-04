@@ -18,6 +18,12 @@ Programs
    :gutter: 2
    :margin: 2 0 2 0
 
+   .. grid-item-card:: Rutgers Theory Symposium 2025
+      :columns: 4
+      :link: rts2025
+      :link-type: ref
+      :class-card: app-card title-only
+
    .. grid-item-card:: QDMS 2025
       :columns: 4
       :link: qdms-2025
@@ -56,6 +62,7 @@ Programs
    :maxdepth: 1
    :hidden:
 
+   Rutgers Theory Symposium 2025 <rts2025>
    QDMS 2025 <2025>
    2024
    2023

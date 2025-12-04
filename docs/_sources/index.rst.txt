@@ -4,7 +4,7 @@ Quantum Multiscale (Q-MS)
 An NSF Center for
 *First-Principles Multiscale Software*
 
-**Quantum Multiscale (Q-MS)** develops sustainable multiscale modeling software built on quantum mechanics.
+**Quantum Multiscale (Q-MS)** develops sustainable multiscale modeling software built on rigorous theoretical foundations based on quantum mechanics and data-driven approaches.
 
 
 .. raw:: html
@@ -19,7 +19,7 @@ Meet the Team
    :margin: 0 0 2 0
 
    .. grid-item-card:: MATERIALab @ Boise State
-      :columns: 4
+      :columns: 3
       :class-card: lab-card
       :link: http://www.materialab.org/
       :link-type: url
@@ -30,7 +30,7 @@ Meet the Team
       - Eric Read
 
    .. grid-item-card:: PRG @ Rutgers
-      :columns: 4
+      :columns: 3
       :class-card: lab-card
       :link: https://sites.rutgers.edu/prg/
       :link-type: url
@@ -43,7 +43,7 @@ Meet the Team
       - Valeria Rios Vargas
 
    .. grid-item-card:: Paesani Lab @ UCSD
-      :columns: 4
+      :columns: 3
       :class-card: lab-card
       :link: https://paesanigroup.ucsd.edu/
       :link-type: url
@@ -57,6 +57,16 @@ Meet the Team
       - Ruihan Zhou
       - Yuehua Xie
       - Shishir Iyer
+   
+   .. grid-item-card:: MS :sup:`2` Lab @ Jilin
+      :columns: 3
+      :class-card: lab-card
+      :link: https://www.shaoxc.com/
+      :link-type: url
+
+      - Xuecheng Shao
+      - Wenhui Mi
+      - Cheng Ma    
 
 .. raw:: html
 
@@ -68,9 +78,7 @@ Collaborators
 
    :bdg-secondary:`Davide Ceresoli (CNR Milano)`
    :bdg-secondary:`Alexey Akimov (Buffalo)`
-   :bdg-secondary:`Xuecheng Shao (Jilin)`
-   :bdg-secondary:`Wenhui Mi (Jilin)`
-
+   
 .. raw:: html
 
    <hr class="section-divider">
