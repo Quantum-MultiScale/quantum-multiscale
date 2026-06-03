@@ -1,492 +1,177 @@
-@'
-
-
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
+<html lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="Workshop" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="schools/2022.html" />
-<meta property="og:site_name" content="Quantum Multiscale" />
-<meta property="og:description" content="Focus Implementation and algorithms for QM/MM simulations, Talks given by postdocs and graduate students, When November 5, 2022, 8:45 AM to 3:00 PM,(Eastern US time zone), VIDEO RECORDINGS Particip..." />
-<meta property="og:image:width" content="1146" />
-<meta property="og:image:height" content="600" />
-<meta property="og:image" content="_images/social_previews/summary_schools_2022_30efdc59.png" />
-<meta property="og:image:alt" content="Focus Implementation and algorithms for QM/MM simulations, Talks given by postdocs and graduate students, When November 5, 2022, 8:45 AM to 3:00 PM,(Eastern US time zone), VIDEO RECORDINGS Particip..." />
-<meta name="description" content="Focus Implementation and algorithms for QM/MM simulations, Talks given by postdocs and graduate students, When November 5, 2022, 8:45 AM to 3:00 PM,(Eastern US time zone), VIDEO RECORDINGS Particip..." />
-<meta name="twitter:card" content="summary_large_image" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Workshop &mdash; Quantum Multiscale  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=4e452dfd" />
-      <link rel="stylesheet" type="text/css" href="../_static/fonts.css?v=5583d106" />
-      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=4e452dfd" />
-      <link rel="stylesheet" type="text/css" href="../_static/ptable/table.css?v=0c7ead12" />
-
-  
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-      <script src="../_static/copybutton.js?v=f281be69"></script>
-      <script src="../_static/design-tabs.js?v=f930bc37"></script>
-      <script src="../_static/ptable/table.js?v=7b92154b"></script>
-    <script src="../_static/js/theme.js"></script>
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2021" href="2021.html" />
-    <link rel="prev" title="2023" href="2023.html" />
-   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Workshop 2022 — Virtual Mini-symposium on QM/MM — Quantum Multiscale (Q-MS)</title>
+  <meta name="description" content="Virtual mini-symposium on QM/MM — November 5, 2022. Implementation and algorithms for QM/MM simulations.">
+  <link rel="icon" href="../_static/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="../_static/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
 </head>
+<body data-page="schools" data-root="../">
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-
-          
-          
-          <a href="../index.html" class="icon icon-home">
-            Quantum Multiscale
-              <img src="../_static/logo.png" class="logo" alt="Logo"/>
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">SITE NAVIGATION</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../team.html">Team</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../software/index.html">Software</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../software/dftpy.html">DFTpy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../software/environ.html">ENVIRON</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../software/edftpy.html">eDFTpy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../software/qepy.html">QEpy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../software/MBX.html">MBX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../software/qmlearn.html">QMLearn</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Schools</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="2025.html">QDMS 2025</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2024.html">2024</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2023.html">2023</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Workshop 2022</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2021.html">2021</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../hackathons/index.html">Hackathons</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../hackathons/program-su2024.html">Program SU 2024</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../hackathons/program-fa2023.html">Program FA 2023</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../hackathons/winter-program-21.html">UNT-Rutgers 2021</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../hackathons/sandiego-program-21.html">San Diego 2021</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../hackathons/program-19.html">Embedding 2019</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../hackathons/program-18.html">UNT 2018</a></li>
-</ul>
-</li>
-</ul>
-
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-inner">
+        <div class="crumbs"><a href="../schools/index.html">Schools</a> <span>/</span> Workshop 2022</div>
+        <h1>Virtual mini-symposium on QM/MM</h1>
+        <p>Implementation and algorithms for QM/MM simulations — talks given by postdocs and graduate students.</p>
+        <div class="actions" style="margin-top:18px">
+          <a class="btn btn-accent" href="https://www.youtube.com/playlist?list=PLDgw3fS4ncAFO7SaLUpqlU6DhQFGYsGVU" target="_blank" rel="noopener">Video recordings</a>
         </div>
       </div>
-    </nav>
+    </div>
+  </section>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Quantum Multiscale</a>
-      </nav>
+  <section class="section">
+    <div class="container prose">
+      <div class="detail-grid reveal">
+        <div class="detail"><div class="k">Focus</div><div class="v">Implementation and algorithms for QM/MM simulations.</div></div>
+        <div class="detail"><div class="k">When</div><div class="v">November 5, 2022<br>8:45 AM to 3:00 PM (Eastern US)</div></div>
+        <div class="detail"><div class="k">Format</div><div class="v">Virtual mini-symposium</div></div>
+      </div>
 
-      <div class="wy-nav-content">
-  
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="index.html">Schools</a></li>
-      <li class="breadcrumb-item active">Workshop</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/schools/2022.rst.txt" rel="nofollow"> View page source</a>
-      </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
-  <section id="workshop">
-<span id="id1"></span><h1>Workshop<a class="headerlink" href="#workshop" title="Link to this heading"></a></h1>
-<div class="sd-text-center docutils">
-<p><strong>Focus</strong></p>
-<div class="line-block">
-<div class="line">Implementation and algorithms for QM/MM simulations</div>
-<div class="line">Talks given by postdocs and graduate students</div>
-</div>
-<p><strong>When</strong></p>
-<div class="line-block">
-<div class="line">November 5, 2022</div>
-<div class="line">8:45 AM to 3:00 PM</div>
-<div class="line">(Eastern US time zone)</div>
-</div>
-<div class="sd-text-center docutils">
-<p><a class="sd-sphinx-override sd-btn sd-text-wrap sd-btn-outline-primary reference external" href="https://www.youtube.com/playlist?list=PLDgw3fS4ncAFO7SaLUpqlU6DhQFGYsGVU"><span>VIDEO RECORDINGS</span></a></p>
-</div>
-</div>
-<p><strong>Participating groups</strong></p>
-<ul class="simple">
-<li><p>Oliviero Andreussi (Boise State University)</p></li>
-<li><p>Marco Caricato (University of Kansas)</p></li>
-<li><p>Andrés Cisneros (UT Dallas)</p></li>
-<li><p>William Glover (NYU, Shanghai)</p></li>
-<li><p>John Herbert (Ohio State University)</p></li>
-<li><p>Francesco Paesani (UC San Diego)</p></li>
-<li><p>Michele Pavanello (Rutgers University-Newark)</p></li>
-<li><p>Alexander Sokolov (Ohio State University)</p></li>
-<li><p>Lyudmila Slipchenko (Purdue University)</p></li>
-</ul>
-<p><strong>Organizing committee</strong></p>
-<ul class="simple">
-<li><p><a class="reference external" href="mailto:jam1042&#37;&#52;&#48;rutgers&#46;edu">Jessica Martinez</a></p></li>
-<li><p><a class="reference external" href="mailto:acc256&#37;&#52;&#48;rutgers&#46;edu">Andres Cifuentes</a></p></li>
-<li><p>Michele Pavanello</p></li>
-<li><p>John Herbert</p></li>
-</ul>
-<section id="program">
-<h2>Program<a class="headerlink" href="#program" title="Link to this heading"></a></h2>
-</section>
-<section id="opening">
-<h2>Opening<a class="headerlink" href="#opening" title="Link to this heading"></a></h2>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 44.4%" />
-<col style="width: 55.6%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>TIME</strong></p></th>
-<th class="head"><p><strong>ACTIVITY</strong></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>9:00</p></td>
-<td><p>Opening Remarks</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="morning-session">
-<h2>Morning session<a class="headerlink" href="#morning-session" title="Link to this heading"></a></h2>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 9.3%" />
-<col style="width: 20.9%" />
-<col style="width: 23.3%" />
-<col style="width: 46.5%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>TIME</strong></p></th>
-<th class="head"><p><strong>SPEAKER</strong></p></th>
-<th class="head"><p><strong>GROUP</strong></p></th>
-<th class="head"><p><strong>TITLE</strong></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>9:00</p></td>
-<td><p>Alexander Humeniuk</p></td>
-<td><p>Glover, NYU Shanghai</p></td>
-<td><p><a class="reference external" href="https://youtu.be/db7CGVbrN_c">Multistate, polarizable QM/MM embedding scheme based on the direct reaction field method: implementation details and challenges</a></p></td>
-</tr>
-<tr class="row-odd"><td><p>9:30</p></td>
-<td><p>Amiel Paz</p></td>
-<td><p>Glover, NYU Shanghai</p></td>
-<td><p><a class="reference external" href="https://youtu.be/qEwd7zoW3f8">Pushing the boundaries: QM/MM simulations of excited state dynamics in the condensed phase</a></p></td>
-</tr>
-<tr class="row-even"><td><p>10:00</p></td>
-<td><p>Andres Urbina</p></td>
-<td><p>Slipchenko, Purdue</p></td>
-<td><p><a class="reference external" href="https://youtu.be/Ad_ryNAvOzk">Exploring GPCR–Ligand Interactions Using the Effective Fragment Potential Method</a></p></td>
-</tr>
-<tr class="row-odd"><td><p>10:30</p></td>
-<td><p>Dustin Broderick</p></td>
-<td><p>Herbert, OSU</p></td>
-<td><p><a class="reference external" href="https://youtu.be/quDie0f9aNk">A Framework for Managing Complexity in Fragmentation</a></p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="discussion-session-1">
-<h2>Discussion session 1<a class="headerlink" href="#discussion-session-1" title="Link to this heading"></a></h2>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 17.4%" />
-<col style="width: 39.1%" />
-<col style="width: 43.5%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>TIME</strong></p></th>
-<th class="head"><p><strong>ACTIVITY</strong></p></th>
-<th class="head"><p><strong>MODERATOR</strong></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>11:00</p></td>
-<td><p>Breakout rooms for discussion &amp; lunch</p></td>
-<td><p>Oliviero Andreussi, Alexander Sokolov</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="afternoon-session">
-<h2>Afternoon session<a class="headerlink" href="#afternoon-session" title="Link to this heading"></a></h2>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 9.3%" />
-<col style="width: 20.9%" />
-<col style="width: 23.3%" />
-<col style="width: 46.5%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>TIME</strong></p></th>
-<th class="head"><p><strong>SPEAKER</strong></p></th>
-<th class="head"><p><strong>GROUP</strong></p></th>
-<th class="head"><p><strong>TITLE</strong></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>12:30</p></td>
-<td><p>Xuecheng  Shao</p></td>
-<td><p>Pavanello, Rutgers</p></td>
-<td><p><a class="reference external" href="https://youtu.be/p6nnyO_l7Vo">A Density-Functionalization of QM/MM</a></p></td>
-</tr>
-<tr class="row-odd"><td><p>1:00</p></td>
-<td><p>Jorge Nochebuena</p></td>
-<td><p>Cisneros, UT Dallas</p></td>
-<td><p><a class="reference external" href="https://youtu.be/xVkav4eaoEI">QM/MM Simulations with the Gaussian Electrostatic Model</a></p></td>
-</tr>
-<tr class="row-even"><td><p>1:30</p></td>
-<td><p>Saswata Dasgupta</p></td>
-<td><p>Paesani, UCSD</p></td>
-<td><p><a class="reference external" href="https://youtu.be/A5kK5jSHRK0">Data-Driven Many-Body Potentials from Density Functional Theory and a Many-Body Approach to QM/MM Simulations</a></p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="discussion-session-2">
-<h2>Discussion session 2<a class="headerlink" href="#discussion-session-2" title="Link to this heading"></a></h2>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 17.4%" />
-<col style="width: 39.1%" />
-<col style="width: 43.5%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>TIME</strong></p></th>
-<th class="head"><p><strong>ACTIVITY</strong></p></th>
-<th class="head"><p><strong>MODERATOR</strong></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>2:00</p></td>
-<td><p>Breakout rooms for discussion &amp; coffee</p></td>
-<td><p>Marco Caricato, Andres Cisneros</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="closing">
-<h2>Closing<a class="headerlink" href="#closing" title="Link to this heading"></a></h2>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 44.4%" />
-<col style="width: 55.6%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>TIME</strong></p></th>
-<th class="head"><p><strong>ACTIVITY</strong></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>2:45</p></td>
-<td><p>Closing remarks</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="speakers">
-<h2>Speakers<a class="headerlink" href="#speakers" title="Link to this heading"></a></h2>
-</section>
-<section id="dustin-broderick">
-<h2>​Dustin Broderick<a class="headerlink" href="#dustin-broderick" title="Link to this heading"></a></h2>
-<div class="sd-container-fluid sd-sphinx-override sd-m-1 docutils">
-<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 sd-g-1 sd-g-xs-1 sd-g-sm-1 sd-g-md-1 sd-g-lg-1 docutils">
-<div class="sd-col sd-d-flex-column docutils">
-<a class="reference internal image-reference" href="../_images/dustin.jpg"><img alt="Dustin Broderick" class="align-left" src="../_images/dustin.jpg" style="width: 320px;" />
-</a>
-</div>
-</div>
-</div>
-</section>
-<section id="saswata-dasgupta">
-<h2>Saswata Dasgupta<a class="headerlink" href="#saswata-dasgupta" title="Link to this heading"></a></h2>
-<div class="sd-container-fluid sd-sphinx-override sd-m-2 docutils">
-<div class="sd-row sd-row-cols-12 sd-row-cols-xs-12 sd-row-cols-sm-12 sd-row-cols-md-12 sd-row-cols-lg-12 sd-g-1 sd-g-xs-1 sd-g-sm-1 sd-g-md-1 sd-g-lg-1 docutils">
-<div class="sd-col sd-d-flex-column sd-col-5 sd-col-xs-5 sd-col-sm-5 sd-col-md-5 sd-col-lg-5 docutils">
-<a class="reference internal image-reference" href="../_images/saswata.png"><img alt="Saswata Dasgupta" class="align-left" src="../_images/saswata.png" style="width: 320px;" />
-</a>
-</div>
-<div class="sd-col sd-d-flex-column sd-col-7 sd-col-xs-7 sd-col-sm-7 sd-col-md-7 sd-col-lg-7 bio-text docutils">
-<p>Saswata Dasgupta obtained his PhD from Ohio State University.
-His field of expertise includes DFT method development and
-many-body QM/MM methods.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="alexander-humeniuk">
-<h2>​Alexander Humeniuk<a class="headerlink" href="#alexander-humeniuk" title="Link to this heading"></a></h2>
-<div class="sd-container-fluid sd-sphinx-override sd-m-2 docutils">
-<div class="sd-row sd-row-cols-12 sd-row-cols-xs-12 sd-row-cols-sm-12 sd-row-cols-md-12 sd-row-cols-lg-12 sd-g-1 sd-g-xs-1 sd-g-sm-1 sd-g-md-1 sd-g-lg-1 docutils">
-<div class="sd-col sd-d-flex-column sd-col-5 sd-col-xs-5 sd-col-sm-5 sd-col-md-5 sd-col-lg-5 docutils">
-<a class="reference internal image-reference" href="../_images/alexander.png"><img alt="​Alexander Humeniuk" class="align-left" src="../_images/alexander.png" style="width: 320px;" />
-</a>
-</div>
-<div class="sd-col sd-d-flex-column sd-col-7 sd-col-xs-7 sd-col-sm-7 sd-col-md-7 sd-col-lg-7 bio-text docutils">
-<p>Alexander Humeniuk obtained his PhD at the University of Würzburg / Freie Universität Berlin. He developes electronic structure methods for ground and excited states. His field of expertise includes non-adiabatic and semiclassical molecular dynamics,
-simulation of ultrafast time-resolved spectroscopy experiments, and prediction of photophysical properties of small molecules.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="jorge-nochebuena">
-<h2>​Jorge Nochebuena<a class="headerlink" href="#jorge-nochebuena" title="Link to this heading"></a></h2>
-<div class="sd-container-fluid sd-sphinx-override sd-m-2 docutils">
-<div class="sd-row sd-row-cols-12 sd-row-cols-xs-12 sd-row-cols-sm-12 sd-row-cols-md-12 sd-row-cols-lg-12 sd-g-1 sd-g-xs-1 sd-g-sm-1 sd-g-md-1 sd-g-lg-1 docutils">
-<div class="sd-col sd-d-flex-column sd-col-5 sd-col-xs-5 sd-col-sm-5 sd-col-md-5 sd-col-lg-5 docutils">
-<a class="reference internal image-reference" href="../_images/jorge.jpg"><img alt="​Jorge Nochebuena" class="align-left" src="../_images/jorge.jpg" style="width: 320px;" />
-</a>
-</div>
-<div class="sd-col sd-d-flex-column sd-col-7 sd-col-xs-7 sd-col-sm-7 sd-col-md-7 sd-col-lg-7 bio-text docutils">
-<p>Jorge Nochebuena obtained his PhD from the Universidad Autonoma Metropolitana-Itztapalapa Mexico. He is currently developing QM/MM methods that use polarizable force fields.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="amiel-paz">
-<h2>Amiel Paz<a class="headerlink" href="#amiel-paz" title="Link to this heading"></a></h2>
-<div class="sd-container-fluid sd-sphinx-override sd-m-2 docutils">
-<div class="sd-row sd-row-cols-12 sd-row-cols-xs-12 sd-row-cols-sm-12 sd-row-cols-md-12 sd-row-cols-lg-12 sd-g-1 sd-g-xs-1 sd-g-sm-1 sd-g-md-1 sd-g-lg-1 docutils">
-<div class="sd-col sd-d-flex-column sd-col-5 sd-col-xs-5 sd-col-sm-5 sd-col-md-5 sd-col-lg-5 docutils">
-<a class="reference internal image-reference" href="../_images/amiel.jpeg"><img alt="Amiel Paz" class="align-left" src="../_images/amiel.jpeg" style="width: 320px;" />
-</a>
-</div>
-<div class="sd-col sd-d-flex-column sd-col-7 sd-col-xs-7 sd-col-sm-7 sd-col-md-7 sd-col-lg-7 bio-text docutils">
-<p>Amiel Paz is a graduate student of New York University in Shanghai. His expertise is in electronic structure methods for scalable and stable non-adiabatic ab initio excited-state molecular dynamics for photochemistry in the condensed phase.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="xuecheng-shao">
-<h2>Xuecheng Shao<a class="headerlink" href="#xuecheng-shao" title="Link to this heading"></a></h2>
-<div class="sd-container-fluid sd-sphinx-override sd-m-2 docutils">
-<div class="sd-row sd-row-cols-12 sd-row-cols-xs-12 sd-row-cols-sm-12 sd-row-cols-md-12 sd-row-cols-lg-12 sd-g-1 sd-g-xs-1 sd-g-sm-1 sd-g-md-1 sd-g-lg-1 docutils">
-<div class="sd-col sd-d-flex-column sd-col-5 sd-col-xs-5 sd-col-sm-5 sd-col-md-5 sd-col-lg-5 docutils">
-<a class="reference internal image-reference" href="../_images/shao.jpg"><img alt="Xuecheng Shao" class="align-left" src="../_images/shao.jpg" style="width: 320px;" />
-</a>
-</div>
-<div class="sd-col sd-d-flex-column sd-col-7 sd-col-xs-7 sd-col-sm-7 sd-col-md-7 sd-col-lg-7 bio-text docutils">
-<p>Xuecheng Shao obtained his PhD from Jilin University in China. He is an active developer of multi-scale modeling software in Python such as DFTpy, eDFTpy, and QEpy. His field of expertise includes Orbital-free DFT, density embedding / subsystem DFT and now also QM/MM.​</p>
-</div>
-</div>
-</div>
-</section>
-<section id="andres-urbina">
-<h2>Andres Urbina<a class="headerlink" href="#andres-urbina" title="Link to this heading"></a></h2>
-<div class="sd-container-fluid sd-sphinx-override sd-m-2 docutils">
-<div class="sd-row sd-row-cols-12 sd-row-cols-xs-12 sd-row-cols-sm-12 sd-row-cols-md-12 sd-row-cols-lg-12 sd-g-1 sd-g-xs-1 sd-g-sm-1 sd-g-md-1 sd-g-lg-1 docutils">
-<div class="sd-col sd-d-flex-column sd-col-5 sd-col-xs-5 sd-col-sm-5 sd-col-md-5 sd-col-lg-5 docutils">
-<a class="reference internal image-reference" href="../_images/andres.jpg"><img alt="Andres Urbina" class="align-left" src="../_images/andres.jpg" style="width: 320px;" />
-</a>
-</div>
-<div class="sd-col sd-d-flex-column sd-col-7 sd-col-xs-7 sd-col-sm-7 sd-col-md-7 sd-col-lg-7 bio-text docutils">
-<p>Andres Urbina obtained his PhD from Purdue University. He is working on protein-ligand interactions. Specifically, exploring GPCR-ligand interactions using the effective fragment potential (EFP) method.</p>
-</div>
-</div>
-</div>
-</section>
-</section>
+      <div class="cols-2 mt-4">
+        <div>
+          <h3>Participating groups</h3>
+          <ul>
+            <li>Oliviero Andreussi (Boise State University)</li>
+            <li>Marco Caricato (University of Kansas)</li>
+            <li>Andrés Cisneros (UT Dallas)</li>
+            <li>William Glover (NYU, Shanghai)</li>
+            <li>John Herbert (Ohio State University)</li>
+            <li>Francesco Paesani (UC San Diego)</li>
+            <li>Michele Pavanello (Rutgers University-Newark)</li>
+            <li>Alexander Sokolov (Ohio State University)</li>
+            <li>Lyudmila Slipchenko (Purdue University)</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Organizing committee</h3>
+          <ul>
+            <li><a href="mailto:jam1042@rutgers.edu">Jessica Martinez</a></li>
+            <li><a href="mailto:acc256@rutgers.edu">Andres Cifuentes</a></li>
+            <li>Michele Pavanello</li>
+            <li>John Herbert</li>
+          </ul>
+        </div>
+      </div>
 
+      <h2 class="mt-4">Program</h2>
 
-           </div>
+      <h3>Opening</h3>
+      <div class="table-wrap"><table class="qm"><tbody>
+        <tr><td class="time">9:00</td><td>Opening Remarks</td></tr>
+      </tbody></table></div>
+
+      <h3>Morning session</h3>
+      <div class="table-wrap"><table class="qm">
+        <thead><tr><th>Time</th><th>Speaker</th><th>Group</th><th>Title</th></tr></thead>
+        <tbody>
+          <tr><td class="time">9:00</td><td>Alexander Humeniuk</td><td>Glover, NYU Shanghai</td><td><a href="https://youtu.be/db7CGVbrN_c" target="_blank" rel="noopener">Multistate, polarizable QM/MM embedding scheme based on the direct reaction field method: implementation details and challenges</a></td></tr>
+          <tr><td class="time">9:30</td><td>Amiel Paz</td><td>Glover, NYU Shanghai</td><td><a href="https://youtu.be/qEwd7zoW3f8" target="_blank" rel="noopener">Pushing the boundaries: QM/MM simulations of excited state dynamics in the condensed phase</a></td></tr>
+          <tr><td class="time">10:00</td><td>Andres Urbina</td><td>Slipchenko, Purdue</td><td><a href="https://youtu.be/Ad_ryNAvOzk" target="_blank" rel="noopener">Exploring GPCR–Ligand Interactions Using the Effective Fragment Potential Method</a></td></tr>
+          <tr><td class="time">10:30</td><td>Dustin Broderick</td><td>Herbert, OSU</td><td><a href="https://youtu.be/quDie0f9aNk" target="_blank" rel="noopener">A Framework for Managing Complexity in Fragmentation</a></td></tr>
+        </tbody>
+      </table></div>
+
+      <h3>Discussion session 1</h3>
+      <div class="table-wrap"><table class="qm">
+        <thead><tr><th>Time</th><th>Activity</th><th>Moderator</th></tr></thead>
+        <tbody><tr><td class="time">11:00</td><td>Breakout rooms for discussion &amp; lunch</td><td>Oliviero Andreussi, Alexander Sokolov</td></tr></tbody>
+      </table></div>
+
+      <h3>Afternoon session</h3>
+      <div class="table-wrap"><table class="qm">
+        <thead><tr><th>Time</th><th>Speaker</th><th>Group</th><th>Title</th></tr></thead>
+        <tbody>
+          <tr><td class="time">12:30</td><td>Xuecheng Shao</td><td>Pavanello, Rutgers</td><td><a href="https://youtu.be/p6nnyO_l7Vo" target="_blank" rel="noopener">A Density-Functionalization of QM/MM</a></td></tr>
+          <tr><td class="time">1:00</td><td>Jorge Nochebuena</td><td>Cisneros, UT Dallas</td><td><a href="https://youtu.be/xVkav4eaoEI" target="_blank" rel="noopener">QM/MM Simulations with the Gaussian Electrostatic Model</a></td></tr>
+          <tr><td class="time">1:30</td><td>Saswata Dasgupta</td><td>Paesani, UCSD</td><td><a href="https://youtu.be/A5kK5jSHRK0" target="_blank" rel="noopener">Data-Driven Many-Body Potentials from Density Functional Theory and a Many-Body Approach to QM/MM Simulations</a></td></tr>
+        </tbody>
+      </table></div>
+
+      <h3>Discussion session 2</h3>
+      <div class="table-wrap"><table class="qm">
+        <thead><tr><th>Time</th><th>Activity</th><th>Moderator</th></tr></thead>
+        <tbody><tr><td class="time">2:00</td><td>Breakout rooms for discussion &amp; coffee</td><td>Marco Caricato, Andres Cisneros</td></tr></tbody>
+      </table></div>
+
+      <h3>Closing</h3>
+      <div class="table-wrap"><table class="qm"><tbody>
+        <tr><td class="time">2:45</td><td>Closing remarks</td></tr>
+      </tbody></table></div>
+
+      <h2 class="mt-4">Speakers</h2>
+      <div class="speaker-grid">
+        <div class="speaker">
+          <div class="bio">
+            <img src="../_static/dustin.jpg" alt="Dustin Broderick">
+            <div><h3>Dustin Broderick</h3></div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="2023.html" class="btn btn-neutral float-left" title="2023" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="2021.html" class="btn btn-neutral float-right" title="2021" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p></p>
-  </div>
-
-   
-
-</footer>
         </div>
-
-  <div class="sponsors-section" role="region" aria-label="Sponsors">
-    <h2 class="sponsors-title">We are grateful to the following sponsors</h2>
-
-    <div class="spacer-24"></div>
-
-    <div class="sponsors-grid">
-      <a href="https://www.boisestate.edu/" target="_blank" rel="noopener noreferrer">
-        <img src="../_static/boise-state-logo.png"
-             alt="Boise State University" loading="lazy" decoding="async" fetchpriority="low">
-      </a>
-      <a href="https://www.rutgers.edu/" target="_blank" rel="noopener noreferrer">
-        <img src="../_static/rutgers-logo.png"
-             alt="Rutgers University" loading="lazy" decoding="async" fetchpriority="low">
-      </a>
-      <a href="https://www.nsf.gov/" target="_blank" rel="noopener noreferrer">
-        <img src="../_static/nsf-logo.png"
-             alt="National Science Foundation" loading="lazy" decoding="async" fetchpriority="low">
-      </a>
-      <a href="https://ucsd.edu/" target="_blank" rel="noopener noreferrer">
-        <img src="../_static/ucsd.png"
-             alt="University of California San Diego" loading="lazy" decoding="async" fetchpriority="low">
-      </a>
-    </div>
-
-    <div class="spacer-24"></div>
-
-    <p class="sponsors-note">
-      The CyberTraining activities of the Q-MS Center are sponsored by the
-      NSF OAC award numbers <strong>2321102 / 2321103 / 2321104</strong>.
-    </p>
-  </div>
-
+        <div class="speaker">
+          <div class="bio">
+            <img src="../_static/saswata.png" alt="Saswata Dasgupta">
+            <div>
+              <h3>Saswata Dasgupta</h3>
+              <p>Saswata Dasgupta obtained his PhD from Ohio State University. His field of expertise includes DFT method development and many-body QM/MM methods.</p>
+            </div>
+          </div>
+        </div>
+        <div class="speaker">
+          <div class="bio">
+            <img src="../_static/alexander.png" alt="Alexander Humeniuk">
+            <div>
+              <h3>Alexander Humeniuk</h3>
+              <p>Alexander Humeniuk obtained his PhD at the University of Würzburg / Freie Universität Berlin. He develops electronic structure methods for ground and excited states. His field of expertise includes non-adiabatic and semiclassical molecular dynamics, simulation of ultrafast time-resolved spectroscopy experiments, and prediction of photophysical properties of small molecules.</p>
+            </div>
+          </div>
+        </div>
+        <div class="speaker">
+          <div class="bio">
+            <img src="../_static/jorge.jpg" alt="Jorge Nochebuena">
+            <div>
+              <h3>Jorge Nochebuena</h3>
+              <p>Jorge Nochebuena obtained his PhD from the Universidad Autónoma Metropolitana-Iztapalapa, Mexico. He is currently developing QM/MM methods that use polarizable force fields.</p>
+            </div>
+          </div>
+        </div>
+        <div class="speaker">
+          <div class="bio">
+            <img src="../_static/amiel.jpeg" alt="Amiel Paz">
+            <div>
+              <h3>Amiel Paz</h3>
+              <p>Amiel Paz is a graduate student of New York University in Shanghai. His expertise is in electronic structure methods for scalable and stable non-adiabatic ab initio excited-state molecular dynamics for photochemistry in the condensed phase.</p>
+            </div>
+          </div>
+        </div>
+        <div class="speaker">
+          <div class="bio">
+            <img src="../_static/shao.jpg" alt="Xuecheng Shao">
+            <div>
+              <h3>Xuecheng Shao</h3>
+              <p>Xuecheng Shao obtained his PhD from Jilin University in China. He is an active developer of multi-scale modeling software in Python such as DFTpy, eDFTpy, and QEpy. His field of expertise includes orbital-free DFT, density embedding / subsystem DFT and now also QM/MM.</p>
+            </div>
+          </div>
+        </div>
+        <div class="speaker">
+          <div class="bio">
+            <img src="../_static/andres.jpg" alt="Andres Urbina">
+            <div>
+              <h3>Andres Urbina</h3>
+              <p>Andres Urbina obtained his PhD from Purdue University. He is working on protein-ligand interactions — specifically, exploring GPCR-ligand interactions using the effective fragment potential (EFP) method.</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+    </div>
+  </section>
 
+  <script src="../assets/js/main.js" defer></script>
 </body>
 </html>

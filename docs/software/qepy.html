@@ -1,310 +1,75 @@
-@'
-
-
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
+<html lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="QEpy" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="software/qepy.html" />
-<meta property="og:site_name" content="Quantum Multiscale" />
-<meta property="og:description" content="QEpy QEpy turns Quantum ESPRESSO (QE) into a Python DFT engine for nonstandard workflows. QEpy allows the user to include external potentials, use custom xc functionals, and can also be used as a c..." />
-<meta property="og:image:width" content="1146" />
-<meta property="og:image:height" content="600" />
-<meta property="og:image" content="_images/social_previews/summary_software_qepy_20b42b2d.png" />
-<meta property="og:image:alt" content="QEpy QEpy turns Quantum ESPRESSO (QE) into a Python DFT engine for nonstandard workflows. QEpy allows the user to include external potentials, use custom xc functionals, and can also be used as a c..." />
-<meta name="description" content="QEpy QEpy turns Quantum ESPRESSO (QE) into a Python DFT engine for nonstandard workflows. QEpy allows the user to include external potentials, use custom xc functionals, and can also be used as a c..." />
-<meta name="twitter:card" content="summary_large_image" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>QEpy &mdash; Quantum Multiscale  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=4e452dfd" />
-      <link rel="stylesheet" type="text/css" href="../_static/fonts.css?v=5583d106" />
-      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=4e452dfd" />
-      <link rel="stylesheet" type="text/css" href="../_static/ptable/table.css?v=0c7ead12" />
-
-  
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-      <script src="../_static/copybutton.js?v=f281be69"></script>
-      <script src="../_static/design-tabs.js?v=f930bc37"></script>
-      <script src="../_static/ptable/table.js?v=7b92154b"></script>
-    <script src="../_static/js/theme.js"></script>
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="MBX" href="MBX.html" />
-    <link rel="prev" title="eDFTpy" href="edftpy.html" />
-   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QEpy — Quantum Multiscale (Q-MS)</title>
+  <meta name="description" content="QEpy turns Quantum ESPRESSO into a Python DFT engine for nonstandard workflows.">
+  <link rel="icon" href="../_static/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="../_static/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
 </head>
+<body data-page="software" data-root="../">
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-
-          
-          
-          <a href="../index.html" class="icon icon-home">
-            Quantum Multiscale
-              <img src="../_static/logo.png" class="logo" alt="Logo"/>
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">SITE NAVIGATION</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../team.html">Team</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Software</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="dftpy.html">DFTpy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="environ.html">ENVIRON</a></li>
-<li class="toctree-l2"><a class="reference internal" href="edftpy.html">eDFTpy</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">QEpy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="MBX.html">MBX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="qmlearn.html">QMLearn</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../schools/index.html">Schools</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../schools/2025.html">QDMS 2025</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../schools/2024.html">2024</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../schools/2023.html">2023</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../schools/2022.html">Workshop 2022</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../schools/2021.html">2021</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../hackathons/index.html">Hackathons</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../hackathons/program-su2024.html">Program SU 2024</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../hackathons/program-fa2023.html">Program FA 2023</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../hackathons/winter-program-21.html">UNT-Rutgers 2021</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../hackathons/sandiego-program-21.html">San Diego 2021</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../hackathons/program-19.html">Embedding 2019</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../hackathons/program-18.html">UNT 2018</a></li>
-</ul>
-</li>
-</ul>
-
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Quantum Multiscale</a>
-      </nav>
-
-      <div class="wy-nav-content">
-  
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="index.html">Software</a></li>
-      <li class="breadcrumb-item active">QEpy</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/software/qepy.rst.txt" rel="nofollow"> View page source</a>
-      </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
-  <section id="qepy">
-<h1>QEpy<a class="headerlink" href="#qepy" title="Link to this heading"></a></h1>
-<div class="sd-container-fluid sd-sphinx-override sd-mt-0 sd-mb-0 sd-ml-2 sd-mr-0 docutils">
-<div class="sd-row sd-row-cols-12 sd-row-cols-xs-12 sd-row-cols-sm-12 sd-row-cols-md-12 sd-row-cols-lg-12 sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
-<div class="sd-col sd-d-flex-column sd-col-2 sd-col-xs-2 sd-col-sm-2 sd-col-md-2 sd-col-lg-2 docutils">
-<a class="app-logo reference internal image-reference" href="../_images/qepy-logo.png"><img alt="QEpy" class="app-logo" src="../_images/qepy-logo.png" style="width: 96px;" />
-</a>
-</div>
-<div class="sd-col sd-d-flex-column sd-col-10 sd-col-xs-10 sd-col-sm-10 sd-col-md-10 sd-col-lg-10 docutils">
-<p><strong>QEpy</strong> turns <strong>Quantum ESPRESSO (QE)</strong> into a Python DFT engine for nonstandard workflows. <strong>QEpy</strong> allows the user to include external potentials, use custom xc functionals, and can also be used as a calculator for ASE.</p>
-<p><a class="sd-sphinx-override sd-btn sd-text-wrap sd-btn-outline-primary reference external" href="https://github.com/Quantum-MultiScale/QEpy"><span>GitHub Repo</span></a></p>
-<p><a class="sd-sphinx-override sd-btn sd-text-wrap sd-btn-outline-primary reference external" href="https://qepy.rutgers.edu/"><span>qepy.rutgers.edu</span></a></p>
-</div>
-</div>
-</div>
-<hr class="section-divider"><section id="qepy-developers">
-<span id="id1"></span><h2>QEpy developers<a class="headerlink" href="#qepy-developers" title="Link to this heading"></a></h2>
-<section id="feel-free-to-contact-the-developers">
-<h3>Feel free to contact the developers:<a class="headerlink" href="#feel-free-to-contact-the-developers" title="Link to this heading"></a></h3>
-<ul class="simple">
-<li><p><a class="reference external" href="https://sites.rutgers.edu/prg/people/xuecheng-shao/">Xuecheng Shao</a></p></li>
-<li><p><a class="reference external" href="https://sasn.rutgers.edu/about-us/faculty-staff/michele-pavanello">Michele Pavanello</a></p></li>
-<li><p><a class="reference external" href="https://sites.rutgers.edu/prg/people/aniket-mandal/">Aniket Mandal</a></p></li>
-</ul>
-</section>
-</section>
-<section id="on-line">
-<h2>On-line<a class="headerlink" href="#on-line" title="Link to this heading"></a></h2>
-<p>Feel free to create new issues, merge requests or fork your own QEpy on our GitHub page: <a class="reference external" href="https://github.com/Quantum-MultiScale/QEpy">https://github.com/Quantum-MultiScale/QEpy</a></p>
-</section>
-<section id="learn-about-it">
-<span id="qepy-learn"></span><h2>Learn about it<a class="headerlink" href="#learn-about-it" title="Link to this heading"></a></h2>
-<div class="note admonition">
-<p class="admonition-title">External site</p>
-<p>Official site: <a class="reference external" href="https://qepy.rutgers.edu/index.html">qepy.rutgers.edu</a></p>
-</div>
-</section>
-<section id="youtube-videos">
-<span id="qepy-videos"></span><h2>YouTube videos<a class="headerlink" href="#youtube-videos" title="Link to this heading"></a></h2>
-<p><a class="reference external" href="https://youtube.com/playlist?list=PLDgw3fS4ncAHr13_d2LOLAS0xAzgZ-lhZ&amp;si=h4-55Iezab7eIeqG">QEpy Youtube Playlist</a></p>
-<style>
-  .video-grid {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: 1fr;
-  }
-  @media (min-width: 900px) {
-    .video-grid {
-      grid-template-columns: 1fr 1fr 1fr;
-    }
-  }
-  .video-grid iframe {
-    width: 100%;
-    aspect-ratio: 16/9;
-    border: 0;
-    border-radius: 12px;
-  }
-</style>
-
-<div class="video-grid">
-  <iframe
-    src="https://www.youtube.com/embed/cWt0BVQs-_U?origin=https://quantum-embedding.org&rel=0&modestbranding=1"
-    title="Intro to QEpy"
-    loading="lazy"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-  </iframe>
-
-  <iframe
-    src="https://www.youtube.com/embed/-kKq8YgLorA?origin=https://quantum-embedding.org&rel=0&modestbranding=1"
-    title="QEpy for beginners"
-    loading="lazy"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-  </iframe>
-
-  <iframe
-    src="https://www.youtube.com/embed/SXPb3MNKFMA?origin=https://quantum-embedding.org&rel=0&modestbranding=1"
-    title="Installation of QEpy"
-    loading="lazy"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-  </iframe>
-
-  <iframe
-    src="https://www.youtube.com/embed/bMEXogY73sY?origin=https://quantum-embedding.org&rel=0&modestbranding=1"
-    title="QEpy with ASE"
-    loading="lazy"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-  </iframe>
-
-  <iframe
-    src="https://www.youtube.com/embed/gC9Qvz9p0K4?origin=https://quantum-embedding.org&rel=0&modestbranding=1"
-    title="QEpy on the Google Colaboratory"
-    loading="lazy"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-  </iframe>
-
-  <iframe
-    src="https://www.youtube.com/embed/SqA1MdYRhQY?origin=https://quantum-embedding.org&rel=0&modestbranding=1"
-    title="QEpy on Jupyter Notebooks"
-    loading="lazy"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-  </iframe>
-
-  <iframe
-    src="https://www.youtube.com/embed/FfHkHfOFWUU?origin=https://quantum-embedding.org&rel=0&modestbranding=1"
-    title="Aniket Mandal: QEpy: Quantum ESPRESSO in Python"
-    loading="lazy"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-  </iframe>
-</div></section>
-</section>
-
-
-           </div>
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-inner">
+        <div class="crumbs"><a href="../software/index.html">Software</a> <span>/</span> QEpy</div>
+        <div class="soft-hero">
+          <div class="logo-box"><img src="../_static/qepy-logo.png" alt="QEpy logo"></div>
+          <div class="soft-meta">
+            <h1>QEpy</h1>
+            <p><strong>QEpy</strong> turns <strong>Quantum ESPRESSO (QE)</strong> into a Python DFT engine for nonstandard workflows. QEpy allows the user to include external potentials, use custom XC functionals, and can also be used as a calculator for ASE.</p>
+            <div class="actions">
+              <a class="btn btn-accent" href="https://github.com/Quantum-MultiScale/QEpy" target="_blank" rel="noopener">GitHub Repo</a>
+              <a class="btn btn-outline" href="https://qepy.rutgers.edu/" target="_blank" rel="noopener" style="background:rgba(255,255,255,.06);color:#eaf2ff;border-color:rgba(255,255,255,.25)">qepy.rutgers.edu</a>
+            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="edftpy.html" class="btn btn-neutral float-left" title="eDFTpy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="MBX.html" class="btn btn-neutral float-right" title="MBX" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p></p>
-  </div>
-
-   
-
-</footer>
         </div>
-
-  <div class="sponsors-section" role="region" aria-label="Sponsors">
-    <h2 class="sponsors-title">We are grateful to the following sponsors</h2>
-
-    <div class="spacer-24"></div>
-
-    <div class="sponsors-grid">
-      <a href="https://www.boisestate.edu/" target="_blank" rel="noopener noreferrer">
-        <img src="../_static/boise-state-logo.png"
-             alt="Boise State University" loading="lazy" decoding="async" fetchpriority="low">
-      </a>
-      <a href="https://www.rutgers.edu/" target="_blank" rel="noopener noreferrer">
-        <img src="../_static/rutgers-logo.png"
-             alt="Rutgers University" loading="lazy" decoding="async" fetchpriority="low">
-      </a>
-      <a href="https://www.nsf.gov/" target="_blank" rel="noopener noreferrer">
-        <img src="../_static/nsf-logo.png"
-             alt="National Science Foundation" loading="lazy" decoding="async" fetchpriority="low">
-      </a>
-      <a href="https://ucsd.edu/" target="_blank" rel="noopener noreferrer">
-        <img src="../_static/ucsd.png"
-             alt="University of California San Diego" loading="lazy" decoding="async" fetchpriority="low">
-      </a>
-    </div>
-
-    <div class="spacer-24"></div>
-
-    <p class="sponsors-note">
-      The CyberTraining activities of the Q-MS Center are sponsored by the
-      NSF OAC award numbers <strong>2321102 / 2321103 / 2321104</strong>.
-    </p>
-  </div>
-
       </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+    </div>
+  </section>
 
+  <section class="section">
+    <div class="container prose">
+      <div class="cols-2">
+        <div>
+          <h3>QEpy developers</h3>
+          <p class="muted">Feel free to contact the developers:</p>
+          <ul>
+            <li><a href="https://sites.rutgers.edu/prg/people/xuecheng-shao/" target="_blank" rel="noopener">Xuecheng Shao</a></li>
+            <li><a href="https://sasn.rutgers.edu/about-us/faculty-staff/michele-pavanello" target="_blank" rel="noopener">Michele Pavanello</a></li>
+            <li><a href="https://sites.rutgers.edu/prg/people/aniket-mandal/" target="_blank" rel="noopener">Aniket Mandal</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>On-line</h3>
+          <p>Feel free to create new issues, merge requests or fork your own QEpy on our <a href="https://github.com/Quantum-MultiScale/QEpy" target="_blank" rel="noopener">GitHub page</a>.</p>
+        </div>
+      </div>
+
+      <div class="callout mt-4">
+        <span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg></span>
+        <p><strong>Official site:</strong> <a href="https://qepy.rutgers.edu/index.html" target="_blank" rel="noopener">qepy.rutgers.edu</a></p>
+      </div>
+
+      <h2>YouTube videos</h2>
+      <p><a href="https://youtube.com/playlist?list=PLDgw3fS4ncAHr13_d2LOLAS0xAzgZ-lhZ" target="_blank" rel="noopener">QEpy YouTube Playlist ↗</a></p>
+      <div class="video-grid mt-2">
+        <iframe src="https://www.youtube.com/embed/cWt0BVQs-_U?rel=0&modestbranding=1" title="Intro to QEpy" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/-kKq8YgLorA?rel=0&modestbranding=1" title="QEpy for beginners" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/SXPb3MNKFMA?rel=0&modestbranding=1" title="Installation of QEpy" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/bMEXogY73sY?rel=0&modestbranding=1" title="QEpy with ASE" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/gC9Qvz9p0K4?rel=0&modestbranding=1" title="QEpy on the Google Colaboratory" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/SqA1MdYRhQY?rel=0&modestbranding=1" title="QEpy on Jupyter Notebooks" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/FfHkHfOFWUU?rel=0&modestbranding=1" title="Aniket Mandal: QEpy: Quantum ESPRESSO in Python" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <script src="../assets/js/main.js" defer></script>
 </body>
 </html>
