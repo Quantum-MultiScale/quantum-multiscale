@@ -21,11 +21,28 @@
     }).join("");
   }
 
+  // Q-MS brand mark: gradient "Q" ring with "MS" in the center (currentColor).
+  function markSvg(variant) {
+    var id = "qmsg-" + variant;
+    return '<svg class="mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">' +
+      '<defs><linearGradient id="' + id + '" x1="0" y1="0" x2="1" y2="1">' +
+        '<stop offset="0" stop-color="#3a72f6"/>' +
+        '<stop offset="0.55" stop-color="#6a5cf2"/>' +
+        '<stop offset="1" stop-color="#8b3df0"/>' +
+      '</linearGradient></defs>' +
+      '<circle cx="31" cy="30" r="20.5" fill="none" stroke="url(#' + id + ')" stroke-width="8.5"/>' +
+      '<line x1="44.5" y1="43.5" x2="55" y2="54.5" stroke="url(#' + id + ')" stroke-width="8.5" stroke-linecap="round"/>' +
+      '<text x="31" y="31.5" text-anchor="middle" dominant-baseline="central" ' +
+        'font-family="\'Space Grotesk\', \'Inter\', system-ui, sans-serif" font-weight="700" ' +
+        'font-size="17" letter-spacing="-0.5" fill="currentColor">MS</text>' +
+    '</svg>';
+  }
+
   var headerHtml =
     '<header class="site-header">' +
       '<div class="container nav">' +
         '<a class="brand" href="' + root + 'index.html" aria-label="Quantum Multiscale home">' +
-          '<span class="mark" aria-hidden="true"></span>' +
+          markSvg("header") +
           '<span class="brand-text"><b>Quantum Multiscale</b><span>NSF Center · Q-MS</span></span>' +
         '</a>' +
         '<button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span></button>' +
@@ -42,7 +59,7 @@
     '<footer class="site-footer">' +
       '<div class="footer-top"><div class="container footer-grid">' +
         '<div class="footer-about">' +
-          '<div class="footer-brand"><span class="mark" aria-hidden="true" style="width:30px;height:30px"></span><b>Quantum Multiscale</b></div>' +
+          '<div class="footer-brand">' + markSvg("footer") + '<b>Quantum Multiscale</b></div>' +
           '<p>An NSF Center developing sustainable, first-principles multiscale modeling software grounded in quantum mechanics and data-driven approaches.</p>' +
         '</div>' +
         '<div>' +
@@ -68,9 +85,9 @@
         '<div class="label">We are grateful to our sponsors &amp; partner institutions</div>' +
         '<div class="sponsors-row">' +
           '<a href="https://www.boisestate.edu/" target="_blank" rel="noopener"><img src="' + root + '_static/boise-state-logo.png" alt="Boise State University" loading="lazy"></a>' +
-          '<a href="https://www.rutgers.edu/" target="_blank" rel="noopener"><img src="' + root + '_static/rutgers-logo.png" alt="Rutgers University" loading="lazy"></a>' +
+          '<a href="https://www.rutgers.edu/" target="_blank" rel="noopener"><img src="' + root + '_static/rutgers-logo-white.svg" alt="Rutgers University" loading="lazy"></a>' +
           '<a href="https://ucsd.edu/" target="_blank" rel="noopener"><img src="' + root + '_static/ucsd.png" alt="University of California San Diego" loading="lazy"></a>' +
-          '<a href="https://www.nsf.gov/" target="_blank" rel="noopener"><img src="' + root + '_static/nsf-logo.png" alt="National Science Foundation" loading="lazy"></a>' +
+          '<a href="https://www.nsf.gov/" target="_blank" rel="noopener"><img src="' + root + '_static/nsf-logo-white.svg" alt="National Science Foundation" loading="lazy"></a>' +
         '</div>' +
         '<p class="note">The CyberTraining activities of the Q-MS Center are sponsored by the NSF OAC award numbers <strong>2321102 / 2321103 / 2321104</strong>.</p>' +
       '</div></div>' +
