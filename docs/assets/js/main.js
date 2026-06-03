@@ -8,8 +8,8 @@
 
   var navItems = [
     { id: "home",     label: "Home",            href: root + "index.html" },
-    { id: "team",     label: "Team",            href: root + "team.html" },
-    { id: "software", label: "Software",        href: root + "software/index.html" },
+    { id: "team",     label: "Team",            href: root + "index.html#team" },
+    { id: "software", label: "Software",        href: root + "index.html#software" },
     { id: "schools",  label: "Schools",         href: root + "schools/index.html" },
     { id: "hack",     label: "Hackathons",      href: root + "hackathons/index.html" }
   ];

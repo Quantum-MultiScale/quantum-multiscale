@@ -61,6 +61,7 @@ p { margin: 0 0 1rem; }
 
 .section { padding: 64px 0; }
 .section--tight { padding: 40px 0; }
+.section[id] { scroll-margin-top: 84px; }
 
 .eyebrow {
   display: inline-block;
