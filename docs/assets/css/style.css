@@ -411,10 +411,17 @@ table.qm tr:hover td { background: rgba(22,182,207,.04); }
 
 .sponsors { border-top: 1px solid rgba(255,255,255,.10); padding: 30px 0; }
 .sponsors .label { font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: #7e95b8; margin-bottom: 18px; text-align: center; }
-.sponsors-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 38px; }
-.sponsors-row a { display: flex; align-items: center; justify-content: center; height: 56px; }
-.sponsors-row img { max-height: 52px; width: auto; filter: brightness(0) invert(1); opacity: .82; transition: opacity .15s ease; }
-.sponsors-row a:hover img { opacity: 1; }
+.sponsors-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px 34px; }
+.sponsors-row a {
+  font-family: var(--font-head); font-weight: 600; font-size: .98rem;
+  color: #cdd9ec; letter-spacing: .01em; position: relative; padding-bottom: 2px;
+}
+.sponsors-row a:hover { color: #fff; }
+.sponsors-row a:not(:last-child)::after {
+  content: ""; position: absolute; right: -17px; top: 50%; transform: translateY(-50%);
+  width: 1px; height: 14px; background: rgba(255,255,255,.18);
+}
+@media (max-width: 560px) { .sponsors-row a::after { display: none; } }
 .sponsors .note { text-align: center; color: #7e95b8; font-size: .85rem; margin: 22px auto 0; max-width: 640px; }
 .sponsors .note strong { color: #b9cae3; }
 

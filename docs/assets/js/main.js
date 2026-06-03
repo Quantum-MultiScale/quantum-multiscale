@@ -84,10 +84,10 @@
       '<div class="sponsors"><div class="container">' +
         '<div class="label">We are grateful to our sponsors &amp; partner institutions</div>' +
         '<div class="sponsors-row">' +
-          '<a href="https://www.boisestate.edu/" target="_blank" rel="noopener"><img src="' + root + '_static/boise-state-logo.png" alt="Boise State University" loading="lazy"></a>' +
-          '<a href="https://www.rutgers.edu/" target="_blank" rel="noopener"><img src="' + root + '_static/rutgers-logo-white.svg" alt="Rutgers University" loading="lazy"></a>' +
-          '<a href="https://ucsd.edu/" target="_blank" rel="noopener"><img src="' + root + '_static/ucsd.png" alt="University of California San Diego" loading="lazy"></a>' +
-          '<a href="https://www.nsf.gov/" target="_blank" rel="noopener"><img src="' + root + '_static/nsf-logo-white.svg" alt="National Science Foundation" loading="lazy"></a>' +
+          '<a href="https://www.boisestate.edu/" target="_blank" rel="noopener">Boise State University</a>' +
+          '<a href="https://www.rutgers.edu/" target="_blank" rel="noopener">Rutgers University</a>' +
+          '<a href="https://ucsd.edu/" target="_blank" rel="noopener">UC San Diego</a>' +
+          '<a href="https://www.nsf.gov/" target="_blank" rel="noopener">National Science Foundation</a>' +
         '</div>' +
         '<p class="note">The CyberTraining activities of the Q-MS Center are sponsored by the NSF OAC award numbers <strong>2321102 / 2321103 / 2321104</strong>.</p>' +
       '</div></div>' +
