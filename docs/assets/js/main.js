@@ -48,7 +48,7 @@
         '<button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span></button>' +
         '<div class="nav-menu">' +
           '<ul class="nav-links">' + navLinksHtml() + '</ul>' +
-          '<span class="nav-cta"><a class="btn btn-accent btn-sm" href="' + root + 'software/index.html">Explore software</a></span>' +
+          '<span class="nav-cta"><a class="btn btn-accent btn-sm" href="' + root + 'index.html#software">Explore software</a></span>' +
         '</div>' +
       '</div>' +
     '</header>';
@@ -66,7 +66,7 @@
           '<h4>Explore</h4>' +
           '<ul class="footer-links">' +
             '<li><a href="' + root + 'team.html">Team</a></li>' +
-            '<li><a href="' + root + 'software/index.html">Software</a></li>' +
+            '<li><a href="' + root + 'index.html#software">Software</a></li>' +
             '<li><a href="' + root + 'schools/index.html">Schools</a></li>' +
             '<li><a href="' + root + 'hackathons/index.html">Hackathons</a></li>' +
           '</ul>' +
