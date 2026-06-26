@@ -1,0 +1,1188 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Goals of this lecture + hands-on session &#8212; Introduction to DFT and TDDFT</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'TDDFT_intro';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Goal of this lecture" href="DFT_intro_3.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Introduction to DFT and TDDFT</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introduction to DFT and TDDFT
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="DFT_intro_1.html">Goals of this lecture</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="DFT_intro_2.html">Goal of this lecture</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="DFT_intro_3.html">Goal of this lecture</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Goals of this lecture + hands-on session</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/TDDFT_intro.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Goals of this lecture + hands-on session</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Goals of this lecture + hands-on session</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-i">Part I</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-ii">Part II</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-iii">Part III</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-i-ks-orbitals">PART I: KS orbitals</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-physical-meaning-of-ks-orbitals">What is the physical meaning of KS orbitals?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#an-overview-of-what-you-can-do-with-orbitals">An overview of what you can do with orbitals</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-you-are-interested-in-ionization-energies">If you are interested in ionization energies:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-you-are-interested-in-excitation-energies">If you are interested in excitation energies:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-calculated-and-measured-electronic-energies">Comparing calculated and measured electronic energies</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#photoemission-pes-xpes-and-dft-orbital-energies">Photoemission (PES / XPES) and DFT orbital energies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#band-structure-arpes-vs-theory-graphene">Band structure: ARPES vs theory (graphene)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-1">Challenge 1</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#band-structures-graphene">Band structures: Graphene</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-system-and-solve-scf">Build system and solve SCF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#look-at-the-fbz-and-select-special-k-points">Look at the FBZ and select special <span class="math notranslate nohighlight">\(k\)</span> points</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-gamma-to-m-to-k-to-gamma-band-path">Choose <span class="math notranslate nohighlight">\(\Gamma \to M \to K \to \Gamma\)</span> band path</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-first-6-bands">Plot the first 6 bands</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-1-2">Challenge 1.2</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-ii-tddft-based-on-ks-dft">PART II: TDDFT based on KS-DFT</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#electronic-excitations-and-uvvis-spectroscopy">Electronic excitations and UV–vis spectroscopy</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tddft-vs-experiment-s-0-to-s-1-excitation-energies">TDDFT vs experiment: <span class="math notranslate nohighlight">\(S_0 \to S_1\)</span> excitation energies</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-dive-a-bit-deeper-into-tddft">Let’s dive a bit deeper into TDDFT</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#real-time-tddft-equations">Real-time TDDFT equations :</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rt-tddft-equations-can-be-integrated-in-time">The rt-TDDFT equations can be integrated in time</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-n-mathbf-r-omega-yield-spectra">Why does <span class="math notranslate nohighlight">\(n(\mathbf{r},\omega)\)</span> yield spectra?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#two-important-ingredients-of-tddft">Two important ingredients of TDDFT</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-occupation-numbers">#1: The occupation numbers</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-2">Challenge 2</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-time-dependent-ks-potential">#2: The time-dependent KS potential</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-3">Challenge 3</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-adiabatic-approximation-in-rt-tddft">The adiabatic approximation in rt-TDDFT</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#does-v-xc-mathbf-r-t-exist">Does <span class="math notranslate nohighlight">\(v_{xc}(\mathbf{r},t)\)</span> exist?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#targeting-the-excited-states-directly-linear-response-tddft">Targeting the excited states directly: linear-response TDDFT</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-other-words">In other words:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-density-response-of-the-interacting-system">Linear density response of the interacting system</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-chi-interesting">Why is <span class="math notranslate nohighlight">\(\chi\)</span> interesting?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-density-response-of-the-ks-system">Linear density response of the KS system</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-color-red-delta-v-s">What is <span class="math notranslate nohighlight">\(\color{red}{\delta v_s}\)</span>?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#casida-equations">Casida equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-can-you-obtain-from-lr-tddft">What can you obtain from lr-TDDFT?</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ready-for-some-hands-on-work">Ready for some hands-on work?</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div style="text-align:center">
+<h1>Orbital energies and TDDFT</h1>
+</div>
+<div style="text-align:center">
+<h3>Some python code to run the example later...</h3>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">qepy.calculator</span><span class="w"> </span><span class="kn">import</span> <span class="n">QEpyCalculator</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ase.lattice.hexagonal</span><span class="w"> </span><span class="kn">import</span> <span class="n">Graphene</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dftpy.formats</span><span class="w"> </span><span class="kn">import</span> <span class="n">download_files</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ase</span><span class="w"> </span><span class="kn">import</span> <span class="n">Atoms</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="n">qe_options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;&amp;control&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;calculation&#39;</span><span class="p">:</span> <span class="s2">&quot;&#39;scf&#39;&quot;</span><span class="p">,</span>
+        <span class="s1">&#39;prefix&#39;</span><span class="p">:</span> <span class="s2">&quot;&#39;tmp&#39;&quot;</span><span class="p">,</span>
+        <span class="s1">&#39;pseudo_dir&#39;</span><span class="p">:</span> <span class="s2">&quot;&#39;./&#39;&quot;</span><span class="p">},</span>
+    <span class="s1">&#39;&amp;system&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;ibrav&#39;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;ecutwfc&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+        <span class="s1">&#39;ecutrho&#39;</span><span class="p">:</span> <span class="mi">200</span><span class="p">},</span>
+    <span class="s1">&#39;&amp;electrons&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;conv_thr&#39;</span> <span class="p">:</span> <span class="mf">1.0e-8</span><span class="p">},</span>
+     <span class="s1">&#39;atomic_species&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;C 12.0107 C.pz-vbc.UPF&#39;</span><span class="p">],</span>
+     <span class="s1">&#39;k_points automatic&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39; 9 9 1 0 0 0&#39;</span><span class="p">],</span>
+<span class="p">}</span>
+<span class="n">additional_files</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;C.pz-vbc.UPF&#39;</span> <span class="p">:</span> <span class="s1">&#39;https://pseudopotentials.quantum-espresso.org/upf_files/C.pz-vbc.UPF&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">download_files</span><span class="p">(</span><span class="n">additional_files</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="goals-of-this-lecture-hands-on-session">
+<h1>Goals of this lecture + hands-on session<a class="headerlink" href="#goals-of-this-lecture-hands-on-session" title="Link to this heading">#</a></h1>
+<section id="part-i">
+<h2>Part I<a class="headerlink" href="#part-i" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>The meaning and usefulness of DFT orbitals and orbital energies</p></li>
+<li><p>Band structure with QEpy</p></li>
+</ul>
+</section>
+<section id="part-ii">
+<h2>Part II<a class="headerlink" href="#part-ii" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Basic theory of KS TDDFT (real-time <strong>and</strong> linear response)</p></li>
+<li><p>Linear-response KS TDDFT</p></li>
+<li><p>Real-time KS TDDFT</p></li>
+</ul>
+</section>
+<section id="part-iii">
+<h2>Part III<a class="headerlink" href="#part-iii" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Hands on: LR-TDDFT simulations of molecules with QEpy</p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="part-i-ks-orbitals">
+<h1>PART I: KS orbitals<a class="headerlink" href="#part-i-ks-orbitals" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="what-is-the-physical-meaning-of-ks-orbitals">
+<h1>What is the physical meaning of KS orbitals?<a class="headerlink" href="#what-is-the-physical-meaning-of-ks-orbitals" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Generally KS or HF orbitals have no rigorous physical meaning</p></li>
+<li><p>The HOMO is different: HF has <a href="https://www.sciencedirect.com/science/article/abs/pii/S0031891434900112?via%3Dihub">Koopmans’ theorem</a> and KS has <a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.18.7165">Janak’s theorem</a> relating it to the IP.</p></li>
+<li><p>What about the virtuals? The LUMO? … no rigorous physical meaning.</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="an-overview-of-what-you-can-do-with-orbitals">
+<h1>An overview of what you can do with orbitals<a class="headerlink" href="#an-overview-of-what-you-can-do-with-orbitals" title="Link to this heading">#</a></h1>
+<center>
+    <div class="alert alert-success">Yes! In a few ways.</div>
+</center><section id="if-you-are-interested-in-ionization-energies">
+<h2>If you are interested in ionization energies:<a class="headerlink" href="#if-you-are-interested-in-ionization-energies" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>GW</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\varepsilon_i \to \varepsilon_i + \langle \phi_i | \hat \Sigma(\varepsilon_i) - v_{xc} | \phi_i \rangle
+\]</div>
+<ul class="simple">
+<li><p><b>GW quasiparticle energies</b> provide rigorous ionizations / affinities</p></li>
+<li><p><b>Hybrid functionals</b> in DFT (HSE, PBE0, …) approximate GW results and usually predict ionizations/affinities via orbital energies much better than GGA functionals, like PBE</p></li>
+</ul>
+</section>
+<section id="if-you-are-interested-in-excitation-energies">
+<h2>If you are interested in excitation energies:<a class="headerlink" href="#if-you-are-interested-in-excitation-energies" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>TDDFT</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\varepsilon_a-\varepsilon_i \to (\varepsilon_a-\varepsilon_i) + \left\langle \phi_i\phi_a \bigg| \frac{1}{|r-r'|}+f_{xc}(r,r',\varepsilon_a-\varepsilon_i) \bigg| \phi_i\phi_a \right\rangle+\cdots
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(i,j,k,l,\ldots \in \text{occupied}\)</span> and <span class="math notranslate nohighlight">\(a,b,c,d,\ldots \in \text{virtuals}\)</span>.</p>
+<center>
+    <div class="alert alert-success">Check out this <a href="https://pubs.acs.org/doi/10.1021/ct500727c">paper</a> by Baerends about the quality of KS virtuals vs HF virtuals for describing excitation energies</div>
+</center></section>
+<section id="comparing-calculated-and-measured-electronic-energies">
+<h2>Comparing calculated and measured electronic energies<a class="headerlink" href="#comparing-calculated-and-measured-electronic-energies" title="Link to this heading">#</a></h2>
+<section id="photoemission-pes-xpes-and-dft-orbital-energies">
+<h3>Photoemission (PES / XPES) and DFT orbital energies<a class="headerlink" href="#photoemission-pes-xpes-and-dft-orbital-energies" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Photoemission spectroscopy (PES)</strong> ejects electrons with a photon and reports <span class="math notranslate nohighlight">\(h\nu-E_{kin}\)</span>.</p></li>
+<li><p>With <strong>LDA or GGA functionals</strong> (e.g. PBE), orbital energies and gaps are <strong>not</strong> quantitatively accurate.</p></li>
+<li><p><strong>Hybrid functionals</strong> and <strong>GW</strong> are used when agreement with PES/XPS matters.</p></li>
+</ul>
+</section>
+<section id="band-structure-arpes-vs-theory-graphene">
+<h3>Band structure: ARPES vs theory (graphene)<a class="headerlink" href="#band-structure-arpes-vs-theory-graphene" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Angle-resolved photoemission (ARPES)</strong> maps occupied bands <span class="math notranslate nohighlight">\(E_n(\mathbf{k})\)</span> in momentum space.</p></li>
+<li><p>A classic example is <strong>monolayer graphene</strong> on SiC: Bostwick <em>et al.</em>, <a class="reference external" href="https://doi.org/10.1038/nphys477">Nature Physics <strong>3</strong>, 36 (2007)</a>.</p></li>
+<li><p>Panel (a): ARPES overlaid with a DFT calculation.</p></li>
+<li><p>The linear <strong>Dirac cones</strong> at <span class="math notranslate nohighlight">\(K\)</span> are reproduced.</p></li>
+</ul>
+<center><img src="figures/science/graphene_arpes_bostwick2007_fig1.png" width=1100 /></center>
+<p><small>Figure adapted from Bostwick <em>et al.</em>, <i>Nature Physics</i> <b>3</b>, 36 (2007), Fig. 1.</small></p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="challenge-1">
+<h1>Challenge 1<a class="headerlink" href="#challenge-1" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>In the limit of having the exact exchange-correlation functional, should you expect KS-DFT orbital energies to deliver exact band structures?</p></li>
+<li><p>Discuss among the group and be ready to share your thoughts with the class.</p></li>
+</ul>
+<center><img src="figures/random/qr_poll4.1.png" width=500 height=300 /></center>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="band-structures-graphene">
+<h1>Band structures: Graphene<a class="headerlink" href="#band-structures-graphene" title="Link to this heading">#</a></h1>
+<section id="build-system-and-solve-scf">
+<h2>Build system and solve SCF<a class="headerlink" href="#build-system-and-solve-scf" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">atoms</span> <span class="o">=</span> <span class="n">Graphene</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="n">latticeconstant</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mf">2.46</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">})</span>
+<span class="n">atoms</span><span class="o">.</span><span class="n">calc</span> <span class="o">=</span> <span class="n">QEpyCalculator</span><span class="p">(</span><span class="n">qe_options</span><span class="o">=</span><span class="n">qe_options</span><span class="p">,</span> <span class="n">logfile</span><span class="o">=</span><span class="s1">&#39;tmp.out&#39;</span><span class="p">)</span>
+<span class="n">energy</span> <span class="o">=</span> <span class="n">atoms</span><span class="o">.</span><span class="n">get_potential_energy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="look-at-the-fbz-and-select-special-k-points">
+<h2>Look at the FBZ and select special <span class="math notranslate nohighlight">\(k\)</span> points<a class="headerlink" href="#look-at-the-fbz-and-select-special-k-points" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lat</span> <span class="o">=</span> <span class="n">atoms</span><span class="o">.</span><span class="n">cell</span><span class="o">.</span><span class="n">get_bravais_lattice</span><span class="p">()</span>
+<span class="n">lat</span><span class="o">.</span><span class="n">plot_bz</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/2f730eca6d34b70e949ed560ce8b7dcc42a4811c6abc13b35c7b29681e60d310.png" src="_images/2f730eca6d34b70e949ed560ce8b7dcc42a4811c6abc13b35c7b29681e60d310.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes3D: &gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="choose-gamma-to-m-to-k-to-gamma-band-path">
+<h2>Choose <span class="math notranslate nohighlight">\(\Gamma \to M \to K \to \Gamma\)</span> band path<a class="headerlink" href="#choose-gamma-to-m-to-k-to-gamma-band-path" title="Link to this heading">#</a></h2>
+</section>
+<section id="plot-the-first-6-bands">
+<h2>Plot the first 6 bands<a class="headerlink" href="#plot-the-first-6-bands" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="n">atoms</span><span class="o">.</span><span class="n">cell</span><span class="o">.</span><span class="n">bandpath</span><span class="p">(</span><span class="s1">&#39;GMKG&#39;</span><span class="p">,</span><span class="n">npoints</span><span class="o">=</span><span class="mi">61</span><span class="p">)</span>
+<span class="n">qe_options</span><span class="p">[</span><span class="s1">&#39;&amp;system&#39;</span><span class="p">][</span><span class="s1">&#39;nbnd&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">8</span>
+<span class="n">band</span> <span class="o">=</span> <span class="n">atoms</span><span class="o">.</span><span class="n">calc</span><span class="o">.</span><span class="n">get_band_structure</span><span class="p">(</span><span class="n">qe_options</span><span class="p">,</span> <span class="n">kpts</span><span class="o">=</span><span class="n">path</span><span class="p">)</span><span class="c1">#, reference=atoms.calc.get_fermi_level())</span>
+<span class="n">band</span><span class="o">.</span><span class="n">subtract_reference</span><span class="p">()</span>
+<span class="n">band</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: ylabel=&#39;energies [eV]&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/18d55c7f9e7a7a6f9e0014ceca9370e003149b4eb9ac7695f2c5622efb81686c.png" src="_images/18d55c7f9e7a7a6f9e0014ceca9370e003149b4eb9ac7695f2c5622efb81686c.png" />
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="challenge-1-2">
+<h1>Challenge 1.2<a class="headerlink" href="#challenge-1-2" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Band structure of Si diamond structure</p></li>
+<li><p>Use the hands-on band structure tutorial. Notice the <code class="docutils literal notranslate"><span class="pre">ASE</span></code> tool <code class="docutils literal notranslate"><span class="pre">Bulk</span></code> from <code class="docutils literal notranslate"><span class="pre">ase.build</span></code></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ase.build</span><span class="w"> </span><span class="kn">import</span> <span class="n">bulk</span>
+<span class="n">atoms</span> <span class="o">=</span> <span class="n">bulk</span><span class="p">(</span><span class="s1">&#39;Si&#39;</span><span class="p">,</span><span class="s1">&#39;diamond&#39;</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="mf">5.431</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Compare the notebook for Si and for graphene</p></li>
+<li><p>Make a new notebook with a system of your choice and compute the band structure.</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="part-ii-tddft-based-on-ks-dft">
+<h1>PART II: TDDFT based on KS-DFT<a class="headerlink" href="#part-ii-tddft-based-on-ks-dft" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="electronic-excitations-and-uvvis-spectroscopy">
+<h1>Electronic excitations and UV–vis spectroscopy<a class="headerlink" href="#electronic-excitations-and-uvvis-spectroscopy" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>UV–vis absorption</strong> probes electronic excitations from the ground singlet <span class="math notranslate nohighlight">\(S_0\)</span> to excited singlets <span class="math notranslate nohighlight">\(S_n\)</span> at photon energy <span class="math notranslate nohighlight">\(E = h\nu\)</span>.</p></li>
+<li><p>In a <strong>Jablonski diagram</strong>, upward arrows are absorption; downward arrows are fluorescence; wavy/dashed paths are <strong>internal conversion</strong> and <strong>intersystem crossing</strong>.</p></li>
+<li><p>Each allowed <span class="math notranslate nohighlight">\(S_0 \to S_n\)</span> transition contributes a peak in the spectrum.
+<br>
+<br></p></li>
+</ul>
+<center><img src="figures/science/jablonski_uvvis_cartoon.png" width=1000 /></center></section>
+<section class="tex2jax_ignore mathjax_ignore" id="tddft-vs-experiment-s-0-to-s-1-excitation-energies">
+<h1>TDDFT vs experiment: <span class="math notranslate nohighlight">\(S_0 \to S_1\)</span> excitation energies<a class="headerlink" href="#tddft-vs-experiment-s-0-to-s-1-excitation-energies" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Benchmark on <strong>29 small molecules</strong>: mean absolute error (MAE) of <span class="math notranslate nohighlight">\(S_0 \to S_1\)</span> excitations vs experiment.</p></li>
+<li><p><strong>Wavefunction methods</strong> vs <strong>TD-DFT functionals</strong>.
+<br>
+<br></p></li>
+</ul>
+<center><img src="figures/science/suellen_s0s1_mae_benchmark.png" width=1600 /></center>
+<p><small>Adapted from Suellen <i>et al.</i>, <i>J. Chem. Theory Comput.</i> <b>15</b>, 4581 (2019), Fig. 3 (<a href="https://doi.org/10.1021/acs.jctc.9b00446">doi:10.1021/acs.jctc.9b00446</a>).</small></p>
+<section id="let-s-dive-a-bit-deeper-into-tddft">
+<h2>Let’s dive a bit deeper into TDDFT<a class="headerlink" href="#let-s-dive-a-bit-deeper-into-tddft" title="Link to this heading">#</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="real-time-tddft-equations">
+<h1>Real-time TDDFT equations :<a class="headerlink" href="#real-time-tddft-equations" title="Link to this heading">#</a></h1>
+<div class="math notranslate nohighlight">
+\[
+-\frac{1}{2}\nabla^2 \phi_k(\mathbf{r},t) + \color{red}{v_s(\mathbf{r},t)}\,\phi_k(\mathbf{r},t)
+= i\,\frac{\partial \phi_k(\mathbf{r},t)}{\partial t}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+n(\mathbf{r},t) = \sum_k f_k\, \lvert \phi_k(\mathbf{r},t) \rvert^2,
+\qquad N = \sum_k f_k,
+\quad \text{with } \{f_k\} \text{ time-independent.}
+\]</div>
+<section id="the-rt-tddft-equations-can-be-integrated-in-time">
+<h2>The rt-TDDFT equations can be integrated in time<a class="headerlink" href="#the-rt-tddft-equations-can-be-integrated-in-time" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>This approach delivers <span class="math notranslate nohighlight">\(\{\phi_k(\mathbf{r},t)\}\)</span> and thus <span class="math notranslate nohighlight">\(n(\mathbf{r},t)\)</span></p></li>
+</ul>
+<ul class="simple">
+<li><p>…and any other derived quantity</p></li>
+</ul>
+<ul class="simple">
+<li><p>ultrafast electron dynamics (scattering, Coulomb explosions, stopping power, etc…)</p></li>
+</ul>
+<ul class="simple">
+<li><p>electronic oscillations in the frequency domain, <span class="math notranslate nohighlight">\(n(\mathbf{r},\omega)=\int n(\mathbf{r},t)\, e^{i\omega t}\, dt\)</span>, give access to spectra</p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="why-does-n-mathbf-r-omega-yield-spectra">
+<h1>Why does <span class="math notranslate nohighlight">\(n(\mathbf{r},\omega)\)</span> yield spectra?<a class="headerlink" href="#why-does-n-mathbf-r-omega-yield-spectra" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Out of equilibrium, the time-dependent wavefunction could be</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+|\Psi(t)\rangle
+=
+c_0 e^{-iE_0t/\hbar}|\Psi_0\rangle
++
+c_1 e^{-iE_1t/\hbar}|\Psi_1\rangle .
+\]</div>
+<ul class="simple">
+<li><p>The corresponding time-dependent density is</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+n(\mathbf r,t)
+=
+\langle \Psi(t)|\hat n(\mathbf r)|\Psi(t)\rangle =\underbrace{|c_0|^2n_0(\mathbf r)+|c_1|^2n_1(\mathbf r)}_{n(\mathbf{r},t=0)} + \underbrace{c_0^*c_1 n_{01}(\mathbf{r}) e^{-i(E_1-E_0)t/\hbar}+ c_1^*c_0 n_{10}(\mathbf{r})e^{i(E_1-E_0)t/\hbar}}_{\delta n(\mathbf{r},t)}
+\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\delta n(\mathbf{r},t)\)</span> oscillates at the excitation frequency
+<span class="math notranslate nohighlight">\(\omega_{01} = \frac{E_1-E_0}{\hbar},\)</span>
+with amplitude given by the transition density
+<span class="math notranslate nohighlight">\(n_{10}(\mathbf r) = n_{01}(\mathbf r)=\langle \Psi_0|\hat n(\mathbf r)|\Psi_1\rangle\)</span>.</p></li>
+</ul>
+<ul class="simple">
+<li><p>In the frequency domain, these oscillations produce peaks at the excitation energies:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\delta n(\mathbf r,\omega)
+=
+c_0^*c_1 n_{01}(\mathbf r)\,
+\delta(\omega-\omega_{01})
+\color{grey}{+c_0c_1^* 
+n_{10}(\mathbf r)\,
+\delta(\omega+\omega_{01})}
+\]</div>
+<ul class="simple">
+<li><p>Therefore, the frequencies contained in <span class="math notranslate nohighlight">\(\delta n(\mathbf r,\omega)\)</span> give access to the excitation spectrum.</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="two-important-ingredients-of-tddft">
+<h1>Two important ingredients of TDDFT<a class="headerlink" href="#two-important-ingredients-of-tddft" title="Link to this heading">#</a></h1>
+<section id="the-occupation-numbers">
+<h2>#1: The occupation numbers<a class="headerlink" href="#the-occupation-numbers" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[
+n(\mathbf{r},t) = \sum_k f_k\, \lvert \phi_k(\mathbf{r},t) \rvert^2,
+\qquad N = \sum_k f_k,
+\quad \text{with } \{f_k\} \text{ time-independent.}
+\]</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="challenge-2">
+<h1>Challenge 2<a class="headerlink" href="#challenge-2" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>The occupation numbers, <span class="math notranslate nohighlight">\(\{f_k\}\)</span>, are taken to be independent of time. Why?</p></li>
+</ul>
+<p>Discuss among the group and be ready to share your thoughts with the class.</p>
+<center><img src="figures/random/qr_poll4.2.png" width=500 height=300 /></center>
+<section id="the-time-dependent-ks-potential">
+<h2>#2: The time-dependent KS potential<a class="headerlink" href="#the-time-dependent-ks-potential" title="Link to this heading">#</a></h2>
+<br>
+<div class="math notranslate nohighlight">
+\[
+v_s(\mathbf{r},t) = v_H(\mathbf{r},t) + v_{ext}(\mathbf{r},t) + \color{red}{v_{xc}(\mathbf{r},t)}
+\]</div>
+<p>is defined as that particular potential such that <span class="math notranslate nohighlight">\(n_{KS}(\mathbf{r},t) = n(\mathbf{r},t)\)</span></p>
+<p>Once <span class="math notranslate nohighlight">\(v_{xc}(\mathbf{r},t)\)</span> is approximated, we can integrate the rt-TDDFT equations</p>
+<p>Several software implement rt-TDDFT, and if time permits, we will consider it later in this lecture</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="challenge-3">
+<h1>Challenge 3<a class="headerlink" href="#challenge-3" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>How can <span class="math notranslate nohighlight">\(v_{xc}(\mathbf{r},t)\)</span> be approximated? Would <span class="math notranslate nohighlight">\(v_{xc}(\mathbf{r},t)= v_{xc}[n(t)](\mathbf{r}) = \frac{\delta E_{xc}[n]}{\delta n(\mathbf{r})}\bigg\vert_{n=n(\mathbf{r},t)}\)</span> be a good approximation?</p></li>
+</ul>
+<p>Discuss among the group and be ready to share your thoughts with the class.</p>
+<center><img src="figures/random/qr_poll4.3.png" width=500 height=300 /></center>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="the-adiabatic-approximation-in-rt-tddft">
+<h1>The adiabatic approximation in rt-TDDFT<a class="headerlink" href="#the-adiabatic-approximation-in-rt-tddft" title="Link to this heading">#</a></h1>
+<div class="math notranslate nohighlight">
+\[
+v_{xc}(\mathbf{r},t) = v_{xc}[n(t)](\mathbf{r})
+\]</div>
+<p>uses the ground state XC functional and potential and evaluates them with the time-dependent density, <span class="math notranslate nohighlight">\(n(\mathbf{r},t)\)</span>.</p>
+<ul class="simple">
+<li><p>The time-dependent xc potential is <b>not</b> defined in this way</p></li>
+</ul>
+<ul class="simple">
+<li><p>The adiabatic approximation is perhaps the best we can do. <b>But</b> together with the self-interaction error,  it leads to some shortcomings:</p>
+<ul>
+<li><p><a href="https://iopscience.iop.org/article/10.1088/1361-648X/aa836e/meta">charge-transfer excitations are generally too low in energy</a></p></li>
+<li><p>predicted optical gaps are usually too low (e.g., <a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.73.094204">PBE water: 6.5 eV vs 8.5 eV</a>, see also <a href="https://pubs.acs.org/doi/10.1021/acs.jpclett.7b02212">this paper</a>.)</p></li>
+<li><p><a href="https://doi.org/10.1016/j.chemphys.2011.03.020">neglect of double excitations (e.g., 1,3-butene)</a></p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p>There are fixes <b>but you must evaluate them carfully before use</b>.</p>
+<ul>
+<li><p>use of hybrids</p></li>
+<li><p>use of GGA+U</p></li>
+<li><p>use of long-range corrected xc potentials <a href="https://pubs.aip.org/aip/jcp/article-abstract/112/3/1344/184896/Molecular-calculations-of-excitation-energies-and">(LB94, SAOP)</a></p></li>
+<li><p>other functionals (Koopman’s, etc)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="does-v-xc-mathbf-r-t-exist">
+<h1>Does <span class="math notranslate nohighlight">\(v_{xc}(\mathbf{r},t)\)</span> exist?<a class="headerlink" href="#does-v-xc-mathbf-r-t-exist" title="Link to this heading">#</a></h1>
+<br>
+<br>
+<center>
+    <div class="alert alert-success">The KS-TDDFT equations are the result of the <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.52.997">Runge-Gross theorem</a>, the follow-up <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.82.3863">van Leuwen theorem</a> and considerations by <a href="https://journals.aps.org/pra/abstract/10.1103/PhysRevA.77.062511">Vignale</a>.</div>
+</center></section>
+<section class="tex2jax_ignore mathjax_ignore" id="targeting-the-excited-states-directly-linear-response-tddft">
+<h1>Targeting the excited states directly: linear-response TDDFT<a class="headerlink" href="#targeting-the-excited-states-directly-linear-response-tddft" title="Link to this heading">#</a></h1>
+<div class="alert alert-danger tex2jax_process"
+     style="text-align: center;">
+    <b>
+        Idea: consider small variations, \(\delta v_{\mathrm{appl}}\),
+        of the external potential
+    </b>
+</div><section id="in-other-words">
+<h2>In other words:<a class="headerlink" href="#in-other-words" title="Link to this heading">#</a></h2>
+<br>
+<div class="tex2jax_process" style="text-align: center;">
+The lr-TDDFT equations define  
+<b>variations</b> \(\longleftrightarrow\) <b>response</b> relations as
+</div><div class="math notranslate nohighlight">
+\[
+\color{green}{\text{Int: }} v_{ext}(\mathbf{r},t) - v_{ext}(\mathbf{r},0)=\color{green}{\delta v_{appl}(\mathbf{r},t)  \longleftrightarrow \delta n(\mathbf{r},t)}=n(\mathbf{r},t) - n(\mathbf{r},0)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+~~~~~~~~\color{red}{\text{KS: }}~v_s(\mathbf{r},t) - v_s(\mathbf{r},0)=\color{red}{\delta v_s(\mathbf{r},t)  \longleftrightarrow \delta n(\mathbf{r},t)} = n(\mathbf{r},t) - n(\mathbf{r},0)
+\]</div>
+<center>and in frequency domain:</center>
+<div class="math notranslate nohighlight">
+\[
+\color{green}{\delta v_{appl}(\mathbf{r},\omega)  \longleftrightarrow \delta n(\mathbf{r},\omega)} \qquad \color{red}{\delta v_s(\mathbf{r},\omega)  \longleftrightarrow \delta n(\mathbf{r},\omega)}
+\]</div>
+<center>
+    <div class="alert alert-success">We now express these relations in the limit of <b>linear response</b></div></center></section>
+<section id="linear-density-response-of-the-interacting-system">
+<h2>Linear density response of the interacting system<a class="headerlink" href="#linear-density-response-of-the-interacting-system" title="Link to this heading">#</a></h2>
+<p>For a weak perturbing potential <span class="math notranslate nohighlight">\(\delta v_{\mathrm{appl}}(\mathbf{r},\omega)\)</span>, the density response, <span class="math notranslate nohighlight">\(\delta n(\mathbf{r},\omega)\)</span>, satisfies</p>
+<div class="math notranslate nohighlight">
+\[
+\delta n(\mathbf{r},\omega) = \int \chi(\mathbf{r},\mathbf{r}',\omega)\, \delta v_{\mathrm{appl}}(\mathbf{r}',\omega)\, d\mathbf{r}' ~~  \color{green}{\longleftrightarrow} ~~ \chi(\mathbf{r},\mathbf{r}',\omega) = \frac{\delta n(\mathbf{r},\omega)}{\delta v_{\mathrm{appl}}(\mathbf{r}',\omega)}~~~~~~~~~~
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\chi\)</span> is the density response function of the <strong>interacting</strong> system</p>
+<div class="alert alert-danger tex2jax_process"
+     style="text-align: center;">
+    Does \(\delta n = \chi\,\delta v_{\mathrm{appl}}\) make sense to you?
+</div><section id="why-is-chi-interesting">
+<h3>Why is <span class="math notranslate nohighlight">\(\chi\)</span> interesting?<a class="headerlink" href="#why-is-chi-interesting" title="Link to this heading">#</a></h3>
+<p>From first-order perturbation theory, it can be shown that:</p>
+<div class="alert alert-warning tex2jax_process">
+\[
+\chi(\mathbf r,\mathbf r',\omega)
+=
+\sum_{k\neq 0}
+\left[
+\frac{
+n_{0k}(\mathbf r)\,n_{k0}(\mathbf r')
+}{
+\omega-\Omega_{0k}+i\eta
+}
+-
+\frac{
+n_{k0}(\mathbf r)\,n_{0k}(\mathbf r')
+}{
+\omega+\Omega_{0k}+i\eta
+}
+\right]
+\]
+</div><div class="alert alert-success tex2jax_process">
+\[
+\chi_s(\mathbf r,\mathbf r',\omega)
+=
+\sum_{i\in\mathrm{occ}}
+\sum_{a\in\mathrm{vir}}
+\frac{
+\phi_i(\mathbf r)\phi_a(\mathbf r)\,
+\phi_i(\mathbf r')\phi_a(\mathbf r')
+}{
+\omega-\omega_{ia}-i\eta
+}
++\mathrm{c.c.},
+\qquad
+\omega_{ia}
+=
+\frac{\varepsilon_a-\varepsilon_i}{\hbar}
+\]
+</div></section>
+</section>
+<section id="linear-density-response-of-the-ks-system">
+<h2>Linear density response of the KS system<a class="headerlink" href="#linear-density-response-of-the-ks-system" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>To find <span class="math notranslate nohighlight">\(\chi\)</span> we once again consider the <strong>Kohn–Sham</strong> non-interacting system.</p></li>
+</ul>
+<ul class="simple">
+<li><p>The interacting and KS systems bust share the same density reponse, <span class="math notranslate nohighlight">\(\delta n\)</span> (using a short-hand notation)</p></li>
+</ul>
+<p><br><br></p>
+<table class="tex2jax_process"
+       style="width: 100%; border-collapse: collapse; font-size: 38px;">
+  <tr>
+    <td style="width: 50%; background-color: green;
+               padding: 20px; border: 1px solid black;
+               text-align: center;">
+      \({\color{red}\chi}\,\delta v_{\mathrm{appl}}\)
+    </td>
+    <td style="width: 50%; background-color: yellow;
+               padding: 20px; border: 1px solid black;
+               text-align: center;">
+      \(\chi_s\,{\color{red}\delta v_s}\)
+    </td>
+  </tr>
+</table>
+In red the quantities unknown.
+<br><p><br><br></p>
+<div class="alert alert-danger tex2jax_process"
+     style="text-align: center;">
+    The above is true for a <b>special \(\delta v_s\)</b> such that
+    the induced density variations, \(\delta n\), of the interacting
+    and KS systems are <b>equal</b>.
+</div></section>
+<section id="what-is-color-red-delta-v-s">
+<h2>What is <span class="math notranslate nohighlight">\(\color{red}{\delta v_s}\)</span>?<a class="headerlink" href="#what-is-color-red-delta-v-s" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[
+\delta v_s(\mathbf{r},\omega) = \delta v_H(\mathbf{r},\omega) + \color{red}{\delta v_{\mathrm{xc}}(\mathbf{r},\omega)} + \delta v_{\mathrm{appl}}(\mathbf{r},\omega)
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\delta v_H(\mathbf{r},\omega) = \int \dfrac{\delta n(\mathbf{r}',\omega)}{|\mathbf{r}-\mathbf{r}'|}\, d\mathbf{r}'\)</span> and <span style="color: red;"><span class="math notranslate nohighlight">\(\delta v_{xc}(\mathbf{r},\omega) = \int d\mathbf{r}' f_{\mathrm{xc}}(\mathbf{r},\mathbf{r}',\omega)\,\delta n(\mathbf{r}'\omega)\)</span></span>, defining an <strong>xc kernel</strong>.</p>
+<p>Combining the definitions introduced thus far (using a short-hand notation):</p>
+<div class="math notranslate nohighlight">
+\[
+\chi \delta v_{appl} = \chi_s \delta v_{appl} + \chi_s \bigg(\frac{1}{|\mathbf{r}-\mathbf{r}'|}+f_{xc}(\mathbf{r},\mathbf{r}',\omega)\bigg)\delta n
+\]</div>
+<p>By taking the derivative with respect to <span class="math notranslate nohighlight">\(\delta v_{\mathrm{appl}}\)</span>, we obtain the important Dyson-like relation:</p>
+<p><br><br></p>
+<div class="alert alert-danger tex2jax_process"
+     style="text-align: center;">
+\[
+\chi = \chi_s + \chi_s f_{\mathrm{Hxc}} \chi
+\]
+</div></section>
+<section id="casida-equations">
+<h2>Casida equations<a class="headerlink" href="#casida-equations" title="Link to this heading">#</a></h2>
+<p>The inverse of the Dyson equation is</p>
+<div class="math notranslate nohighlight">
+\[
+-\chi^{-1} = -\chi_s^{-1} + f_{Hxc}(\mathbf{r},\mathbf{r}',\omega)
+\]</div>
+<p>can be expressed in a basis set of occupied/virtual products, leading to the <strong>Casida equation</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix} {\bf A}(\omega) &amp; {\bf B}(\omega) \\ {\bf B}(\omega) &amp; {\bf A}(\omega) \end{pmatrix} \begin{pmatrix} X_{ia} \\ Y_{ia} \end{pmatrix} = \omega \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; -1 \end{pmatrix} \begin{pmatrix} X_{ia} \\ Y_{ia} \end{pmatrix}
+\end{split}\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+A_{iajb}(\omega) = \delta_{ij}\delta_{ab}\,\omega_{ia} + \big\langle \phi_i \phi_a \big| f_{Hxc}(\mathbf{r},\mathbf{r}',\omega) \big| \phi_j \phi_b \big\rangle, \qquad
+B_{iajb}(\omega) = \big\langle \phi_i \phi_a \big| f_{Hxc}(\mathbf{r},\mathbf{r}',\omega) \big| \phi_j \phi_b \big\rangle
+\]</div>
+<p>with <span class="math notranslate nohighlight">\(\omega_{ia} = \varepsilon_a - \varepsilon_i\)</span>, are the KS orbital excitations.</p>
+<p>Excitation energies <span class="math notranslate nohighlight">\(\Omega_k\)</span> and the eigenvectors <span class="math notranslate nohighlight">\((X_{ia}, Y_{ia})\)</span> deliver transition densities <span class="math notranslate nohighlight">\(n_{0k}(\mathbf{r}) = \sum_{ia} (X_{ia}+Y_{ia})\phi_i(\mathbf{r})\phi_a(\mathbf{r})\)</span>.</p>
+</section>
+<section id="what-can-you-obtain-from-lr-tddft">
+<h2>What can you obtain from lr-TDDFT?<a class="headerlink" href="#what-can-you-obtain-from-lr-tddft" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>excitation energies / spectra</p></li>
+<li><p>check out <a href="https://arxiv.org/pdf/1108.0611"> this nice paper</a></p></li>
+</ul>
+<ul class="simple">
+<li><p>transition densities, transition dipoles and other derived quantities</p></li>
+</ul>
+<ul class="simple">
+<li><p>e-e structure factors, dielectric functions, etc…</p></li>
+<li><p>you’ll learn about some of these applications next week</p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="ready-for-some-hands-on-work">
+<h1>Ready for some hands-on work?<a class="headerlink" href="#ready-for-some-hands-on-work" title="Link to this heading">#</a></h1>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="DFT_intro_3.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Goal of this lecture</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Goals of this lecture + hands-on session</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-i">Part I</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-ii">Part II</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-iii">Part III</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-i-ks-orbitals">PART I: KS orbitals</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-physical-meaning-of-ks-orbitals">What is the physical meaning of KS orbitals?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#an-overview-of-what-you-can-do-with-orbitals">An overview of what you can do with orbitals</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-you-are-interested-in-ionization-energies">If you are interested in ionization energies:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-you-are-interested-in-excitation-energies">If you are interested in excitation energies:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-calculated-and-measured-electronic-energies">Comparing calculated and measured electronic energies</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#photoemission-pes-xpes-and-dft-orbital-energies">Photoemission (PES / XPES) and DFT orbital energies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#band-structure-arpes-vs-theory-graphene">Band structure: ARPES vs theory (graphene)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-1">Challenge 1</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#band-structures-graphene">Band structures: Graphene</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-system-and-solve-scf">Build system and solve SCF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#look-at-the-fbz-and-select-special-k-points">Look at the FBZ and select special <span class="math notranslate nohighlight">\(k\)</span> points</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-gamma-to-m-to-k-to-gamma-band-path">Choose <span class="math notranslate nohighlight">\(\Gamma \to M \to K \to \Gamma\)</span> band path</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-first-6-bands">Plot the first 6 bands</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-1-2">Challenge 1.2</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-ii-tddft-based-on-ks-dft">PART II: TDDFT based on KS-DFT</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#electronic-excitations-and-uvvis-spectroscopy">Electronic excitations and UV–vis spectroscopy</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tddft-vs-experiment-s-0-to-s-1-excitation-energies">TDDFT vs experiment: <span class="math notranslate nohighlight">\(S_0 \to S_1\)</span> excitation energies</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-dive-a-bit-deeper-into-tddft">Let’s dive a bit deeper into TDDFT</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#real-time-tddft-equations">Real-time TDDFT equations :</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rt-tddft-equations-can-be-integrated-in-time">The rt-TDDFT equations can be integrated in time</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-n-mathbf-r-omega-yield-spectra">Why does <span class="math notranslate nohighlight">\(n(\mathbf{r},\omega)\)</span> yield spectra?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#two-important-ingredients-of-tddft">Two important ingredients of TDDFT</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-occupation-numbers">#1: The occupation numbers</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-2">Challenge 2</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-time-dependent-ks-potential">#2: The time-dependent KS potential</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-3">Challenge 3</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-adiabatic-approximation-in-rt-tddft">The adiabatic approximation in rt-TDDFT</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#does-v-xc-mathbf-r-t-exist">Does <span class="math notranslate nohighlight">\(v_{xc}(\mathbf{r},t)\)</span> exist?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#targeting-the-excited-states-directly-linear-response-tddft">Targeting the excited states directly: linear-response TDDFT</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-other-words">In other words:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-density-response-of-the-interacting-system">Linear density response of the interacting system</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-chi-interesting">Why is <span class="math notranslate nohighlight">\(\chi\)</span> interesting?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-density-response-of-the-ks-system">Linear density response of the KS system</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-color-red-delta-v-s">What is <span class="math notranslate nohighlight">\(\color{red}{\delta v_s}\)</span>?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#casida-equations">Casida equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-can-you-obtain-from-lr-tddft">What can you obtain from lr-TDDFT?</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ready-for-some-hands-on-work">Ready for some hands-on work?</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Michele Pavanello
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

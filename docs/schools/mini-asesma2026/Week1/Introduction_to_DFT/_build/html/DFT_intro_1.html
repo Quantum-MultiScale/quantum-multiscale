@@ -1,0 +1,852 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Goals of this lecture &#8212; Introduction to DFT and TDDFT</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'DFT_intro_1';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Goal of this lecture" href="DFT_intro_2.html" />
+    <link rel="prev" title="Introduction to DFT and TDDFT" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Introduction to DFT and TDDFT</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introduction to DFT and TDDFT
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Goals of this lecture</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="DFT_intro_2.html">Goal of this lecture</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="DFT_intro_3.html">Goal of this lecture</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TDDFT_intro.html">Goals of this lecture + hands-on session</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/DFT_intro_1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Goals of this lecture</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Goals of this lecture</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#split-into-n-groups">Split into <code class="docutils literal notranslate"><span class="pre">N</span></code> groups</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-real-world">The Real World</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#available-electronic-structure-methods">Available electronic structure methods</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-1">Challenge 1</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-challenge-1-and-a-bit-more">Solution to Challenge #1 and a bit more…</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hohenberg-and-kohn-theorems">The Hohenberg and Kohn theorems</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-2">Challenge 2</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-challenge-2-and-a-bit-more">Solution to Challenge #2 and a bit more…</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-the-kohn-sham-ks-system-of-noninteracting-electrons">Introducing: the Kohn-Sham (KS) system of <em>noninteracting</em> electrons</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#energy-functional-for-the-ks-system">Energy functional for the KS system</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-3-what-is-e-xc">Challenge 3: What is <span class="math notranslate nohighlight">\(E_{xc}\)</span>?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-challenge-3">Solution to Challenge #3</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-for-the-electronic-structure-find-the-ks-orbitals-phi-i">Solving for the electronic structure (find the KS orbitals, <span class="math notranslate nohighlight">\(\{\phi_i\}\)</span>)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-4">Challenge 4</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div id="bg-slide">
+    <center>
+    <h1>DFT introduction #1</h1>
+<center>
+<br>
+<table>
+  <tr>
+      <td><p><h1>Team Rutgers</h1></p><p><h2>(Valeria, Ezekiel and Michele)</h2></p></td> 
+      <td><img src="figures/logos/ASESMA_logo.png" width=300 height=300 /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>An interactive session</td>
+  </tr>
+</table>
+<br>
+<h3>Retrieve this presentation at:</h3>
+<br>
+<center>https://github.com/asesma-org/miniASESMA2026</center>
+<br>
+<center><h3> mini ASESMA 2026 \(\bullet\) Accra, Ghana \(\bullet\) June 16, 2026</h3></center>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="goals-of-this-lecture">
+<h1>Goals of this lecture<a class="headerlink" href="#goals-of-this-lecture" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Reasons for considering DFT</p></li>
+<li><p>Basics of the theory behind DFT and Kohn-Sham DFT</p></li>
+<li><p>KS equations and XC functional</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="split-into-n-groups">
+<h1>Split into <code class="docutils literal notranslate"><span class="pre">N</span></code> groups<a class="headerlink" href="#split-into-n-groups" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Assign number <code class="docutils literal notranslate"><span class="pre">1-N</span></code> to each student</p></li>
+<li><p>Groups sit together</p></li>
+<li><p>Possibly have 1 instructor per group</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="the-real-world">
+<h1>The Real World<a class="headerlink" href="#the-real-world" title="Link to this heading">#</a></h1>
+<table>
+    <tr>
+      <td><h3>Photocatalyst</h3></td>
+        <td><h3>Catalytic nanoparticles</h3></td>
+  </tr>
+  <tr>
+      <td><img src="figures/science/photocatalyst.png" height=500 /></td>
+      <td><img src="figures/science/catalyst.png" height=500 /></td>
+  </tr>
+    <tr>
+        <td>Chem. Comm., 43, 6551 (2009)</td>
+        <td>PCCP, 21, 15080 (2019)</td>
+    </tr>
+</table>   </section>
+<section class="tex2jax_ignore mathjax_ignore" id="available-electronic-structure-methods">
+<h1>Available electronic structure methods<a class="headerlink" href="#available-electronic-structure-methods" title="Link to this heading">#</a></h1>
+<br>
+<center>
+    <img src="figures/science/electronic_structure.png" width=1600 />
+</center></section>
+<section class="tex2jax_ignore mathjax_ignore" id="challenge-1">
+<h1>Challenge 1<a class="headerlink" href="#challenge-1" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://forms.office.com/r/VKyAnhNpxk">Let’s check your QM knowledge.</a></p>
+<ul class="simple">
+<li><p>What is the molecular Hamiltonian?</p></li>
+</ul>
+<center>
+    <img src="figures/random/qr_poll1.png" width=350 />
+</center>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="solution-to-challenge-1-and-a-bit-more">
+<h1>Solution to Challenge #1 and a bit more…<a class="headerlink" href="#solution-to-challenge-1-and-a-bit-more" title="Link to this heading">#</a></h1>
+<p>Molecular Hamiltonian for interacting electrons and nuclei of charge <span class="math notranslate nohighlight">\(Z_\alpha\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+\hat{H} = \underbrace{-\frac{1}{2}\sum_i^{N_e} \nabla^2_i}_{\hat T} + \underbrace{\sum_i^{N_e}\sum_\alpha^{N_n} \frac{-Z_\alpha}{|r_i-R_\alpha|}}_{\hat V_{eN}} + \underbrace{\frac{1}{2}\sum_{i\neq j}^{N_e} \frac{1}{|r_i-r_j|}}_{\hat V_{ee}} + E_{NN}
+\]</div>
+<p>The Schrödinger equation for the ground state of the interacting system</p>
+<div class="math notranslate nohighlight">
+\[
+\hat H \Psi_0 = E_0 \Psi_0
+\]</div>
+<p>Expectation values of each term of the Hamiltonian</p>
+<div class="math notranslate nohighlight">
+\[
+T[\Psi_0] = \langle \Psi_0 | \hat T | \Psi_0 \rangle, ~~ E_{ee}[\Psi_0] = \langle \Psi_0 | \hat V_{ee} | \Psi_0 \rangle
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+E_{eN}[\Psi_0] = \color{red}{E_{eN}[n]} = \langle \Psi_0 | \hat V_{eN} | \Psi_0 \rangle = \int n(r) v_{eN}(r) dr
+\]</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="the-hohenberg-and-kohn-theorems">
+<h1>The Hohenberg and Kohn theorems<a class="headerlink" href="#the-hohenberg-and-kohn-theorems" title="Link to this heading">#</a></h1>
+<div class="math notranslate nohighlight">
+\[
+\Psi_0 \longleftrightarrow n(r) \longleftrightarrow v_{eN}(r) \longleftrightarrow \Psi_0 
+\]</div>
+<p>Therefore <span class="math notranslate nohighlight">\(n(r)\)</span>, <span class="math notranslate nohighlight">\(v_{eN}(r)\)</span> or <span class="math notranslate nohighlight">\(\Psi_0\)</span> hold the same information.</p>
+<p><a class="reference download internal" download="" href="_downloads/9b7bcfaf4c0da20165d60dad803d114f/PhysRev.136.B864.pdf"><span class="xref download myst">HK paper 1964</span></a></p>
+<p>In particular:</p>
+<div class="math notranslate nohighlight">
+\[
+E \equiv E[\Psi_0] \equiv E[v_{eN}] \equiv E[n]
+\]</div>
+<p>DFT exploits the latter as follows:</p>
+<div class="alert alert-success tex2jax_process"
+     style="text-align: center;">
+    $$
+     E[n] = T[n] + E_{ee}[n]+E_{eN}[n]+E_{NN}
+    $$
+</div> </section>
+<section class="tex2jax_ignore mathjax_ignore" id="challenge-2">
+<h1>Challenge 2<a class="headerlink" href="#challenge-2" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://forms.office.com/r/74x4YMJ8Je">What do the energy functionals mean?</a></p>
+<ul class="simple">
+<li><p>Write an expression for each of the functionals (<span class="math notranslate nohighlight">\(T\)</span>, <span class="math notranslate nohighlight">\(E_{ee}\)</span>, <span class="math notranslate nohighlight">\(E_{eN}\)</span>) in terms of <span class="math notranslate nohighlight">\(n(r)\)</span> and/or of <span class="math notranslate nohighlight">\(\Psi_0\)</span>.</p></li>
+</ul>
+<center>
+    <img src="figures/random/qr_poll1.2.png" width=350 />
+</center>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="solution-to-challenge-2-and-a-bit-more">
+<h1>Solution to Challenge #2 and a bit more…<a class="headerlink" href="#solution-to-challenge-2-and-a-bit-more" title="Link to this heading">#</a></h1>
+<br>
+<p>Recalling:</p>
+<div class="tex2jax_process" style="text-align: center;">
+\[
+\color{red}{E_{eN}[n]}
+=
+\langle \Psi_0 | \hat V_{eN} | \Psi_0 \rangle
+=
+\int n(r)\,v_{eN}(r)\,dr
+\]
+</div>
+<div class="alert alert-success tex2jax_process"
+     style="text-align: center;">
+Because \(v_{eN}\) is fixed by the system's geometry,
+\(E_{eN}\) is already a density functional.
+</div><p>For the other terms in the Hamiltonian:
+<br>
+<br>
+<br>
+$<span class="math notranslate nohighlight">\(
+T[\Psi_0] = \langle \Psi_0 | \hat T | \Psi_0 \rangle, ~~ E_{ee}[\Psi_0] = \langle \Psi_0 | \hat V_{ee} | \Psi_0 \rangle
+\)</span>$
+<br>
+<br></p>
+<div class="alert alert-danger tex2jax_process"
+     style="text-align: center;"> 
+        Apparently, \(T\) and \(E_{ee}\) <b>cannot</b> be written as denisty functionals...
+    </div> <h1>What can we do with the HK theorems?</h1>
+<br><br>
+<div class="tex2jax_process"
+     style="text-align: center; font-size: 45pt; font-style: italic;">
+\(n(r)\)
+</div>
+<br><br><br>
+<div style="text-align: center;">
+...the density determines everything... in principle.... but is this useful? ... Are the functionals involved known?
+</div></section>
+<section class="tex2jax_ignore mathjax_ignore" id="introducing-the-kohn-sham-ks-system-of-noninteracting-electrons">
+<h1>Introducing: the Kohn-Sham (KS) system of <em>noninteracting</em> electrons<a class="headerlink" href="#introducing-the-kohn-sham-ks-system-of-noninteracting-electrons" title="Link to this heading">#</a></h1>
+<p><a class="reference download internal" download="" href="_downloads/9dfed9485e77e5bddd67d540c51d07a7/PhysRev.140.A1133.pdf"><span class="xref download myst">KS paper 1965</span></a></p>
+<center><img src="figures/science/ks_system.png" width=1600 /></center><center> The <b>density</b> of the KS system is <b>the same</b> as the interacting system.</center><div class="tex2jax_process"
+     style="text-align: center; font-size: 20pt;">
+\[
+v_s(r) \longleftrightarrow n(r) \longleftrightarrow v_{eN}(r)
+\]
+</div></section>
+<section class="tex2jax_ignore mathjax_ignore" id="energy-functional-for-the-ks-system">
+<h1>Energy functional for the KS system<a class="headerlink" href="#energy-functional-for-the-ks-system" title="Link to this heading">#</a></h1>
+<div class="math notranslate nohighlight">
+\[
+E[n] = \color{red}{T[n] + E_{ee}[n]}+E_{eN}[n]+E_{NN}
+\]</div>
+<div class="alert alert-success tex2jax_process"
+     style="text-align: center;"> 
+        \[E[n] = \color{red}{T_s[n] + E_{H}[n] + E_{xc}[n]}+ E_{eN}[n]+ E_{NN}\]
+        <br>
+        where the density $n(r) = \sum_i^N |\phi_i(r)|^2$.
+    </div> <p>The KS kinetic energy is</p>
+<div class="math notranslate nohighlight">
+\[
+T_{s}[n] \equiv T_s[\{\phi_i\}]=  -\frac{1}{2}\sum_i \langle \phi_i | \nabla^2 | \phi_i\rangle = -\frac{1}{2}\sum_i  \int \phi_i^*(r) \nabla^2 \phi_i(r) dr
+\]</div>
+<p><span style="color: red;">Mind: <span class="math notranslate nohighlight">\(T_s \neq T\)</span>.</span></p>
+<p>The classical e-e repulsion (Hartree) and e-N attraction:</p>
+<div class="math notranslate nohighlight">
+\[
+E_H[n]=\frac{1}{2}\int \frac{n(r)n(r')}{|r-r'|}drdr' \qquad\qquad E_{eN}[n] = \int n(r) v_{eN}(r) dr
+\]</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="challenge-3-what-is-e-xc">
+<h1>Challenge 3: What is <span class="math notranslate nohighlight">\(E_{xc}\)</span>?<a class="headerlink" href="#challenge-3-what-is-e-xc" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://forms.office.com/r/y0r5pAB5M4">Derive an expression for <span class="math notranslate nohighlight">\(E_{xc}\)</span></a></p>
+<ul class="simple">
+<li><p>Derive an expression for <span class="math notranslate nohighlight">\(E_{xc}\)</span> in terms of <span class="math notranslate nohighlight">\(T\)</span>, <span class="math notranslate nohighlight">\(E_{ee}\)</span>, <span class="math notranslate nohighlight">\(T_s\)</span> and <span class="math notranslate nohighlight">\(E_H\)</span>.</p></li>
+</ul>
+<center>
+    <img src="figures/random/qr_poll3.png" width=350 />
+</center>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="solution-to-challenge-3">
+<h1>Solution to Challenge #3<a class="headerlink" href="#solution-to-challenge-3" title="Link to this heading">#</a></h1>
+<p>The energy functional, whether KS or interacting, should yield the same energy value, therefore</p>
+<div class="math notranslate nohighlight">
+\[
+E_{xc}[n] = E_{ee}[n]-E_H[n] + T[n]-T_s[n]
+\]</div>
+<h1 class="tex2jax_process">
+Can \(E_{xc}[n]\) be approximated?
+</h1>
+<br>
+<div class="tex2jax_process">
+Usually it is approached by separating exchange, \(E_x\), and correlation, \(E_c\):
+\[
+E_{xc}[n] = E_x[n] + E_c[n]
+\]
+</div><div class="alert alert-success tex2jax_process"
+     style="text-align: center;">
+        <b>Local Density Approximation</b> from the UEG. Example from Dirac's exchange:
+        \[
+        E_{x}^{\rm UEG} = - c_x \bar n^{4/3} V \longrightarrow E_x[n] \simeq -c_x \int n^{4/3}(r) dr
+        \]
+    </div><ul class="simple">
+<li><p><b>QE<span style="color: red;">py</span></b> uses same structure as QE to specify the <code class="docutils literal notranslate"><span class="pre">xc</span></code> functional</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qe_options</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">qe_options</span><span class="p">[</span><span class="s2">&quot;&amp;system&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">qe_options</span><span class="p">[</span><span class="s2">&quot;&amp;system&quot;</span><span class="p">][</span><span class="s2">&quot;input_dft&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;LDA&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Typically xc is already specified in the pseudopotential files.</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="solving-for-the-electronic-structure-find-the-ks-orbitals-phi-i">
+<h1>Solving for the electronic structure (find the KS orbitals, <span class="math notranslate nohighlight">\(\{\phi_i\}\)</span>)<a class="headerlink" href="#solving-for-the-electronic-structure-find-the-ks-orbitals-phi-i" title="Link to this heading">#</a></h1>
+<p>To minimize the energy, we define an appropriate Lagrangian:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{L}_{KS}[\{\phi_i\}] = E[\{\phi_i\}] - \sum_{ij} \varepsilon_{ij}\left(\langle \phi_j|\phi_i \rangle - \delta_{ij}\right)
+\]</div>
+<p>At the minimum, we impose <span class="math notranslate nohighlight">\(\frac{\delta \mathcal{L}_{KS}[\{\phi_i\}]}{\delta \langle \phi_j|}=0\)</span> or just <span class="math notranslate nohighlight">\(\frac{\delta \mathcal{L}_{KS}[\{\phi_i\}]}{\delta \phi_j^*(r)}=0\)</span>, and choose the so-called <b>canonical</b> orbitals (i.e., <span class="math notranslate nohighlight">\(\varepsilon_{ij}=\varepsilon_{i}\delta_{ij}\)</span>).</p>
+<p>This yields the <span style="color: green;">Kohn-Sham equations</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+-\frac{1}{2}\nabla^2 \phi_i(r) + v_s[n](r)\phi_i(r) = \varepsilon_i\phi_i(r)
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(v_s(r)\)</span> includes effects of e-N attraction and e-e repulsion. <span style="color: red;">But what is <span class="math notranslate nohighlight">\(v_s(r)\)</span>?</span></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="challenge-4">
+<h1>Challenge 4<a class="headerlink" href="#challenge-4" title="Link to this heading">#</a></h1>
+<p>Considering the chain rule of functional differentiation
+(<span class="math notranslate nohighlight">\(\phi^*\)</span> and <span class="math notranslate nohighlight">\(\phi\)</span> are considered independent variables):</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\delta F[n]}{\delta \phi_j^*(r)}
+=
+\int
+\frac{\delta F[n]}{\delta n(r')}
+\frac{\delta n(r')}{\delta \phi_j^*(r)}
+\,dr'
+=
+\frac{\delta F[n]}{\delta n(r)}\phi_j(r).
+\]</div>
+<span style="color: green;">
+Show that the KS potential is given by:
+</span>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\color{green}{
+\begin{aligned}
+v_s[n](r)
+&amp;=
+\frac{\delta E_H[n]}{\delta n(r)}
++
+\frac{\delta E_{xc}[n]}{\delta n(r)}
++
+v_{eN}(r)
+\\[0.5em]
+&amp;=
+\int
+\frac{n(r')}{|r-r'|}
+\,dr'
++
+\frac{\delta E_{xc}[n]}{\delta n(r)}
++
+v_{eN}(r).
+\end{aligned}
+}
+\end{split}\]</div>
+<p><a class="reference external" href="https://forms.office.com/r/cwjAQaxRKq">Can you derive the KS equations?</a></p>
+<div style="text-align: center;">
+    <img src="figures/random/qr_poll4.png" width="350">
+</div></section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introduction to DFT and TDDFT</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="DFT_intro_2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Goal of this lecture</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Goals of this lecture</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#split-into-n-groups">Split into <code class="docutils literal notranslate"><span class="pre">N</span></code> groups</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-real-world">The Real World</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#available-electronic-structure-methods">Available electronic structure methods</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-1">Challenge 1</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-challenge-1-and-a-bit-more">Solution to Challenge #1 and a bit more…</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hohenberg-and-kohn-theorems">The Hohenberg and Kohn theorems</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-2">Challenge 2</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-challenge-2-and-a-bit-more">Solution to Challenge #2 and a bit more…</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-the-kohn-sham-ks-system-of-noninteracting-electrons">Introducing: the Kohn-Sham (KS) system of <em>noninteracting</em> electrons</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#energy-functional-for-the-ks-system">Energy functional for the KS system</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-3-what-is-e-xc">Challenge 3: What is <span class="math notranslate nohighlight">\(E_{xc}\)</span>?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-challenge-3">Solution to Challenge #3</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-for-the-electronic-structure-find-the-ks-orbitals-phi-i">Solving for the electronic structure (find the KS orbitals, <span class="math notranslate nohighlight">\(\{\phi_i\}\)</span>)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-4">Challenge 4</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Michele Pavanello
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

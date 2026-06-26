@@ -1,0 +1,869 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Goal of this lecture &#8212; Introduction to DFT and TDDFT</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'DFT_intro_2';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Goal of this lecture" href="DFT_intro_3.html" />
+    <link rel="prev" title="Goals of this lecture" href="DFT_intro_1.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Introduction to DFT and TDDFT</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introduction to DFT and TDDFT
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="DFT_intro_1.html">Goals of this lecture</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Goal of this lecture</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="DFT_intro_3.html">Goal of this lecture</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TDDFT_intro.html">Goals of this lecture + hands-on session</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/DFT_intro_2.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Goal of this lecture</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Goal of this lecture</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#split-into-n-groups">Split into <code class="docutils literal notranslate"><span class="pre">N</span></code> groups</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#my-assumptions">My assumptions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-basis-sets-needed">Why are basis sets needed?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-expand-a-function-in-a-basis">Let’s expand a function in a basis</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-basis-sets">Examples of basis sets</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#what-do-they-look-like-let-s-use-python">What do they look like? Let’s use <code class="docutils literal notranslate"><span class="pre">Python</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-1">Challenge 1</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#how-many-plane-waves-are-needed">How many plane waves are needed?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-1-2">Challenge 1.2</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-basis-sets-discretize-the-ks-equations">How do basis sets “discretize” the KS equations?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretized-ks-equations">Discretized KS equations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-elements-of-hat-t-in-plane-waves-needed-to-solve-mathbb-hc-sc-varepsilon">Matrix elements of <span class="math notranslate nohighlight">\(\hat T\)</span> in plane waves, needed to solve <span class="math notranslate nohighlight">\(\mathbb{HC=SC\varepsilon}\)</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-elements-of-v-s-r-needed-to-solve-mathbb-hc-sc-varepsilon">Matrix elements of <span class="math notranslate nohighlight">\(v_s(r)\)</span>, needed to solve <span class="math notranslate nohighlight">\(\mathbb{HC=SC\varepsilon}\)</span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hartree-potential-the-computationally-most-difficult-piece-of-v-s-r">Hartree potential, the (computationally) most difficult piece of <span class="math notranslate nohighlight">\(v_s(r)\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-2">Challenge 2</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#now-we-can-solve-mathbb-hc-c-varepsilon">Now we can solve  <span class="math notranslate nohighlight">\(\mathbb{HC=C\varepsilon}\)</span>?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#first-a-note-on-pws">First, a note on PWs</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-pw-basis-so-useful">Why are PW basis so useful?</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div id="bg-slide">
+    <center>
+    <h1>DFT introduction #2</h1>
+<center>
+<br>
+<table>
+  <tr>
+      <td><p><h1>Team Rutgers</h1></p><p><h2>(Michele, Ezekiel & Valeria)</h2></p><p><h2>Rutgers University-Newark</h2></p></td> 
+      <td><img src="figures/logos/ASESMA_logo.png" width=300 height=300 /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>An interactive session</td>
+  </tr>
+</table>
+<br>
+<h3>Retrieve this presentation at:</h3>
+<br>
+<center>https://github.com/asesma-org/miniASESMA2026</center>
+<br>
+<center><h3> mini ASESMA 2026 \(\bullet\) Accra, Ghana \(\bullet\) June 17, 2026</h3></center>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="goal-of-this-lecture">
+<h1>Goal of this lecture<a class="headerlink" href="#goal-of-this-lecture" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Understand what basis sets are</p></li>
+<li><p>Introduce basics about basis sets (PWs and local orbitals like GTOs)</p></li>
+<li><p>Discretize the KS equations so they can be solved by a computer</p></li>
+<li><p>Focus on PW (GTOs done on your own, numerical orbitals introduced by Javier later)</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="split-into-n-groups">
+<h1>Split into <code class="docutils literal notranslate"><span class="pre">N</span></code> groups<a class="headerlink" href="#split-into-n-groups" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Assign number <code class="docutils literal notranslate"><span class="pre">1-N</span></code> to each student</p></li>
+<li><p>Groups sit together</p></li>
+<li><p>Possibly have 1 instructor per group</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">IFrame</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ase.build</span><span class="w"> </span><span class="kn">import</span> <span class="n">molecule</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="my-assumptions">
+<h1>My assumptions<a class="headerlink" href="#my-assumptions" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Basic linear algebra (vectors, matrices, operators, wavefunctions)</p></li>
+<li><p>Undergraduate QM</p></li>
+<li><p>Dirac notation (i.e., i-th vector <span class="math notranslate nohighlight">\(\to |i\rangle\)</span> or <span class="math notranslate nohighlight">\(|\psi_i\rangle\)</span>, scalar product between <i>i</i> and <i>j</i> <span class="math notranslate nohighlight">\(\to \langle \psi_i | \psi_j\rangle\)</span>)</p></li>
+<li><p>Kohn-Sham equations</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="why-are-basis-sets-needed">
+<h1>Why are basis sets needed?<a class="headerlink" href="#why-are-basis-sets-needed" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>They provide a representation</p></li>
+<li><p>Allow us to discretize the problem</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="let-s-expand-a-function-in-a-basis">
+<h1>Let’s expand a function in a basis<a class="headerlink" href="#let-s-expand-a-function-in-a-basis" title="Link to this heading">#</a></h1>
+<div class="math notranslate nohighlight">
+\[
+\psi_k(r) = \sum_i C_{ik} \chi_i(r)
+\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\{\chi_i(r)\}\)</span> are basis functions forming a <b>basis set</b></p></li>
+<li><p><span class="math notranslate nohighlight">\(\{C_{ik}\}\)</span> are expansion coefficients, <span class="math notranslate nohighlight">\(C_{ik}\in \mathbb{C}\)</span></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="examples-of-basis-sets">
+<h1>Examples of basis sets<a class="headerlink" href="#examples-of-basis-sets" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Plane waves (PW)</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+ \chi_{G}(r) = \frac{1}{\sqrt{\Omega}} e^{iGr}
+\]</div>
+<ul class="simple">
+<li><p>Gaussian-Type Orbitals (GTOs)</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+ \chi_{\mu,\alpha}(r) = \left(\frac{2\alpha}{\pi}\right)^{d/2} e^{-\alpha |r-\mu|^2}
+\]</div>
+<ul class="simple">
+<li><p>Numerical Orbitals (Javier will introduce later this week)</p></li>
+<li><p>…</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="what-do-they-look-like-let-s-use-python">
+<h1>What do they look like? Let’s use <code class="docutils literal notranslate"><span class="pre">Python</span></code><a class="headerlink" href="#what-do-they-look-like-let-s-use-python" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span> <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">stop</span><span class="o">=</span><span class="n">L</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span><span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">pw</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">G</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">L</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">G</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">gto</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">center</span><span class="p">,</span><span class="n">alpha</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">alpha</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">alpha</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">center</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span><span class="c1">#(figsize=(8,5))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">pw</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">G</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">L</span><span class="p">)),</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;Re[PW] with $G=1/L$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">pw</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">G</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">L</span><span class="p">)),</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;Im[PW] with $G=1/L$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">gto</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">center</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;GTO centered in $x=5$, with $\alpha=1$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;ko&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">4.8</span><span class="p">,</span><span class="n">y</span><span class="o">=-</span><span class="mf">0.1</span><span class="p">,</span><span class="n">s</span><span class="o">=</span><span class="s2">&quot;ion position&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">.5</span><span class="p">,</span><span class="mi">1</span><span class="p">]);</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x13a53cdf0&gt;
+</pre></div>
+</div>
+<img alt="_images/671f8a89799826ef8318a2fe6d995711062033da4d574616b49f149aaecb8526.png" src="_images/671f8a89799826ef8318a2fe6d995711062033da4d574616b49f149aaecb8526.png" />
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="challenge-1">
+<h1>Challenge 1<a class="headerlink" href="#challenge-1" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Are GTOs an orthonormal basis set? Justify.</p></li>
+<li><p>Are PWs an orthonormal basis set? Justify.</p></li>
+</ul>
+<p>The condition for orthonormality <span class="math notranslate nohighlight">\(S_{ij}=\langle \chi_i | \chi_j\rangle = \delta_{ij}\)</span>.</p>
+ <center><img src="figures/random/qr_poll2.1.png" width=500 height=300 /></center>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="how-many-plane-waves-are-needed">
+<h1>How many plane waves are needed?<a class="headerlink" href="#how-many-plane-waves-are-needed" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>You will attack this question in your <a class="reference external" href="https://github.com/asesma-org/miniASESMA2026/blob/main/Week1/Day3/DFT_intro_2_homework.ipynb">Homework</a></p></li>
+<li><p>The homework will introduce the <code class="docutils literal notranslate"><span class="pre">PW</span> <span class="pre">cutoff</span></code> needed by most PW codes, like QE</p></li>
+<li><p>For <b>QE<span style="color: red;">py</span></b>, you will see something like (all values in Ry):</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qe_options</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">qe_options</span><span class="p">[</span><span class="s2">&quot;&amp;electrons&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">qe_options</span><span class="p">[</span><span class="s2">&quot;&amp;electrons&quot;</span><span class="p">][</span><span class="s2">&quot;ecutwf&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">80</span>
+<span class="n">qe_options</span><span class="p">[</span><span class="s2">&quot;&amp;electrons&quot;</span><span class="p">][</span><span class="s2">&quot;ecutrho&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">320</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ecutwf</span></code> is the kinetic energy of the PW with the largest <span class="math notranslate nohighlight">\(G\)</span> point in Ry</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ecutrho</span></code> is the kinetic energy of the PW with the largest <span class="math notranslate nohighlight">\(G\)</span> point used to Fourier transform the electron density <span class="math notranslate nohighlight">\(n(r)\)</span> in Ry</p></li>
+<li><p>Let me know during the break if you wish to know why these two cutoffs are different.</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="challenge-1-2">
+<h1>Challenge 1.2<a class="headerlink" href="#challenge-1-2" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Convert 1 Ha into Ry</p></li>
+<li><p>Convert 1 Ry into eV</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="how-do-basis-sets-discretize-the-ks-equations">
+<h1>How do basis sets “discretize” the KS equations?<a class="headerlink" href="#how-do-basis-sets-discretize-the-ks-equations" title="Link to this heading">#</a></h1>
+<br>
+Working with your group mates, discretize the KS equations 
+<div class="math notranslate nohighlight">
+\[-\frac{1}{2}\nabla^2 \phi_k(r) + v_s(r) \phi_k(r) = \varepsilon_k \phi_k(r)\]</div>
+<div class="alert alert-success tex2jax_process">
+    Use: \(\{\chi_i(r)\}\) such that
+    \(\phi_k(r) = \sum_i C_{ik}\chi_i(r)\)
+</div><div class="alert alert-success tex2jax_process">
+    Consider: KS Hamiltonian matrix elements are
+    \(H_{ji}=\langle \chi_j \mid \hat H \mid \chi_i \rangle\),
+    and the overlap elements among the basis functions are
+    \(S_{ji}=\langle \chi_j \mid \chi_i \rangle\).
+</div></section>
+<section class="tex2jax_ignore mathjax_ignore" id="discretized-ks-equations">
+<h1>Discretized KS equations<a class="headerlink" href="#discretized-ks-equations" title="Link to this heading">#</a></h1>
+<p>The final result should be</p>
+<div class="math notranslate nohighlight">
+\[
+\sum_i H_{ji}C_{ik} = \varepsilon_k \sum_i S_{ji} C_{ik}
+\]</div>
+<p>or in matrix form</p>
+<div class="tex2jax_process"
+     style="font-size: 170%; text-align: center;">
+\[
+\color{green}{\mathbb{H}\mathbb{C}
+=
+\mathbb{S}\mathbb{C}\boldsymbol{\varepsilon}}
+\]
+</div><ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbb{H}\)</span>: The KS Hamiltonian, mean field Hamiltonian or Fock matrix</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbb{C}\)</span>: The matrix of the coefficients. Each column represents a KS orbital. In PW, these are simply the <code class="docutils literal notranslate"><span class="pre">bands</span></code></p></li>
+<li><p><span class="math notranslate nohighlight">\(\varepsilon\)</span>: A diagonal matrix with the orbital energies, <span class="math notranslate nohighlight">\(\varepsilon_k\)</span>. Also KS eigenvalues, …</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbb{S}\)</span>: Overlap matrix. Diagonal in PW.</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="matrix-elements-of-hat-t-in-plane-waves-needed-to-solve-mathbb-hc-sc-varepsilon">
+<h1>Matrix elements of <span class="math notranslate nohighlight">\(\hat T\)</span> in plane waves, needed to solve <span class="math notranslate nohighlight">\(\mathbb{HC=SC\varepsilon}\)</span><a class="headerlink" href="#matrix-elements-of-hat-t-in-plane-waves-needed-to-solve-mathbb-hc-sc-varepsilon" title="Link to this heading">#</a></h1>
+<div class="math notranslate nohighlight">
+\[
+\langle \chi_i | \hat T | \chi_j \rangle = \left\langle \chi_i \left| -\frac{1}{2} \nabla^2 \right| \chi_j \right\rangle =-\frac{1}{2\Omega} \int dr ~ -G_j^2 ~ e^{i(G_j-G_i)}r = \mathbf{\color{red}{\frac{G_j^2}{2}\delta_{ij}}}
+\]</div>
+<center> <div class="alert alert-success"> <b>It's diagonal! ... and cheap to compute ...</b></div></center></section>
+<section class="tex2jax_ignore mathjax_ignore" id="matrix-elements-of-v-s-r-needed-to-solve-mathbb-hc-sc-varepsilon">
+<h1>Matrix elements of <span class="math notranslate nohighlight">\(v_s(r)\)</span>, needed to solve <span class="math notranslate nohighlight">\(\mathbb{HC=SC\varepsilon}\)</span><a class="headerlink" href="#matrix-elements-of-v-s-r-needed-to-solve-mathbb-hc-sc-varepsilon" title="Link to this heading">#</a></h1>
+<div class="math notranslate nohighlight">
+\[
+\langle \chi_i | v_s | \chi_j\rangle = \frac{1}{\Omega}\int dr v_s(r) e^{i(G_j-G_i)r} 
+\]</div>
+<center>
+    <div class="alert alert-danger">
+        <b>Not a diagonal matrix</b>
+    </div>
+</center><p>But… we can use the <span class="math notranslate nohighlight">\(G\)</span> components of <span class="math notranslate nohighlight">\(\tilde v_s(G)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\langle \chi_i | v_s | \chi_j\rangle = \frac{1}{\Omega}\tilde v_s(G_j-G_i)
+\]</div>
+<p>which gives the matrix elements of <span class="math notranslate nohighlight">\(v_s\)</span> <b>almost</b> directly.</p>
+<section id="hartree-potential-the-computationally-most-difficult-piece-of-v-s-r">
+<h2>Hartree potential, the (computationally) most difficult piece of <span class="math notranslate nohighlight">\(v_s(r)\)</span><a class="headerlink" href="#hartree-potential-the-computationally-most-difficult-piece-of-v-s-r" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[
+v_H(r) = \int dr' \frac{n(r')}{|r-r'|} \equiv \color{red}{n \star \frac{1}{|r|}} \qquad \text{Poisson equation}
+\]</div>
+<div class="alert alert-success tex2jax_process"
+     style="text-align: center;">
+    Let's use the
+    <a href="https://en.wikipedia.org/wiki/Convolution_theorem">
+        convolution theorem
+    </a>:
+    \(f = h \star g \;\longrightarrow\; \tilde f = \tilde h \cdot \tilde g\)
+</div><div class="math notranslate nohighlight">
+\[
+\tilde v_H(G) = \tilde n(G) \frac{4\pi}{G^2} \to \langle \chi_i | v_H | \chi_j\rangle = \frac{1}{\Omega} \tilde v_H(G_j-G_i)
+\]</div>
+<div class="alert alert-success tex2jax_process"
+     style="text-align: center;">
+    <b>
+        Thanks to Fast Fourier Transforms (FFT), the
+        \(v_H\) potential is computed with
+        \(\mathcal{O}(N\ln N)\) operations!
+    </b>
+</div></section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="challenge-2">
+<h1>Challenge 2<a class="headerlink" href="#challenge-2" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Can you derive the equations we just presented?</p></li>
+</ul>
+ <center><img src="figures/random/qr_poll2.2.png" width=500 height=300 /></center>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="now-we-can-solve-mathbb-hc-c-varepsilon">
+<h1>Now we can solve  <span class="math notranslate nohighlight">\(\mathbb{HC=C\varepsilon}\)</span>?<a class="headerlink" href="#now-we-can-solve-mathbb-hc-c-varepsilon" title="Link to this heading">#</a></h1>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+H_{ij} =  \left[ \frac{G_i^2}{2} \delta_{ij} + \frac{1}{\Omega}\tilde v_s(G_j - G_i) \right] \\ 
+\text{ ... and ... } S_{ij} = \delta_{ij}
+\end{split}\]</div>
+<p>Remember <span class="math notranslate nohighlight">\(v_s(r) = v_{eN}(r) + v_H(r) + v_{xc}(r)\)</span>.</p>
+<div class="alert alert-danger">
+    <strong style="font-size: 1.3em;">Is it enough?</strong>
+</div>
+<div class="alert alert-danger tex2jax_process">
+    <strong style="font-size: 1.3em;">
+        \(v_H\) and \(v_{xc}\) depend on \(n(r)\).
+        Do we know what \(n(r)\) is?
+    </strong>
+</div><center><div class="alert alert-success">
+    <strong style="font-size: 1.3em;">We'll get to this later</strong>
+</div></center></section>
+<section class="tex2jax_ignore mathjax_ignore" id="first-a-note-on-pws">
+<h1>First, a note on PWs<a class="headerlink" href="#first-a-note-on-pws" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Many plane waves are needed to represent “spiky” or highly oscillatory features, such as <span class="math notranslate nohighlight">\(v_{eN}(r)\)</span> and <span class="math notranslate nohighlight">\(n(r)\)</span> in the ionic core region.</p></li>
+<li><p>Thus, <strong>pseudopotentials</strong> are typically employed to:</p>
+<ol class="arabic simple">
+<li><p>avoid the <em>Coulomb singularity</em> of the electron–nuclear interaction potential;</p></li>
+<li><p>remove the need to represent the <em>atomic cores</em>, where densities and orbitals are highly oscillatory. More on this from Javier tomorrow!</p></li>
+</ol>
+</li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="why-are-pw-basis-so-useful">
+<h1>Why are PW basis so useful?<a class="headerlink" href="#why-are-pw-basis-so-useful" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Orthonormal!</p></li>
+</ul>
+<ul class="simple">
+<li><p>Systematically improvable: higher <span class="math notranslate nohighlight">\(N\)</span> (or equivalently <span class="math notranslate nohighlight">\(\max\left[ G \right]\)</span>) leads to better results.</p></li>
+</ul>
+<ul class="simple">
+<li><p>Evaluation of the kinetic-energy operator and solution of the Poisson equation are <strong>easy, with <span class="math notranslate nohighlight">\(\mathcal{O}(N\ln N)\)</span> complexity</strong>.</p></li>
+</ul>
+<center><div class="alert alert-success">
+    <strong style="font-size: 1.3em;">Break time!</strong>
+</div></center></section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="DFT_intro_1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Goals of this lecture</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="DFT_intro_3.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Goal of this lecture</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Goal of this lecture</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#split-into-n-groups">Split into <code class="docutils literal notranslate"><span class="pre">N</span></code> groups</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#my-assumptions">My assumptions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-basis-sets-needed">Why are basis sets needed?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-expand-a-function-in-a-basis">Let’s expand a function in a basis</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-basis-sets">Examples of basis sets</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#what-do-they-look-like-let-s-use-python">What do they look like? Let’s use <code class="docutils literal notranslate"><span class="pre">Python</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-1">Challenge 1</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#how-many-plane-waves-are-needed">How many plane waves are needed?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-1-2">Challenge 1.2</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-basis-sets-discretize-the-ks-equations">How do basis sets “discretize” the KS equations?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discretized-ks-equations">Discretized KS equations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-elements-of-hat-t-in-plane-waves-needed-to-solve-mathbb-hc-sc-varepsilon">Matrix elements of <span class="math notranslate nohighlight">\(\hat T\)</span> in plane waves, needed to solve <span class="math notranslate nohighlight">\(\mathbb{HC=SC\varepsilon}\)</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-elements-of-v-s-r-needed-to-solve-mathbb-hc-sc-varepsilon">Matrix elements of <span class="math notranslate nohighlight">\(v_s(r)\)</span>, needed to solve <span class="math notranslate nohighlight">\(\mathbb{HC=SC\varepsilon}\)</span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hartree-potential-the-computationally-most-difficult-piece-of-v-s-r">Hartree potential, the (computationally) most difficult piece of <span class="math notranslate nohighlight">\(v_s(r)\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-2">Challenge 2</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#now-we-can-solve-mathbb-hc-c-varepsilon">Now we can solve  <span class="math notranslate nohighlight">\(\mathbb{HC=C\varepsilon}\)</span>?</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#first-a-note-on-pws">First, a note on PWs</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-pw-basis-so-useful">Why are PW basis so useful?</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Michele Pavanello
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
