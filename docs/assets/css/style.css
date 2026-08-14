@@ -48,6 +48,8 @@ img { max-width: 100%; display: block; }
 
 a { color: var(--navy-3); text-decoration: none; transition: color .15s ease; }
 a:hover { color: var(--accent); }
+.text-links a { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.text-links a:hover { text-decoration-thickness: 2px; }
 
 h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.2; color: var(--ink); font-weight: 600; }
 
