@@ -459,3 +459,16 @@ table.qm tr:hover td { background: rgba(22,182,207,.04); }
   .reveal { opacity: 1; transform: none; transition: none; }
   html { scroll-behavior: auto; }
 }
+
+@media print {
+  .site-header, .site-footer, .nav-toggle, .crumbs { display: none !important; }
+  .page-hero { padding: 24px 0 16px; background: none !important; }
+  .section { padding: 16px 0; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .acc-body { display: block !important; }
+  .acc-head { cursor: default; background: var(--surface-2); }
+  .acc-head .chev { display: none; }
+  .acc-item { break-inside: avoid; page-break-inside: avoid; }
+  .card, .callout { break-inside: avoid; page-break-inside: avoid; box-shadow: none; }
+  .text-links a { text-decoration: underline; }
+}
